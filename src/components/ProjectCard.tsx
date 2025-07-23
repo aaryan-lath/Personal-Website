@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import CADViewer from './CADViewer';
 import ProjectModal from './ProjectModal';
 
 interface ProjectCardProps {
@@ -175,7 +174,6 @@ export default function ProjectCard({
       title={title}
       description={description}
       modelUrl={modelUrl}
-      coverImage={coverImage}
       technologies={technologies}
       details={details}
       images={images}

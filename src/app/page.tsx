@@ -215,7 +215,7 @@ export default function Home() {
             <div className="bg-blue-50 rounded-lg p-8">
               <h3 className="text-2xl font-semibold mb-4 text-gray-900">Purdue Aircraft Teams</h3>
               <p className="text-gray-700 mb-4">
-                Active member of Purdue's premier aircraft design and competition teams, 
+                Active member of Purdue&apos;s premier aircraft design and competition teams, 
                 participating in national competitions including SAE Aero Design and AIAA Design competitions.
               </p>
               <div className="text-sm text-blue-600 font-medium">

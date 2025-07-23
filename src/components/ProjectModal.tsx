@@ -9,7 +9,6 @@ interface ProjectModalProps {
   title: string;
   description: string;
   modelUrl?: string;
-  coverImage?: string;
   technologies?: string[];
   details?: string[];
   images?: string[];
@@ -23,7 +22,6 @@ export default function ProjectModal({
   title,
   description,
   modelUrl,
-  coverImage,
   technologies = [],
   details = [],
   images = [],
