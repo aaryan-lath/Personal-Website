@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import ProjectModal from './ProjectModal';
+import { useRouter } from 'next/navigation';
 
 interface ProjectCardProps {
   title: string;
@@ -26,8 +26,8 @@ export default function ProjectCard({
   driveLink,
   driveLinkText
 }: ProjectCardProps) {
+  const router = useRouter();
   const [showDetails, setShowDetails] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -50,14 +50,13 @@ export default function ProjectCard({
   }, []);
 
   return (
-    <>
-      <div 
-        ref={cardRef}
-        className={`bg-white rounded-lg shadow-md overflow-hidden group project-card-hover ${
-          isVisible ? 'animate-slide-in-up' : 'project-card-animate'
-        }`}
-      >
-        <div className="h-64 relative cursor-pointer" onClick={() => setIsModalOpen(true)}>
+    <div 
+      ref={cardRef}
+      className={`bg-white rounded-lg shadow-md overflow-hidden group project-card-hover ${
+        isVisible ? 'animate-slide-in-up' : 'project-card-animate'
+      }`}
+    >
+        <div className="h-64 relative">
           {coverImage ? (
             <img 
               src={coverImage} 
@@ -74,17 +73,6 @@ export default function ProjectCard({
               </div>
             </div>
           )}
-          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white bg-opacity-95 rounded-full p-4 transform group-hover:scale-110 transition-transform duration-300">
-              <svg className="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-              </svg>
-            </div>
-          </div>
-          <div className="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded-md text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            Click to explore
-          </div>
         </div>
       
       <div className="p-6">
@@ -158,7 +146,18 @@ export default function ProjectCard({
           <button
             onClick={(e) => {
               e.stopPropagation();
-              setIsModalOpen(true);
+              const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+              const params = new URLSearchParams({
+                title,
+                description,
+                ...(modelUrl && { modelUrl }),
+                ...(technologies.length > 0 && { technologies: encodeURIComponent(JSON.stringify(technologies)) }),
+                ...(details.length > 0 && { details: encodeURIComponent(JSON.stringify(details)) }),
+                ...(images.length > 0 && { images: encodeURIComponent(JSON.stringify(images)) }),
+                ...(driveLink && { driveLink }),
+                ...(driveLinkText && { driveLinkText })
+              });
+              router.push(`/project/${slug}?${params.toString()}`);
             }}
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors cursor-pointer"
           >
@@ -167,19 +166,5 @@ export default function ProjectCard({
         </div>
       </div>
     </div>
-
-    <ProjectModal
-      isOpen={isModalOpen}
-      onClose={() => setIsModalOpen(false)}
-      title={title}
-      description={description}
-      modelUrl={modelUrl}
-      technologies={technologies}
-      details={details}
-      images={images}
-      driveLink={driveLink}
-      driveLinkText={driveLinkText}
-    />
-    </>
   );
 }

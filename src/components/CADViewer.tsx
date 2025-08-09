@@ -110,7 +110,7 @@ export default function CADViewer({
 
   return (
     <div 
-      className="rounded-lg overflow-hidden bg-gray-50 border"
+      className="rounded-lg overflow-hidden bg-gray-50 border relative"
       style={{ width, height }}
     >
       <Canvas

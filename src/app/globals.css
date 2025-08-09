@@ -71,11 +71,28 @@ html {
   right: 0 !important;
   bottom: 0 !important;
   background-color: rgba(0, 0, 0, 0.1) !important;
+  isolation: isolate !important;
 }
 
 .modal-content {
   z-index: 2147483647 !important;
   position: relative !important;
+}
+
+/* Ensure modal backdrop has highest priority */
+[data-modal-open] .modal-overlay {
+  z-index: 2147483647 !important;
+}
+
+/* Override any potential stacking context issues */
+.modal-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2147483647;
 }
 
 /* Cool project card animations */
