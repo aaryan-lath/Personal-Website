@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { useProject } from '../contexts/ProjectContext';
 
 interface ProjectCardProps {
   title: string;
@@ -27,6 +28,7 @@ export default function ProjectCard({
   driveLinkText
 }: ProjectCardProps) {
   const router = useRouter();
+  const { setCurrentProject } = useProject();
   const [showDetails, setShowDetails] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -147,17 +149,22 @@ export default function ProjectCard({
             onClick={(e) => {
               e.stopPropagation();
               const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-              const params = new URLSearchParams({
+              
+              // Set project data in context
+              setCurrentProject({
                 title,
                 description,
-                ...(modelUrl && { modelUrl }),
-                ...(technologies.length > 0 && { technologies: encodeURIComponent(JSON.stringify(technologies)) }),
-                ...(details.length > 0 && { details: encodeURIComponent(JSON.stringify(details)) }),
-                ...(images.length > 0 && { images: encodeURIComponent(JSON.stringify(images)) }),
-                ...(driveLink && { driveLink }),
-                ...(driveLinkText && { driveLinkText })
+                modelUrl,
+                coverImage,
+                technologies,
+                details,
+                images,
+                driveLink,
+                driveLinkText
               });
-              router.push(`/project/${slug}?${params.toString()}`);
+              
+              // Navigate with just the slug
+              router.push(`/project/${slug}`);
             }}
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors cursor-pointer"
           >

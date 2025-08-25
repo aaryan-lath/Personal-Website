@@ -2,62 +2,63 @@
 
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import CADViewer from '../../../components/CADViewer';
+import dynamic from 'next/dynamic';
+import { useProject } from '../../../contexts/ProjectContext';
 
-interface ProjectPageProps {
-  searchParams: Promise<{
-    title?: string;
-    description?: string;
-    modelUrl?: string;
-    technologies?: string;
-    details?: string;
-    images?: string;
-    driveLink?: string;
-    driveLinkText?: string;
-  }>;
-}
+const CADViewer = dynamic(
+  () => import('../../../components/CADViewer').catch(() => {
+    // Return a fallback component if CADViewer fails to load
+    return {
+      default: ({ modelUrl, height }: { modelUrl?: string; height?: string }) => (
+        <div className={`bg-gray-100 rounded-lg flex items-center justify-center ${height ? '' : 'h-[500px]'}`} style={height ? { height } : {}}>
+          <div className="text-center p-8">
+            <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            <p className="text-gray-600 font-medium mb-2">3D Model Viewer</p>
+            <p className="text-sm text-gray-500">Model: {modelUrl?.split('/').pop()}</p>
+            <p className="text-xs text-gray-400 mt-2">Interactive 3D viewer temporarily unavailable</p>
+          </div>
+        </div>
+      )
+    };
+  }),
+  { 
+    ssr: false,
+    loading: () => (
+      <div className="h-[500px] bg-gray-100 rounded-lg flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
+          <p className="text-gray-600">Loading 3D Model...</p>
+        </div>
+      </div>
+    )
+  }
+);
 
-export default function ProjectPage({ searchParams }: ProjectPageProps) {
+export default function ProjectPage() {
   const router = useRouter();
+  const { currentProject } = useProject();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [pageData, setPageData] = useState({
-    title: 'Project Details',
-    description: '',
-    modelUrl: undefined as string | undefined,
-    technologies: [] as string[],
-    details: [] as string[],
-    images: [] as string[],
-    driveLink: undefined as string | undefined,
-    driveLinkText: undefined as string | undefined,
-  });
 
+  // Redirect if no project data
   useEffect(() => {
-    async function loadData() {
-      const resolvedSearchParams = await searchParams;
-      
-      const title = resolvedSearchParams.title || 'Project Details';
-      const description = resolvedSearchParams.description || '';
-      const modelUrl = resolvedSearchParams.modelUrl;
-      const technologies = resolvedSearchParams.technologies ? JSON.parse(decodeURIComponent(resolvedSearchParams.technologies)) : [];
-      const details = resolvedSearchParams.details ? JSON.parse(decodeURIComponent(resolvedSearchParams.details)) : [];
-      const images = resolvedSearchParams.images ? JSON.parse(decodeURIComponent(resolvedSearchParams.images)) : [];
-      const driveLink = resolvedSearchParams.driveLink;
-      const driveLinkText = resolvedSearchParams.driveLinkText;
-
-      setPageData({
-        title,
-        description,
-        modelUrl,
-        technologies,
-        details,
-        images,
-        driveLink,
-        driveLinkText,
-      });
+    if (!currentProject) {
+      router.push('/');
     }
+  }, [currentProject, router]);
 
-    loadData();
-  }, [searchParams]);
+  if (!currentProject) {
+    return (
+      <div className="min-h-screen bg-gray-50 pt-24">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center py-20">
+            <p className="text-lg text-gray-600">Loading project details...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const handleImageClick = (image: string) => {
     setSelectedImage(image);
@@ -94,16 +95,16 @@ export default function ProjectPage({ searchParams }: ProjectPageProps) {
               Back to Projects
             </button>
             
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">{pageData.title}</h1>
-            <p className="text-lg text-gray-600">{pageData.description}</p>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">{currentProject.title}</h1>
+            <p className="text-lg text-gray-600">{currentProject.description}</p>
           </div>
 
           {/* Technologies */}
-          {pageData.technologies.length > 0 && (
+          {currentProject.technologies && currentProject.technologies.length > 0 && (
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Technologies</h2>
               <div className="flex flex-wrap gap-3">
-                {pageData.technologies.map((tech: string, index: number) => (
+                {currentProject.technologies.map((tech: string, index: number) => (
                   <span
                     key={index}
                     className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg"
@@ -116,12 +117,12 @@ export default function ProjectPage({ searchParams }: ProjectPageProps) {
           )}
 
           {/* 3D Model */}
-          {pageData.modelUrl && (
+          {currentProject.modelUrl && (
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">3D Model</h2>
               <div className="bg-white rounded-lg shadow-md p-6">
                 <CADViewer
-                  modelUrl={pageData.modelUrl}
+                  modelUrl={currentProject.modelUrl}
                   height="500px"
                   showControls={true}
                 />
@@ -130,12 +131,12 @@ export default function ProjectPage({ searchParams }: ProjectPageProps) {
           )}
 
           {/* Project Details */}
-          {pageData.details.length > 0 && (
+          {currentProject.details && currentProject.details.length > 0 && (
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Project Details</h2>
               <div className="bg-white rounded-lg shadow-md p-6">
                 <ul className="space-y-3">
-                  {pageData.details.map((detail: string, index: number) => (
+                  {currentProject.details.map((detail: string, index: number) => (
                     <li key={index} className="flex items-start">
                       <span className="text-blue-600 mr-3 mt-1">•</span>
                       <span className="text-gray-700">{detail}</span>
@@ -147,11 +148,11 @@ export default function ProjectPage({ searchParams }: ProjectPageProps) {
           )}
 
           {/* Gallery */}
-          {pageData.images.length > 0 && (
+          {currentProject.images && currentProject.images.length > 0 && (
             <div className="mb-8">
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Gallery</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {pageData.images.map((image: string, index: number) => (
+                {currentProject.images.map((image: string, index: number) => (
                   <div
                     key={index}
                     className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
@@ -159,7 +160,7 @@ export default function ProjectPage({ searchParams }: ProjectPageProps) {
                   >
                     <img
                       src={image}
-                      alt={`${pageData.title} - Image ${index + 1}`}
+                      alt={`${currentProject.title} - Image ${index + 1}`}
                       className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -169,11 +170,11 @@ export default function ProjectPage({ searchParams }: ProjectPageProps) {
           )}
 
           {/* Drive Link */}
-          {pageData.driveLink && (
+          {currentProject.driveLink && (
             <div className="mb-8">
               <div className="bg-white rounded-lg shadow-md p-6">
                 <a
-                  href={pageData.driveLink}
+                  href={currentProject.driveLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-green-600 hover:text-green-800 font-medium text-lg"
@@ -181,7 +182,7 @@ export default function ProjectPage({ searchParams }: ProjectPageProps) {
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  {pageData.driveLinkText || 'View Files'}
+                  {currentProject.driveLinkText || 'View Files'}
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
