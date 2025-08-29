@@ -9,7 +9,11 @@
       "Bash(npm run build:*)",
       "Bash(npm install)",
       "Bash(npm install:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(sudo npm install:*)",
+      "Bash(npm cache clean:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(git restore:*)"
     ],
     "deny": []
   }

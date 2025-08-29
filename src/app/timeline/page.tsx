@@ -1,77 +1,150 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface TimelineItem {
   id: string;
-  image: string;
+  image?: string;
+  images?: string[];
+  video?: string;
   title: string;
   date: string;
   description: string;
+  isCarousel?: boolean;
 }
 
 const timelineData: TimelineItem[] = [
   {
     id: '1',
-    image: '/images/timeline/656A9644.jpg',
-    title: 'Conference Presentation',
-    date: 'November 2024',
-    description: 'Presenting aerospace engineering research findings at a major technical conference. This moment captured the culmination of months of hard work and dedication to precision engineering.'
+    image: '/images/timeline/Internship.jpeg',
+    title: 'Professional Internship',
+    date: 'Summer 2024',
+    description: 'Gained valuable industry experience working in a professional aerospace engineering environment, applying theoretical knowledge to real-world challenges and contributing to innovative projects.'
   },
   {
     id: '2',
-    image: '/images/timeline/656A9829.jpg',
-    title: 'Conference Collaboration',
-    date: 'November 2024',
-    description: 'Networking and collaborating with fellow researchers at the conference. This collaboration showcased the power of teamwork in solving complex engineering challenges.'
+    image: '/images/timeline/Research presentation.jpeg',
+    title: 'Research Presentation',
+    date: 'Spring 2024',
+    description: 'Presented original aerospace research findings to faculty and peers, showcasing months of dedicated work in turbomachinery and systems engineering analysis.'
   },
   {
     id: '3',
-    image: '/images/timeline/IMG-20240916-WA0008.jpg',
-    title: 'Technical Innovation',
-    date: 'September 2024',
-    description: 'Breakthrough moment in technical development. This image represents a key innovation that pushed our project to new heights.'
+    images: ['/images/timeline/AAE-Banquet.jpg', '/images/timeline/AAE-Banquet2.jpg'],
+    title: 'AAE Banquet Celebration',
+    date: 'April 2024',
+    description: 'Attended the annual Aeronautics and Astronautics Engineering banquet at Purdue University, celebrating academic achievements and networking with fellow aerospace engineers.',
+    isCarousel: true
   },
   {
     id: '4',
-    image: '/images/timeline/IMG-20241026-WA0007.jpg',
-    title: 'Research Progress',
-    date: 'October 2024',
-    description: 'Documenting progress in our ongoing research efforts. Each step forward brings us closer to our engineering goals.'
+    images: ['/images/timeline/PSD-1.jpg', '/images/timeline/PSD-2.jpg'],
+    title: 'Product & Service Design Competition',
+    date: 'March 2024',
+    description: 'Participated in a strategic design competition, developing innovative solutions for complex engineering challenges through collaborative teamwork and creative problem-solving.',
+    isCarousel: true
   },
   {
     id: '5',
-    image: '/images/timeline/IMG-20250808-WA0007.jpg',
-    title: 'Summer Research',
-    date: 'August 2025',
-    description: 'Summer research program achievements. This represents significant progress in our ongoing aerospace engineering research initiatives.'
+    image: '/images/timeline/Aug2024-AAE_Amb.jpg',
+    title: 'AAE Ambassador Program',
+    date: 'August 2024',
+    description: 'Served as an Aeronautics and Astronautics Engineering ambassador, representing the department and helping prospective students understand the opportunities in aerospace engineering.'
   },
   {
     id: '6',
-    image: '/images/timeline/IMG-20250808-WA0018.jpg',
-    title: 'Advanced Testing',
-    date: 'August 2025',
-    description: 'Conducting advanced testing procedures during summer research program to validate our engineering solutions and ensure optimal performance.'
+    image: '/images/timeline/Poster-presentation.jpeg',
+    title: 'Academic Poster Presentation',
+    date: 'Fall 2023',
+    description: 'Presented research findings through a comprehensive academic poster, demonstrating analytical skills and the ability to communicate complex engineering concepts effectively.'
   },
   {
     id: '7',
-    image: '/images/timeline/IMG-20250808-WA0027.jpg',
-    title: 'Project Implementation',
-    date: 'August 2025',
-    description: 'Key project implementation milestone during summer research. This showcases the successful application of theoretical concepts to practical solutions.'
+    images: ['/images/timeline/Certificate-May2024.jpeg', '/images/timeline/Certificate2-May2024.jpeg'],
+    title: 'Academic Recognition',
+    date: 'May 2024',
+    description: 'Received academic certificates recognizing outstanding performance and dedication in aerospace engineering studies, highlighting commitment to excellence.',
+    isCarousel: true
   },
   {
     id: '8',
-    image: '/images/timeline/IMG_20241026_184309.jpg',
-    title: 'Research Session',
-    date: 'October 2024',
-    description: 'Dedicated research work session. These focused efforts often yield the most creative solutions to engineering challenges and drive innovation forward.'
+    image: '/images/timeline/Case_Comp-winnings.jpeg',
+    title: 'Case Competition Victory',
+    date: 'Winter 2023',
+    description: 'Achieved first place in a challenging case competition, demonstrating strategic thinking, analytical prowess, and effective presentation skills in a competitive academic environment.'
+  },
+  {
+    id: '9',
+    video: '/images/timeline/Biking.mp4',
+    title: 'Recreational Cycling',
+    date: 'Summer 2023',
+    description: 'Maintaining work-life balance through outdoor activities and cycling adventures, showcasing the importance of physical fitness and outdoor recreation in engineering life.'
+  },
+  {
+    id: '10',
+    image: '/images/timeline/PSD-Oct2023.jpeg',
+    title: 'Product & Service Design Project',
+    date: 'October 2023',
+    description: 'Completed a comprehensive product and service design project, applying engineering design principles and methodologies to create innovative solutions.'
+  },
+  {
+    id: '11',
+    image: '/images/timeline/AY2022-2023.png',
+    title: 'Academic Year Achievement',
+    date: 'Academic Year 2022-2023',
+    description: 'Successfully completed the 2022-2023 academic year with distinction, demonstrating consistent academic performance and dedication to aerospace engineering studies.'
+  },
+  {
+    id: '12',
+    image: '/images/timeline/Grad-May2022.png',
+    title: 'High School Graduation',
+    date: 'May 2022',
+    description: 'Graduated from high school with honors, marking the successful completion of secondary education and the beginning of the journey into aerospace engineering.'
+  },
+  {
+    id: '13',
+    image: '/images/timeline/MUN-June_2020.JPG',
+    title: 'Model United Nations',
+    date: 'June 2020',
+    description: 'Participated in Model United Nations conference, developing diplomatic skills, global awareness, and public speaking abilities while representing various countries in simulated UN proceedings.'
+  },
+  {
+    id: '14',
+    image: '/images/timeline/WRO-international.jpg',
+    title: 'World Robot Olympiad International',
+    date: '2019',
+    description: 'Competed at the international level of the World Robot Olympiad, representing the country after qualifying through national competitions in robotics and programming.'
+  },
+  {
+    id: '15',
+    images: ['/images/timeline/WRO-nationals_stage.jpg', '/images/timeline/WRO-nationals.jpg'],
+    title: 'WRO National Championships',
+    date: '2019',
+    description: 'Achieved victory at the World Robot Olympiad national championships, demonstrating excellence in robotics engineering, programming, and competitive problem-solving.',
+    isCarousel: true
   }
 ];
 
 export default function TimelinePage() {
   const [flippedCards, setFlippedCards] = useState<Set<string>>(new Set());
+  const [currentImageIndex, setCurrentImageIndex] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex(prev => {
+        const updated = { ...prev };
+        timelineData.forEach(item => {
+          if (item.isCarousel && item.images && item.images.length > 1) {
+            updated[item.id] = ((updated[item.id] || 0) + 1) % item.images.length;
+          }
+        });
+        return updated;
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleCardFlip = (id: string) => {
     setFlippedCards(prev => {
@@ -85,16 +158,7 @@ export default function TimelinePage() {
     });
   };
 
-  const cardColors = [
-    'bg-blue-50 hover:bg-blue-100',
-    'bg-purple-50 hover:bg-purple-100',
-    'bg-green-50 hover:bg-green-100',
-    'bg-yellow-50 hover:bg-yellow-100',
-    'bg-orange-50 hover:bg-orange-100',
-    'bg-red-50 hover:bg-red-100',
-    'bg-indigo-50 hover:bg-indigo-100',
-    'bg-pink-50 hover:bg-pink-100'
-  ];
+
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -103,60 +167,103 @@ export default function TimelinePage() {
           <h1 className="text-7xl font-bold text-gray-900 mb-6">
             Timeline
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             A visual journey through key moments and achievements
           </p>
+          <div className="inline-flex items-center bg-gray-100 rounded-lg px-4 py-2 text-sm text-gray-600">
+            <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+            Hover over any card to reveal detailed descriptions
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {timelineData.map((item, index) => (
+          {timelineData.map((item) => (
             <div
               key={item.id}
-              className="flip-card h-80 perspective-1000 cursor-pointer"
+              className="flip-card h-80 perspective-1000 cursor-pointer group"
               onClick={() => handleCardFlip(item.id)}
+              onMouseEnter={() => handleCardFlip(item.id)}
+              onMouseLeave={() => handleCardFlip(item.id)}
             >
               <div className={`flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
                 flippedCards.has(item.id) ? 'rotate-y-180' : ''
               }`}>
                 {/* Front of card */}
-                <div className={`flip-card-front absolute inset-0 w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl ${
-                  cardColors[index % cardColors.length]
-                }`}>
-                  <div className="relative w-full h-48">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 bg-white backdrop-blur-sm text-gray-900 text-sm font-bold px-3 py-1 rounded-full shadow-lg border border-gray-200">
-                      {item.date}
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-gray-900 font-bold text-lg">{item.title}</h3>
-                      <svg 
-                        className="w-5 h-5 text-gray-400 flex-shrink-0 ml-2" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
+                <div className="flip-card-front absolute inset-0 w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                  <div className="relative w-full h-full">
+                    {item.video ? (
+                      <video
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        controls
+                        preload="metadata"
+                        onLoadedData={(e) => {
+                          const video = e.target as HTMLVideoElement;
+                          video.play().catch(() => {
+                            // Autoplay failed, which is normal in some browsers
+                          });
+                        }}
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
+                        <source src={item.video} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+                    ) : item.isCarousel && item.images ? (
+                      <>
+                        <Image
+                          src={item.images[currentImageIndex[item.id] || 0]}
+                          alt={item.title}
+                          fill
+                          className="object-cover transition-opacity duration-1000 ease-in-out"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        {/* Carousel Dots */}
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 flex space-x-1">
+                          {item.images.map((_, index) => (
+                            <button
+                              key={index}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setCurrentImageIndex(prev => ({ ...prev, [item.id]: index }));
+                              }}
+                              className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
+                                (currentImageIndex[item.id] || 0) === index
+                                  ? 'bg-white'
+                                  : 'bg-white/50 hover:bg-white/75'
+                              }`}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    ) : (
+                      <Image
+                        src={item.image!}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    <div className="absolute top-4 left-4">
+                      <div className="bg-black/40 backdrop-blur-sm rounded px-2 py-1">
+                        <p className="text-white text-sm font-medium">{item.date}</p>
+                      </div>
                     </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      Click to learn more about this milestone...
-                    </p>
+                    <div className="absolute bottom-4 right-4">
+                      <div className="bg-black/40 backdrop-blur-sm rounded px-3 py-2 text-right">
+                        <h3 className="text-white text-lg font-bold leading-tight">{item.title}</h3>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Back of card */}
-                <div className={`flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-xl shadow-lg p-6 flex flex-col justify-center ${
-                  cardColors[index % cardColors.length]
-                }`}>
+                <div className="flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-xl shadow-lg bg-white p-6 flex flex-col justify-center">
                   <div className="text-center">
                     <div className="flex items-center justify-between mb-4">
                       <h3 className="text-gray-900 font-bold text-xl flex-1">{item.title}</h3>
