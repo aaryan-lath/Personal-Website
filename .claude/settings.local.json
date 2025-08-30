@@ -14,7 +14,8 @@
       "Bash(npm cache clean:*)",
       "mcp__ide__getDiagnostics",
       "Bash(git restore:*)",
-      "Bash(npm start)"
+      "Bash(npm start)",
+      "Bash(git checkout:*)"
     ],
     "deny": []
   }

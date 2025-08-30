@@ -10,23 +10,23 @@ import ResearchBox from '../components/ResearchBox';
 const timelineEvents = [
   {
     id: 1,
-    title: 'Professional Internship',
-    date: 'Summer 2024',
-    description: 'Gained valuable industry experience working in a professional aerospace engineering environment, applying theoretical knowledge to real-world challenges and contributing to innovative projects.',
+    title: 'Mechanical/ Systems Engineering Internship',
+    date: 'Summer 2025',
+    description: 'Gained valuable industry experience working at the Grand Prairie plant in the Smart Infrastructure industry. I applied theoretical knowledge to real-world challenges and contributed to making the back-end system more efficient.',
     images: ['/images/timeline/Internship.jpeg']
   },
   {
     id: 2,
     title: 'Research Presentation',
-    date: 'Spring 2024',
-    description: 'Presented original aerospace research findings to faculty and peers, showcasing months of dedicated work in turbomachinery and systems engineering analysis.',
+    date: 'April 2025',
+    description: 'Presented my research findings on potential hazards and method to approach those hazards to permanent lunar habitats to faculty and peers, showcasing months of dedicated work systems engineering analysis.',
     images: ['/images/timeline/Research presentation.jpeg']
   },
   {
     id: 3,
-    title: 'AAE Banquet Celebration',
-    date: 'April 2024',
-    description: 'Attended the annual Aeronautics and Astronautics Engineering banquet at Purdue University, celebrating academic achievements and networking with fellow aerospace engineers.',
+    title: 'AAE OAE Banquet',
+    date: 'April 2025',
+    description: 'Honored to attend the annual AAE banquet at Purdue University, celebrating their life achievements and learning from their life experiences.',
     images: [
       '/images/timeline/AAE-Banquet.jpg',
       '/images/timeline/AAE-Banquet2.jpg'

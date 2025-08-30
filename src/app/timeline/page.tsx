@@ -18,31 +18,31 @@ const timelineData: TimelineItem[] = [
   {
     id: '1',
     image: '/images/timeline/Internship.jpeg',
-    title: 'Professional Internship',
-    date: 'Summer 2024',
-    description: 'Gained valuable industry experience working in a professional aerospace engineering environment, applying theoretical knowledge to real-world challenges and contributing to innovative projects.'
+    title: 'Mechanical/ Systems Engineering Internship',
+    date: 'Summer 2025',
+    description: 'Gained valuable industry experience working at the Grand Prairie plant in the Smart Infrastructure industry. I applied theoretical knowledge to real-world challenges and contributed to making the back-end system more efficient.'
   },
   {
     id: '2',
     image: '/images/timeline/Research presentation.jpeg',
     title: 'Research Presentation',
-    date: 'Spring 2024',
-    description: 'Presented original aerospace research findings to faculty and peers, showcasing months of dedicated work in turbomachinery and systems engineering analysis.'
+    date: 'April 2025',
+    description: 'Presented my research findings on potential hazards and method to approach those hazards to permanent lunar habitats to faculty and peers, showcasing months of dedicated work systems engineering analysis.'
   },
   {
     id: '3',
     images: ['/images/timeline/AAE-Banquet.jpg', '/images/timeline/AAE-Banquet2.jpg'],
-    title: 'AAE Banquet Celebration',
-    date: 'April 2024',
-    description: 'Attended the annual Aeronautics and Astronautics Engineering banquet at Purdue University, celebrating academic achievements and networking with fellow aerospace engineers.',
+    title: 'AAE OAE Banquet',
+    date: 'April 2025',
+    description: 'Honored to attend the annual AAE banquet at Purdue University, celebrating their life achievements and learning from their life experiences.',
     isCarousel: true
   },
   {
     id: '4',
     images: ['/images/timeline/PSD-1.jpg', '/images/timeline/PSD-2.jpg'],
-    title: 'Product & Service Design Competition',
-    date: 'March 2024',
-    description: 'Participated in a strategic design competition, developing innovative solutions for complex engineering challenges through collaborative teamwork and creative problem-solving.',
+    title: 'Purdue Space Day',
+    date: 'October 2024',
+    description: 'Sparked the love for Aerospace Engineering in the upcoming generation as a Group Commander; keeping them engaged through various techniques such as fun facts and other engaging activities. Had the chance to meet NASA astronaut Jerry Ross.',
     isCarousel: true
   },
   {
@@ -50,78 +50,78 @@ const timelineData: TimelineItem[] = [
     image: '/images/timeline/Aug2024-AAE_Amb.jpg',
     title: 'AAE Ambassador Program',
     date: 'August 2024',
-    description: 'Served as an Aeronautics and Astronautics Engineering ambassador, representing the department and helping prospective students understand the opportunities in aerospace engineering.'
+    description: 'Serving as an Aeronautics and Astronautics Engineering ambassador, representing the department and helping prospective students understand the opportunities in aerospace engineering along with representing the university in various events.'
   },
   {
     id: '6',
     image: '/images/timeline/Poster-presentation.jpeg',
     title: 'Academic Poster Presentation',
-    date: 'Fall 2023',
-    description: 'Presented research findings through a comprehensive academic poster, demonstrating analytical skills and the ability to communicate complex engineering concepts effectively.'
+    date: 'Summer 2024',
+    description: 'Presented research findings through an academic poster on lunar habitats vibration isolation, demonstrating analytical skills and the ability to communicate complex engineering concepts effectively.'
   },
   {
     id: '7',
     images: ['/images/timeline/Certificate-May2024.jpeg', '/images/timeline/Certificate2-May2024.jpeg'],
-    title: 'Academic Recognition',
-    date: 'May 2024',
-    description: 'Received academic certificates recognizing outstanding performance and dedication in aerospace engineering studies, highlighting commitment to excellence.',
+    title: 'Skill Developments',
+    date: 'Spring 2024',
+    description: 'Received academic certificates in engineering studies, highlighting my commitment towards being well-rounded and excellence.',
     isCarousel: true
   },
   {
     id: '8',
     image: '/images/timeline/Case_Comp-winnings.jpeg',
     title: 'Case Competition Victory',
-    date: 'Winter 2023',
-    description: 'Achieved first place in a challenging case competition, demonstrating strategic thinking, analytical prowess, and effective presentation skills in a competitive academic environment.'
+    date: 'April 2024',
+    description: 'Achieved third place in my very first case competition, demonstrating strategic thinking, analytical prowess, and effective presentation skills in a competitive academic environment.'
   },
   {
     id: '9',
     video: '/images/timeline/Biking.mp4',
-    title: 'Recreational Cycling',
-    date: 'Summer 2023',
-    description: 'Maintaining work-life balance through outdoor activities and cycling adventures, showcasing the importance of physical fitness and outdoor recreation in engineering life.'
+    title: 'Calculated Risk-Taking',
+    date: 'December 2023',
+    description: 'Taking risks on the Slayter Hill, improving my coordination and expanding my envelope of things that can be done.'
   },
   {
     id: '10',
     image: '/images/timeline/PSD-Oct2023.jpeg',
-    title: 'Product & Service Design Project',
+    title: 'Purdue Space Day 2023',
     date: 'October 2023',
-    description: 'Completed a comprehensive product and service design project, applying engineering design principles and methodologies to create innovative solutions.'
+    description: 'Sparking the love for Aerospace Engineering in the upcoming generation as a Group Commander. Made an interactive '
   },
   {
     id: '11',
     image: '/images/timeline/AY2022-2023.png',
-    title: 'Academic Year Achievement',
+    title: 'AIAA DBF Aircraft testing',
     date: 'Academic Year 2022-2023',
-    description: 'Successfully completed the 2022-2023 academic year with distinction, demonstrating consistent academic performance and dedication to aerospace engineering studies.'
+    description: 'Successfully completed the 2022-2023 academic year with distinction in classes, demonstrating consistent academic performance all while building an aircraft for the Design Build Fly competition where the team secured a 47th place finish.'
   },
   {
     id: '12',
     image: '/images/timeline/Grad-May2022.png',
     title: 'High School Graduation',
     date: 'May 2022',
-    description: 'Graduated from high school with honors, marking the successful completion of secondary education and the beginning of the journey into aerospace engineering.'
+    description: 'Graduated from high school with distinction in the IBDP program, writing a rocket propulsion Extended Essay, and marking the successful completion of secondary education and the beginning of the journey into aerospace engineering.'
   },
   {
     id: '13',
     image: '/images/timeline/MUN-June_2020.JPG',
     title: 'Model United Nations',
     date: 'June 2020',
-    description: 'Participated in Model United Nations conference, developing diplomatic skills, global awareness, and public speaking abilities while representing various countries in simulated UN proceedings.'
+    description: 'Participated in Model United Nations conference, securing high commendation at my very 2nd MUN in the UNEP committee as the United States delegate.'
   },
   {
     id: '14',
     image: '/images/timeline/WRO-international.jpg',
     title: 'World Robot Olympiad International',
-    date: '2019',
-    description: 'Competed at the international level of the World Robot Olympiad, representing the country after qualifying through national competitions in robotics and programming.'
+    date: 'November 2019',
+    description: 'Competed at the international level and securing rank 15 out of 106 in the World Robot Olympiad, along with securing a perfect score in the surprise rule, demonstrating excellence in competitive problem-solving.'
   },
   {
     id: '15',
     images: ['/images/timeline/WRO-nationals_stage.jpg', '/images/timeline/WRO-nationals.jpg'],
-    title: 'WRO National Championships',
-    date: '2019',
-    description: 'Achieved victory at the World Robot Olympiad national championships, demonstrating excellence in robotics engineering, programming, and competitive problem-solving.',
+    title: 'World Robot Olympiad National Runner-up',
+    date: 'June 2019',
+    description: 'Achieved runner-up at the World Robot Olympiad national championships as the group lead',
     isCarousel: true
   }
 ];
