@@ -10,36 +10,26 @@ import ResearchBox from '../components/ResearchBox';
 const timelineEvents = [
   {
     id: 1,
-    title: 'Conference Presentations',
-    date: 'Fall 2024',
-    description: 'Presenting research findings and project developments at multiple aerospace conferences',
-    bgColor: 'bg-orange-50 hover:bg-orange-100',
-    images: [
-      '/images/timeline/656A9644.jpg',
-      '/images/timeline/656A9829.jpg'
-    ]
+    title: 'Professional Internship',
+    date: 'Summer 2024',
+    description: 'Gained valuable industry experience working in a professional aerospace engineering environment, applying theoretical knowledge to real-world challenges and contributing to innovative projects.',
+    images: ['/images/timeline/Internship.jpeg']
   },
   {
     id: 2,
-    title: 'Team Collaboration',
-    date: 'October 2024',
-    description: 'Working alongside brilliant minds in engineering challenges',
-    bgColor: 'bg-yellow-50 hover:bg-yellow-100',
-    images: [
-      '/images/timeline/IMG-20241026-WA0007.jpg',
-      '/images/timeline/IMG_20241026_184309.jpg'
-    ]
+    title: 'Research Presentation',
+    date: 'Spring 2024',
+    description: 'Presented original aerospace research findings to faculty and peers, showcasing months of dedicated work in turbomachinery and systems engineering analysis.',
+    images: ['/images/timeline/Research presentation.jpeg']
   },
   {
     id: 3,
-    title: 'Recent Developments',
-    date: 'Summer 2025',
-    description: 'Latest achievements in aerospace engineering projects',
-    bgColor: 'bg-red-50 hover:bg-red-100',
+    title: 'AAE Banquet Celebration',
+    date: 'April 2024',
+    description: 'Attended the annual Aeronautics and Astronautics Engineering banquet at Purdue University, celebrating academic achievements and networking with fellow aerospace engineers.',
     images: [
-      '/images/timeline/IMG-20250808-WA0007.jpg',
-      '/images/timeline/IMG-20250808-WA0018.jpg',
-      '/images/timeline/IMG-20250808-WA0027.jpg'
+      '/images/timeline/AAE-Banquet.jpg',
+      '/images/timeline/AAE-Banquet2.jpg'
     ]
   }
 ];
@@ -48,6 +38,7 @@ function TimelineCards() {
   const [currentImages, setCurrentImages] = useState(
     timelineEvents.map(() => 0)
   );
+  const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -59,41 +50,95 @@ function TimelineCards() {
             : current;
         })
       );
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
   }, []);
 
+  const handleCardFlip = (id: number) => {
+    setFlippedCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  };
+
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-      {timelineEvents.map((event, index) => (
-        <div 
-          key={event.id}
-          className={`${event.bgColor} rounded-lg p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer`}
-        >
-          <div className="relative h-40 mb-4 rounded-lg overflow-hidden">
-            <img 
-              src={event.images[currentImages[index]]} 
-              alt={event.title}
-              className="w-full h-full object-cover transition-opacity duration-1000"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-            <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm text-gray-900 text-sm font-medium px-2 py-1 rounded">
-              {event.date}
-            </div>
-            {event.images.length > 1 && (
-              <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-gray-600 text-xs px-2 py-1 rounded">
-                {currentImages[index] + 1}/{event.images.length}
-              </div>
-            )}
-          </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">{event.title}</h3>
-          <p className="text-gray-700 text-sm">
-            {event.description}
-          </p>
+    <>
+      <div className="text-center mb-8">
+        <div className="inline-flex items-center bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 text-sm text-gray-600 shadow-lg">
+          <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          </svg>
+          Hover over any card to reveal detailed descriptions
         </div>
-      ))}
-    </div>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        {timelineEvents.map((event, index) => (
+          <div
+            key={event.id}
+            className="flip-card h-80 perspective-1000 cursor-pointer group"
+            onClick={() => handleCardFlip(event.id)}
+            onMouseEnter={() => handleCardFlip(event.id)}
+            onMouseLeave={() => handleCardFlip(event.id)}
+          >
+            <div className={`flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-preserve-3d ${
+              flippedCards.has(event.id) ? 'rotate-y-180' : ''
+            }`}>
+              {/* Front of card */}
+              <div className="flip-card-front absolute inset-0 w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                <div className="relative w-full h-full">
+                  <img 
+                    src={event.images[currentImages[index]]} 
+                    alt={event.title}
+                    className="w-full h-full object-cover transition-opacity duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <div className="bg-black/40 backdrop-blur-sm rounded px-2 py-1">
+                      <p className="text-white text-sm font-medium">{event.date}</p>
+                    </div>
+                  </div>
+                  <div className="absolute bottom-4 right-4">
+                    <div className="bg-black/40 backdrop-blur-sm rounded px-3 py-2 text-right">
+                      <h3 className="text-white text-lg font-bold leading-tight">{event.title}</h3>
+                    </div>
+                  </div>
+                  {event.images.length > 1 && (
+                    <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-sm text-white text-xs px-2 py-1 rounded">
+                      {currentImages[index] + 1}/{event.images.length}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Back of card */}
+              <div className="flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-xl shadow-lg bg-white p-6 flex flex-col justify-center">
+                <div className="text-center">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-gray-900 font-bold text-xl flex-1">{event.title}</h3>
+                    <svg 
+                      className="w-5 h-5 text-gray-400 flex-shrink-0 cursor-pointer" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </div>
+                  <p className="text-gray-700 text-sm mb-4 font-medium">{event.date}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">{event.description}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -457,7 +502,7 @@ export default function Home() {
       </ParallaxSection>
 
       <ParallaxSection 
-        backgroundImage="/images/timeline/656A9644.jpg" 
+        backgroundImage="/images/Timeline.jpg" 
         height="auto"
         speed={0.1}
         overlay={true}
@@ -468,11 +513,11 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
-                Timeline
+                Awards and Achievements
               </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full shadow-lg"></div>
+              <div className="w-32 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full shadow-lg"></div>
               <p className="text-xl text-white/90 mt-6 max-w-3xl mx-auto drop-shadow-md">
-                A visual journey through key moments and achievements
+                Celebrating milestones in academic excellence and professional growth
               </p>
             </div>
             
