@@ -23,7 +23,7 @@ export default function ZucrowResearchPage() {
             
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Zucrow Research</h1>
             <p className="text-lg text-gray-600 mb-6">
-              Working at Prof. Nicole Key's lab from August 2025 - Present conducting research on inlet vortex distortion.
+              Working at Prof. Nicole Key's High Speed Compressor lab from August 2025 - Present conducting research on inlet vortex distortion.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
               <span className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg">Inlet Vortex Distortion</span>
@@ -42,12 +42,11 @@ export default function ZucrowResearchPage() {
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">Research Overview</h2>
                 <p className="text-gray-700 mb-4">
                   Research at the Zucrow Laboratories focuses on advanced propulsion and turbomachinery systems. 
-                  Working under Prof. Nicole Key, this research investigates inlet vortex distortion phenomena 
+                  Working under Prof. Nicole Key, my research investigates inlet vortex distortion phenomena 
                   and their effects on turbomachinery performance.
                 </p>
                 <p className="text-gray-700">
-                  The work involves both experimental setup and testing, as well as developing advanced 
-                  manufacturing techniques to create precise components for research apparatus.
+                  The work involves both experimental setup and testing, which includes designing and figuring manufacturing techniques for the parts.
                 </p>
               </div>
 
@@ -59,7 +58,14 @@ export default function ZucrowResearchPage() {
                     <span className="text-blue-600 mr-3 mt-1">•</span>
                     <div>
                       <span className="font-semibold text-gray-900">Test Cell Assembly & Calibration:</span>
-                      <span className="text-gray-700 ml-2">Helped assemble and calibrate the test cell's fan-rig for precise experimental measurements</span>
+                      <span className="text-gray-700 ml-2">Helped assemble and calibrate the test cell's fan-rig</span>
+                    </div>
+                  </li>
+                    <li className="flex items-start">
+                    <span className="text-blue-600 mr-3 mt-1">•</span>
+                    <div>
+                      <span className="font-semibold text-gray-900">Experimental Design:</span>
+                      <span className="text-gray-700 ml-2">Developing test methodologies</span>
                     </div>
                   </li>
                   <li className="flex items-start">
@@ -76,13 +82,6 @@ export default function ZucrowResearchPage() {
                       <span className="text-gray-700 ml-2">Investigating the effects of inlet distortion on turbomachinery performance</span>
                     </div>
                   </li>
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-3 mt-1">•</span>
-                    <div>
-                      <span className="font-semibold text-gray-900">Experimental Design:</span>
-                      <span className="text-gray-700 ml-2">Developing test methodologies for advanced propulsion research</span>
-                    </div>
-                  </li>
                 </ul>
               </div>
 
@@ -92,19 +91,11 @@ export default function ZucrowResearchPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-lg">
                     <h3 className="font-semibold text-gray-900 mb-2">Jet Engines</h3>
-                    <p className="text-gray-700 text-sm">Improved inlet design for commercial aircraft engines</p>
-                  </div>
-                  <div className="bg-gradient-to-br from-indigo-50 to-purple-50 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-900 mb-2">Gas Turbines</h3>
-                    <p className="text-gray-700 text-sm">Industrial gas turbine efficiency optimization</p>
+                    <p className="text-gray-700 text-sm">Gives insight on inlet design for commercial and military aircraft engines</p>
                   </div>
                   <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg">
                     <h3 className="font-semibold text-gray-900 mb-2">Aerospace Propulsion</h3>
-                    <p className="text-gray-700 text-sm">Next-generation propulsion system design</p>
-                  </div>
-                  <div className="bg-gradient-to-br from-green-50 to-blue-50 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-900 mb-2">Manufacturing</h3>
-                    <p className="text-gray-700 text-sm">Advanced manufacturing for precision components</p>
+                    <p className="text-gray-700 text-sm">Next-generation propulsion capabilities</p>
                   </div>
                 </div>
               </div>
@@ -141,7 +132,7 @@ export default function ZucrowResearchPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="mr-3 mt-1">⚙️</span>
-                    <span>Advanced manufacturing technique development</span>
+                    <span>Looking into cost-effective manufacturing techniques</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-3 mt-1">🌪️</span>
@@ -159,7 +150,7 @@ export default function ZucrowResearchPage() {
           {/* Research Tools & Software */}
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">Software & Tools</h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               <div className="text-center p-3 bg-gray-50 rounded-lg">
                 <h4 className="font-semibold text-gray-900 mb-1">MATLAB/Simulink</h4>
                 <p className="text-xs text-gray-600">Data analysis & system modeling</p>
@@ -167,6 +158,10 @@ export default function ZucrowResearchPage() {
               <div className="text-center p-3 bg-gray-50 rounded-lg">
                 <h4 className="font-semibold text-gray-900 mb-1">Manufacturing Equipment</h4>
                 <p className="text-xs text-gray-600">Precision fabrication tools</p>
+              </div>
+              <div className="text-center p-3 bg-gray-50 rounded-lg">
+                <h4 className="font-semibold text-gray-900 mb-1">Siemens NX</h4>
+                <p className="text-xs text-gray-600">Designing assemblies/ parts for the test cell</p>
               </div>
             </div>
           </div>
@@ -214,21 +209,6 @@ export default function ZucrowResearchPage() {
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Testing</h3>
                 <p className="text-gray-600 text-sm">Experimental design and data collection</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Research Tools & Software */}
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-4">Software & Tools</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-3 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-1">MATLAB/Simulink</h4>
-                <p className="text-xs text-gray-600">Data analysis & system modeling</p>
-              </div>
-              <div className="text-center p-3 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-1">Manufacturing Equipment</h4>
-                <p className="text-xs text-gray-600">Precision fabrication tools</p>
               </div>
             </div>
           </div>

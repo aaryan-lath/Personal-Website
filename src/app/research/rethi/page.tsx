@@ -23,7 +23,7 @@ export default function RETHiResearchPage() {
             
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Resilient Extraterrestrial Habitat Institute (RETHi)</h1>
             <p className="text-lg text-gray-600 mb-6">
-              Worked on 2 projects from the Summer of 2024 to Spring 2025: Systems Engineering which entails performing trade studies to evaluate safety controls by assessing the cost and habitat resilience on a disruption on the lunar habitat. Vibration Isolation which included conducting FEA simulations to test the loads on the device and conduction tensile tests on the Vectran straps with different stitching patterns.
+              The Systems Engineering part of my research entailed performing trade studies to evaluate safety controls by assessing the cost and habitat resilience on a disruption on the lunar habitat. Vibration Isolation included conducting FEA simulations to test the loads on the device and conduction tensile tests on the Vectran straps with different stitching patterns.
             </p>
             <div className="mb-6">
               <a 
@@ -56,7 +56,7 @@ export default function RETHiResearchPage() {
                 <p className="text-gray-700 mb-4">
                   The Resilient Extraterrestrial Habitat Institute (RETHi) focuses on developing sustainable 
                   and resilient habitats for long-duration space missions. My research contributed to two 
-                  critical areas: systems engineering for safety evaluation and vibration isolation systems.
+                  areas: systems engineering for safety control evaluation on disruptions and vibration isolation systems.
                 </p>
                 <p className="text-gray-700">
                   Through trade studies and experimental testing, this research advances our understanding 
@@ -109,8 +109,8 @@ export default function RETHiResearchPage() {
                     <p className="text-gray-700 text-sm">Long-duration habitat systems for lunar missions</p>
                   </div>
                   <div className="bg-gradient-to-br from-indigo-50 to-purple-50 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-900 mb-2">Mars Missions</h3>
-                    <p className="text-gray-700 text-sm">Resilient habitat design for Mars exploration</p>
+                    <h3 className="font-semibold text-gray-900 mb-2">Disruption Identification</h3>
+                    <p className="text-gray-700 text-sm">Human-based, environment based disruptions possible on the habitat</p>
                   </div>
                   <div className="bg-gradient-to-br from-purple-50 to-blue-50 p-4 rounded-lg">
                     <h3 className="font-semibold text-gray-900 mb-2">Vibration Control</h3>
@@ -118,7 +118,7 @@ export default function RETHiResearchPage() {
                   </div>
                   <div className="bg-gradient-to-br from-green-50 to-blue-50 p-4 rounded-lg">
                     <h3 className="font-semibold text-gray-900 mb-2">Safety Systems</h3>
-                    <p className="text-gray-700 text-sm">Risk mitigation and safety control optimization</p>
+                    <p className="text-gray-700 text-sm">Risk mitigation and safety control selection</p>
                   </div>
                 </div>
               </div>
@@ -130,8 +130,7 @@ export default function RETHiResearchPage() {
               <div className="bg-white rounded-lg shadow-md p-6 flex flex-col">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">Research Poster</h2>
                 <p className="text-gray-600 mb-4">
-                  RETHi Research Poster - Presented at academic conferences showcasing 
-                  methodologies and findings in extraterrestrial habitat resilience.
+                  RETHi Research Poster - Presented at the summer symposium at Purdue.
                 </p>
                 
                 {/* PDF Embed */}
@@ -319,16 +318,6 @@ export default function RETHiResearchPage() {
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">FEA Analysis</h3>
                 <p className="text-gray-600 text-sm">Finite element analysis and structural testing</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Testing</h3>
-                <p className="text-gray-600 text-sm">Experimental design and materials testing</p>
               </div>
               
               <div className="text-center">

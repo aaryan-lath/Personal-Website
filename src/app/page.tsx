@@ -430,7 +430,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <ResearchBox
               title="Resilient Extraterrestrial Habitat Institute (RETHi)"
-              description="Worked on 2 projects from the Summer of 2024 to Spring 2025: Systems Engineering which entails performing trade studies to evaluate safety controls by assessing the cost and habitat resilience on a disruption on the lunar habitat. Vibration Isolation which included conducting FEA simulations to test the loads on the device and conduction tensile tests on the Vectran straps with different stitching patterns."
+              description="Worked on 2 projects from the Summer of 2024 to Spring 2025: Systems Engineering and Vibration Isolation"
               points={[
                 'Trade studies for safety control evaluation',
                 'Cost and habitat resilience assessment',
@@ -444,13 +444,10 @@ export default function Home() {
             />
             <ResearchBox
               title="Zucrow Research"
-              description="Working at Prof. Nicole Key's lab from August 2025 - Present conducting research on inlet vortex distortion."
+              description="Working at Prof. Nicole Key's High Speed Compressor lab from August 2025 - Present conducting research on inlet vortex distortion."
               points={[
                 'Helped assemble and calibrate the Test cell\'s fan-rig',
-                'Working on manufacturing techniques to build parts effectively',
-                'Inlet vortex distortion research',
-                'Test cell calibration and assembly',
-                'Advanced manufacturing techniques'
+                'Working on manufacturing techniques to build parts effectively'
               ]}
               side="right"
               bgColor="bg-white"
