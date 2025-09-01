@@ -219,101 +219,6 @@ export default function Home() {
         </section>
       </ParallaxSection>
 
-      <ParallaxSection 
-        backgroundImage="/images/projects-bg.jpg" 
-        height="auto"
-        speed={0.2}
-        overlay={true}
-        overlayColor="black"
-        overlayOpacity={0.3}
-      >
-        <section id="projects" className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
-                Engineering Projects
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full shadow-lg"></div>
-            </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div style={{ animationDelay: '0.1s' }}>
-              <ProjectCard
-              title="Bypass Engine Assembly"
-              description="Complete turbofan engine design with bypass ratio optimization and performance analysis using advanced CAD modeling."
-              modelUrl="/models/bypass-engine_asm.gltf"
-              coverImage="/images/projects/bypass-engine/I_1-1.png"
-              technologies={['Creo Parametric', 'CFD Analysis', 'Assembly Design']}
-              details={[
-                'Full 3D parametric engine assembly',
-                'Bypass ratio optimization studies',
-                'Component integration and interference checking',
-                'Performance parameter calculations',
-                'View complete project files and documentation'
-              ]}
-              images={[
-                '/images/projects/bypass-engine/I_1-1.png',
-                '/images/projects/bypass-engine/I_2-1.png',
-                '/images/projects/bypass-engine/I_3-1.png',
-                '/images/projects/bypass-engine/I_4-1.png',
-                '/images/projects/bypass-engine/I_5-1.png',
-                '/images/projects/bypass-engine/I_6-1.png',
-                '/images/projects/bypass-engine/I_7-1.png',
-                '/images/projects/bypass-engine/I_8-1.png',
-                '/images/projects/bypass-engine/I_9-1.png',
-                '/images/projects/bypass-engine/I_10-14-1.png',
-                '/images/projects/bypass-engine/I_15-19-1.png',
-                '/images/projects/bypass-engine/I_20-1.png',
-                '/images/projects/bypass-engine/I_21-1.png',
-                '/images/projects/bypass-engine/I_22-1.png',
-                '/images/projects/bypass-engine/I_23-1.png',
-                '/images/projects/bypass-engine/I_24-1.png',
-                '/images/projects/bypass-engine/I_25-1.png',
-                '/images/projects/bypass-engine/I_26-1.png',
-                '/images/projects/bypass-engine/I_27-1.png',
-                '/images/projects/bypass-engine/I_28-1.png',
-                '/images/projects/bypass-engine/I_29-1.png'
-              ]}
-              driveLink="https://drive.google.com/drive/folders/1YvP0y6VeKu272bYDfjWAH_8lNDM67dvP?usp=sharing"
-              driveLinkText="View Bypass Engine Project Files"
-              />
-            </div>
-            <div style={{ animationDelay: '0.3s' }}>
-              <ProjectCard
-              title="BoilerBus Transportation System"
-              description="Comprehensive transit vehicle design with passenger optimization and route efficiency analysis for campus transportation."
-              modelUrl="/models/BoilerBus.gltf"
-              coverImage="/images/projects-placeholder.jpg"
-              technologies={['Fusion 360', 'Simulation', 'Design Optimization']}
-              details={[
-                'Complete vehicle chassis design',
-                'Passenger capacity optimization',
-                'Structural analysis and safety factors',
-                'Route efficiency considerations',
-                'Manufacturing feasibility studies'
-              ]}
-              />
-            </div>
-            <div style={{ animationDelay: '0.5s' }}>
-              <ProjectCard
-              title="Advanced Mechanical Systems"
-              description="Collection of complex mechanical engineering projects showcasing design versatility and technical proficiency."
-              coverImage="/images/projects-placeholder.jpg"
-              technologies={['Siemens NX', 'Creo', 'Fusion 360']}
-              details={[
-                'Multi-platform CAD proficiency demonstration',
-                'Complex assembly design and analysis',
-                'Design for manufacturing principles',
-                'Advanced surfacing and modeling techniques',
-                'Cross-platform file compatibility studies'
-              ]}
-              driveLink="https://drive.google.com/drive/folders/1YvP0y6VeKu272bYDfjWAH_8lNDM67dvP?usp=sharing"
-              driveLinkText="View Other CAD Projects"
-              />
-            </div>
-          </div>
-          </div>
-        </section>
-      </ParallaxSection>
 
       <ParallaxSection 
         backgroundImage="/images/Urban-Mobility.jpg" 
@@ -330,6 +235,9 @@ export default function Home() {
                 Academia
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full shadow-lg"></div>
+              <p className="text-xl text-white/90 mt-6 max-w-4xl mx-auto drop-shadow-md">
+                With a GPA of 3.74, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through projects such as the Zero-Gravity Flight Experiment class all while balancing research, TA position and being an active member of clubs. To view more courses and course related projects, click on View more.
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               <div className="bg-white/95 backdrop-blur-sm border border-teal-200 rounded-lg p-8 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
@@ -421,15 +329,15 @@ export default function Home() {
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-indigo-400 to-indigo-600 mx-auto rounded-full shadow-lg"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-white/95 backdrop-blur-sm border border-indigo-200 rounded-lg p-8 hover:bg-indigo-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                      Aerospace Engineering Intern
+                      Systems Engineering Intern
                     </h3>
-                    <p className="text-indigo-600 font-medium text-lg mb-1">Company Name</p>
-                    <p className="text-gray-500 text-sm">Summer 2024</p>
+                    <p className="text-indigo-600 font-medium text-lg mb-1">Siemens Smart Infrastructure</p>
+                    <p className="text-gray-500 text-sm">Summer 2025</p>
                   </div>
                   <div className="bg-indigo-200 p-3 rounded-full">
                     <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -438,11 +346,13 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Gained hands-on experience in aerospace engineering design and analysis. 
-                  Contributed to innovative projects involving aircraft systems and propulsion technologies.
+                  Worked at the Grand Prairie office in Siemens' Smart Infrastructure division in the mechanical department:
+                  <br />• Designed custom enclosures for panelboards using CREO and executed ECNs in SAP.
+                  <br />• Streamlined switchboard configurations by engineering neutral assemblies to resolve design edge cases.
+                  <br />• Developed Python scripts to refine a back-end algorithm, automating the BOM generation process for orders.
                 </p>
                 <div className="text-sm text-indigo-600 font-medium">
-                  CAD Design • System Analysis • Project Management • Technical Documentation
+                  CREO CAD • SAP • Python Scripting • Systems Engineering
                 </div>
               </div>
               
@@ -450,10 +360,10 @@ export default function Home() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <h3 className="text-2xl font-semibold text-gray-900 mb-2">
-                      Research Assistant
+                      Undergraduate Teaching Assistant
                     </h3>
                     <p className="text-cyan-600 font-medium text-lg mb-1">Purdue University</p>
-                    <p className="text-gray-500 text-sm">Academic Year 2024-2025</p>
+                    <p className="text-gray-500 text-sm">Jan 2025 - Present</p>
                   </div>
                   <div className="bg-cyan-200 p-3 rounded-full">
                     <svg className="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -462,11 +372,38 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Supporting cutting-edge research in aerospace systems and propulsion. 
-                  Conducting experiments, analyzing data, and contributing to academic publications.
+                  TA for the Aircraft and Spacecraft Design class (AAE 251):
+                  <br />• Led study sessions to teach 50+ students, core AAE 251 (Aircraft and Spacecraft Design) course material.
+                  <br />• Provided personalized support to students with concepts and MATLAB troubleshooting.
+                  <br />• Guided students in understanding key design principles for the aircraft and spacecraft design project.
                 </p>
                 <div className="text-sm text-cyan-600 font-medium">
-                  Research Methods • Data Analysis • Laboratory Work • Academic Writing
+                  Teaching • MATLAB • Aircraft Design • Spacecraft Design • Student Mentoring
+                </div>
+              </div>
+
+              <div className="bg-white/95 backdrop-blur-sm border border-emerald-200 rounded-lg p-8 hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                      Financial Analyst
+                    </h3>
+                    <p className="text-emerald-600 font-medium text-lg mb-1">Ganshyam Balaji Financials</p>
+                    <p className="text-gray-500 text-sm">Summer 2024</p>
+                  </div>
+                  <div className="bg-emerald-200 p-3 rounded-full">
+                    <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Working on Mergers and Acquisitions at Ganshyam Balaji Financials in the pharmaceutical industry:
+                  <br />• Performed financial analysis of companies within the pharmaceutical sector for mergers and acquisitions.
+                  <br />• Prepared reports and presentations highlighting company strengths, and growth potential, for buyers.
+                </p>
+                <div className="text-sm text-emerald-600 font-medium">
+                  Financial Analysis • Analytical • Presentation-making • Report Writing
                 </div>
               </div>
             </div>
@@ -475,7 +412,7 @@ export default function Home() {
       </ParallaxSection>
 
       <ParallaxSection 
-        backgroundImage="/images/falcon-fog.png" 
+        backgroundImage="/images/rethi-exterior.jpg" 
         height="auto"
         speed={0.15}
         overlay={true}
@@ -492,32 +429,32 @@ export default function Home() {
             </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <ResearchBox
-              title="Systems Engineering Research"
-              description="Investigating complex aerospace systems integration and optimization for next-generation aircraft and spacecraft applications."
+              title="Resilient Extraterrestrial Habitat Institute (RETHi)"
+              description="Worked on 2 projects from the Summer of 2024 to Spring 2025: Systems Engineering which entails performing trade studies to evaluate safety controls by assessing the cost and habitat resilience on a disruption on the lunar habitat. Vibration Isolation which included conducting FEA simulations to test the loads on the device and conduction tensile tests on the Vectran straps with different stitching patterns."
               points={[
-                'Multi-disciplinary system optimization',
-                'Requirements analysis and verification',
-                'System lifecycle management',
-                'Risk assessment and mitigation strategies',
-                'Performance trade-off analysis'
+                'Trade studies for safety control evaluation',
+                'Cost and habitat resilience assessment',
+                'Lunar habitat disruption analysis',
+                'FEA simulations for vibration isolation',
+                'Tensile testing of Vectran straps with stitching patterns'
               ]}
               side="left"
               bgColor="bg-white"
-              href="/research/systems-engineering"
+              href="/research/rethi"
             />
             <ResearchBox
-              title="Turbomachinery Research"
-              description="Exploring advanced turbomachinery designs for improved efficiency and performance in aerospace propulsion systems."
+              title="Zucrow Research"
+              description="Working at Prof. Nicole Key's lab from August 2025 - Present conducting research on inlet vortex distortion."
               points={[
-                'Compressor and turbine blade design',
-                'Flow analysis and optimization',
-                'Heat transfer and cooling strategies',
-                'Performance modeling and testing',
-                'Advanced materials applications'
+                'Helped assemble and calibrate the Test cell\'s fan-rig',
+                'Working on manufacturing techniques to build parts effectively',
+                'Inlet vortex distortion research',
+                'Test cell calibration and assembly',
+                'Advanced manufacturing techniques'
               ]}
               side="right"
               bgColor="bg-white"
-              href="/research/turbomachinery"
+              href="/research/zucrow"
             />
           </div>
           </div>
@@ -536,11 +473,11 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
-                Extracurricular Activities
+                Applied Engineering Projects
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full shadow-lg"></div>
             </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <Link href="/activities/purdue-aircraft-teams" className="group">
               <div className="bg-blue-50 rounded-lg p-8 hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer">
                 <div className="flex items-start justify-between mb-4">
@@ -587,6 +524,60 @@ export default function Home() {
               </div>
             </Link>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div style={{ animationDelay: '0.1s' }}>
+              <ProjectCard
+                title="TurboFan Engine Assembly"
+                description="Complete turbofan engine design with bypass ratio optimization and performance analysis using advanced CAD modeling."
+                modelUrl="/models/bypass-engine_asm.gltf"
+                coverImage="/images/Engine design.jpg"
+                technologies={['Creo Parametric', 'CFD Analysis', 'Assembly Design']}
+                details={[
+                  'Full 3D parametric engine assembly',
+                  'Bypass ratio optimization studies',
+                  'Component integration and interference checking',
+                  'Performance parameter calculations',
+                  'View complete project files and documentation'
+                ]}
+                images={[
+                  '/images/projects/bypass-engine/I_1-1.png',
+                  '/images/projects/bypass-engine/I_2-1.png',
+                  '/images/projects/bypass-engine/I_3-1.png',
+                  '/images/projects/bypass-engine/I_4-1.png',
+                  '/images/projects/bypass-engine/I_5-1.png',
+                  '/images/projects/bypass-engine/I_6-1.png',
+                  '/images/projects/bypass-engine/I_7-1.png',
+                  '/images/projects/bypass-engine/I_8-1.png',
+                  '/images/projects/bypass-engine/I_9-1.png',
+                  '/images/projects/bypass-engine/I_10-14-1.png',
+                  '/images/projects/bypass-engine/I_15-19-1.png',
+                  '/images/projects/bypass-engine/I_20-1.png',
+                  '/images/projects/bypass-engine/I_21-1.png',
+                  '/images/projects/bypass-engine/I_22-1.png',
+                  '/images/projects/bypass-engine/I_23-1.png',
+                  '/images/projects/bypass-engine/I_24-1.png',
+                  '/images/projects/bypass-engine/I_25-1.png',
+                  '/images/projects/bypass-engine/I_26-1.png',
+                  '/images/projects/bypass-engine/I_27-1.png',
+                  '/images/projects/bypass-engine/I_28-1.png',
+                  '/images/projects/bypass-engine/I_29-1.png'
+                ]}
+                driveLink="https://1drv.ms/f/c/283cc4cea2648e6d/EqHs9hzOskJGoxkfBSoJxOkBe_gegsn2ArnBNl5CevIsHg?e=RtRE7P"
+                driveLinkText="View Bypass Engine Project Files"
+              />
+            </div>
+            <div style={{ animationDelay: '0.3s' }}>
+              <ProjectCard
+                title="Single Piston Sterling Engine"
+                description="Collection of complex mechanical engineering projects showcasing design versatility and technical proficiency."
+                coverImage="/images/Single Piston Sterling Engine.jpg"
+                technologies={['Siemens NX', 'Creo', 'Fusion 360']}
+                driveLink="https://1drv.ms/f/c/283cc4cea2648e6d/EvF8ZzT5bjlJhKyBHEp2QSMBv9b8cMHDS0AUfd_pv7wVVA?e=YDc0oI"
+                driveLinkText="View Other CAD Projects"
+              />
+            </div>
+          </div>
           </div>
         </section>
       </ParallaxSection>
@@ -607,7 +598,7 @@ export default function Home() {
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full shadow-lg"></div>
               <p className="text-xl text-white/90 mt-6 max-w-3xl mx-auto drop-shadow-md">
-                Celebrating milestones in academic excellence and professional growth
+                Milestones in academic excellence and professional growth
               </p>
             </div>
             

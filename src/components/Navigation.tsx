@@ -21,21 +21,19 @@ export default function Navigation() {
 
   const navItems = (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage) ? [
     { name: 'Home', href: '/' },
-    { name: 'Projects', href: '/#projects' },
     { name: 'Academia', href: '/#academia' },
     { name: 'Internships', href: '/#internships' },
     { name: 'Research', href: '/#research' },
-    { name: 'Activities', href: '/#activities' },
-    { name: 'Timeline', href: '/timeline' },
+    { name: 'Hands-On', href: '/#activities' },
+    { name: 'Achievements', href: '/timeline' },
     { name: 'Contact', href: '/#contact' },
   ] : [
     { name: 'Home', href: '#home' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Academia', href: '#academia' },
     { name: 'Internships', href: '#internships' },
     { name: 'Research', href: '#research' },
-    { name: 'Activities', href: '#activities' },
-    { name: 'Timeline', href: '#timeline' },
+    { name: 'Hands-On', href: '#activities' },
+    { name: 'Achievements', href: '#timeline' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -45,7 +43,7 @@ export default function Navigation() {
       
       // Only detect sections on main page
       if (!isProjectPage && !isActivityPage && !isResearchPage && !isTimelinePage && !isAcademiaPage) {
-        const sections = ['home', 'projects', 'academia', 'internships', 'research', 'activities', 'timeline', 'contact'];
+        const sections = ['home', 'academia', 'internships', 'research', 'activities', 'timeline', 'contact'];
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
         
