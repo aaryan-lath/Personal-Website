@@ -26,16 +26,31 @@ const courses = [
 
 const highlights = [
   {
-    course: 'MFET 163',
-    description: 'Designed a single piston sterling engine and guided fellow students in creating the part hierarchy and using the CAD and PLM software effectively.'
-  },
-  {
     course: 'ENGR 130',
     description: 'Designed a cost effective and advanced farming system for planting, watering and providing nutrients in an indoor vertical farming setting and for families in a garden setting.'
   },
   {
+    course: 'MFET 163',
+    description: 'Designed a single piston sterling engine and guided fellow students in creating the part hierarchy and using the CAD and PLM software effectively.',
+    reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/ETVOCy8aWolPmrJ0B57ikxoB4e725xDsJ0VqnWJDkVty1A?e=yKYg4z'
+  },
+  {
+    course: 'AAE 251',
+    description: 'Designed a non-human moon landing mission focusing on mission planning and spacecraft design.',
+    reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/EaaU4n7dqn5Gq8DKWYQnYa0Bfat58pDDkiVSCMbY4HNGxA?e=XGRMHE'
+  },
+  {
+    course: 'AAE 33401',
+    description: 'Tested the shock characteristics of different supersonic airfoils (diamond airfoil, stepped wedge and delta wings).',
+    reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/EfYx6PGy7X1NhMFA_bwD54IB-X92LHwOIQAR5qcDGxLQug?e=EeUxUZ'
+  },
+  {
     course: 'AAE 412',
     description: 'Simulating the performance of a 2019 Mercedes F1 car with various front wing designs on drag, downforce and overall car behavior.'
+  },
+  {
+    course: 'AAE 421',
+    description: 'Developed a Simulink model over the semester for trim conditions and dynamics for the Cessna 182.'
   }
 ];
 
@@ -114,9 +129,22 @@ export default function Academia() {
                         <h3 className="text-lg font-semibold text-teal-800 mb-3">
                           {highlight.course}
                         </h3>
-                        <p className="text-gray-700 leading-relaxed">
+                        <p className="text-gray-700 leading-relaxed mb-4">
                           {highlight.description}
                         </p>
+                        {(highlight as any).reportLink && (
+                          <a
+                            href={(highlight as any).reportLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium"
+                          >
+                            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            View Report on OneDrive
+                          </a>
+                        )}
                       </div>
                     ))}
                   </div>

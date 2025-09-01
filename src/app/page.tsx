@@ -146,7 +146,7 @@ export default function Home() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isScrollingOut, setIsScrollingOut] = useState(false);
   
-  const interests = ['Engineer', 'Innovator', 'Explorer', 'Creator'];
+  const interests = ['Changemaker', 'Aerospace Engineer', 'Technical Consultant', 'Systems Engineer', 'F1 Race Engineer'];
 
   useEffect(() => {
     // Ensure page starts at top and prevent scroll restoration
@@ -211,7 +211,7 @@ export default function Home() {
                   </span>
                 </div>
                 <p className="text-lg text-white/80 max-w-3xl mx-auto mb-12 drop-shadow-md">
-                  A rising senior in Aeronautical and Astronautical Engineering at Purdue University, 
+                  As a senior in Aeronautical and Astronautical Engineering at Purdue University, I've consistently demonstrated academic excellence while gaining hands-on experience in complex engineering systems. Having been admitted to the highly competitive 4+1 program, I maintain a strong academic record with Dean's List recognition every semester. My unique perspective combines technical expertise with business acumen, understanding how engineering decisions impact organizational success. As Chief Engineer of SAE Aero, I lead cross-functional teams while balancing research responsibilities and teaching assistant duties. My experience spans from CubeSat development through the Purdue Space Program to as an aerodynamics engineer at the Purdue Aerial Robotics Team, position me to tackle multidisciplinary challenges in aerospace and beyond.
                 </p>
               </div>
             </div>
@@ -293,7 +293,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Designed comprehensive aerodynamic experiments comparing drag characteristics of an F1 car, sports car, Cybertruck, and Ford F-350 through wind tunnel testing and computational fluid dynamics analysis.
+                  Designed comprehensive aerodynamic experiments comparing drag characteristics of a Lamborghini Aventador, Cybertruck, and Ford F-350 through wind tunnel testing and computational fluid dynamics analysis.
                 </p>
               </div>
             </div>
@@ -490,7 +490,7 @@ export default function Home() {
                   participating in national competitions including SAE Aero Design and AIAA Design competitions.
                 </p>
                 <div className="text-sm text-blue-600 font-medium group-hover:text-blue-800 transition-colors">
-                  Aircraft Design • Competition • Testing • Leadership
+                  Aircraft Design • Manufacturing • Testing • Leadership
                 </div>
                 <div className="mt-4 text-sm text-blue-600 font-medium">
                   Click to learn more →
@@ -513,7 +513,7 @@ export default function Home() {
                   satellite development, and mission planning for intercollegiate competitions and research initiatives.
                 </p>
                 <div className="text-sm text-purple-600 font-medium group-hover:text-purple-800 transition-colors">
-                  Space Systems • Rocket Engineering • Mission Design • Collaboration
+                  Space Systems • Systems Engineering • Mission Design • Collaboration
                 </div>
                 <div className="mt-4 text-sm text-purple-600 font-medium">
                   Click to learn more →

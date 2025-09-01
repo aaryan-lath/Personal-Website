@@ -1,9 +1,37 @@
 'use client';
 
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function PurdueSpaceProgramPage() {
   const router = useRouter();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  const images = [
+    {
+      src: '/images/PSP-Build.jpg',
+      title: 'PSP Build Session',
+      description: 'Designing the Walls on Fusion 360 and laser-cutting them'
+    },
+    {
+      src: '/images/PSP-Showcase.jpg',
+      title: 'PSP Showcase',
+      description: 'Showcasing our projects'
+    },
+    {
+      src: '/images/PSP-group.jpg',
+      title: 'PSP Team',
+      description: 'Purdue Space Program Satellites member photograph'
+    }
+  ];
+  
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  };
+  
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -24,12 +52,11 @@ export default function PurdueSpaceProgramPage() {
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Purdue Space Program</h1>
             <p className="text-lg text-gray-600 mb-6">
               Contributing to cutting-edge space exploration projects including rocket design, 
-              satellite development, and mission planning for intercollegiate competitions and research initiatives.
+              satellite development, and mission planning for intercollegiate competitions.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
-              <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">Space Systems</span>
-              <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">Rocket Engineering</span>
-              <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">Mission Design</span>
+              <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">CubeSat Development</span>
+              <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">Systems Engineering</span>
               <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">Collaboration</span>
             </div>
           </div>
@@ -43,186 +70,164 @@ export default function PurdueSpaceProgramPage() {
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">About the Program</h2>
                 <p className="text-gray-700 mb-4">
                   The Purdue Space Program is a collaborative initiative that brings together students from 
-                  multiple disciplines to work on advanced space exploration projects. The program encompasses 
-                  various teams working on rocket propulsion, satellite systems, mission planning, and 
-                  space technology development.
-                </p>
-                <p className="text-gray-700">
-                  Our teams compete in national competitions like NASA USLI (University Student Launch Initiative), 
-                  NASA BIG Idea Challenge, and various CubeSat development programs, while also conducting 
-                  cutting-edge research in partnership with industry and government organizations.
+                  multiple disciplines to work on advanced aerospace projects. The program encompasses 
+                  various teams working on rocket projects, satellite development and space technology development.
                 </p>
               </div>
 
               {/* My Contributions */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">My Contributions</h2>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   <li className="flex items-start">
                     <span className="text-purple-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Participated in rocket design and trajectory analysis for competition missions</span>
+                    <span className="text-gray-700">Optimized the organizations backend operations as the secretary and performed some technical director tasks, improving overall club efficiency, contributing to its vision.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-purple-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Contributed to satellite subsystem design and integration planning</span>
+                    <span className="text-gray-700">Formulated, reviewed, and refined over 200 project system-level and sub-system requirements for the BoilerBus as the Deputy Systems Director.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-purple-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Conducted mission requirement analysis and system trade studies</span>
+                    <span className="text-gray-700">Utilized Fusion 360 CAD modeling to design a 3U CubeSat (~$100K) with ~40 engineers and using different manufacturing techniques such as metal laser cutting, VF3 milling for the end plates.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-purple-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Collaborated on propulsion system performance calculations and optimization</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-purple-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Assisted in ground testing and data analysis for rocket and satellite components</span>
+                    <span className="text-gray-700">Developed trade and research studies for structural components, materials, designs, and fabrication methods.</span>
                   </li>
                 </ul>
               </div>
 
-              {/* Program Highlights */}
+              {/* Program Highlights & Technical Focus Areas */}
               <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Program Highlights</h2>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Program Highlights & Technical Focus</h2>
                 <div className="space-y-4">
                   <div className="border-l-4 border-purple-500 pl-4">
-                    <h3 className="font-semibold text-gray-900">NASA USLI Competition</h3>
-                    <p className="text-gray-600 text-sm">Designed and launched high-powered rockets with scientific payloads</p>
+                    <h3 className="font-semibold text-gray-900">Systems Review - Spring 2024</h3>
+                    <p className="text-gray-600 text-sm">Performed a Systems Review for the system and subsystem level requirements</p>
                   </div>
                   <div className="border-l-4 border-blue-500 pl-4">
                     <h3 className="font-semibold text-gray-900">CubeSat Development</h3>
-                    <p className="text-gray-600 text-sm">Developed small satellites for Earth observation and technology demonstration</p>
+                    <p className="text-gray-600 text-sm">Developed and manufactured walls, end plates and bulkhead prototypes for BoilerBus</p>
                   </div>
                   <div className="border-l-4 border-green-500 pl-4">
-                    <h3 className="font-semibold text-gray-900">Industry Partnerships</h3>
-                    <p className="text-gray-600 text-sm">Collaborated with aerospace companies on real-world space missions</p>
+                    <h3 className="font-semibold text-gray-900">Satellite Subsystems</h3>
+                    <p className="text-gray-600 text-sm">Understanding the subsystems in the satellite such as Communication and Data Handling, Electrical and Power System, Payload integration, etc.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column */}
+            {/* Right Column - Images */}
             <div className="space-y-6">
-              {/* Technical Areas */}
+              {/* Image Carousel */}
               <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Technical Focus Areas</h2>
-                <div className="space-y-4">
-                  <div className="bg-gradient-to-r from-purple-50 to-blue-50 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-900 mb-2">Rocket Propulsion</h3>
-                    <p className="text-gray-700 text-sm">Solid and liquid propulsion systems, nozzle design, performance optimization</p>
-                  </div>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-6">Gallery</h2>
+                
+                {/* Image Display */}
+                <div className="relative mb-4">
+                  <img
+                    src={images[currentImageIndex].src}
+                    alt={images[currentImageIndex].title}
+                    className="w-full h-64 md:h-80 object-cover rounded-lg"
+                  />
                   
-                  <div className="bg-gradient-to-r from-blue-50 to-indigo-50 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-900 mb-2">Satellite Systems</h3>
-                    <p className="text-gray-700 text-sm">Attitude control, power systems, communication, payload integration</p>
-                  </div>
-                  
-                  <div className="bg-gradient-to-r from-indigo-50 to-purple-50 p-4 rounded-lg">
-                    <h3 className="font-semibold text-gray-900 mb-2">Mission Design</h3>
-                    <p className="text-gray-700 text-sm">Orbital mechanics, trajectory optimization, mission planning and analysis</p>
-                  </div>
+                  {/* Navigation Arrows */}
+                  {images.length > 1 && (
+                    <>
+                      <button
+                        onClick={prevImage}
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={nextImage}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
+                    </>
+                  )}
                 </div>
+                
+                {/* Image Info */}
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {images[currentImageIndex].title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {images[currentImageIndex].description}
+                  </p>
+                </div>
+                
+                {/* Image Indicators */}
+                {images.length > 1 && (
+                  <div className="flex justify-center space-x-2">
+                    {images.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-colors ${
+                          index === currentImageIndex
+                            ? 'bg-purple-600'
+                            : 'bg-gray-300 hover:bg-gray-400'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
 
-              {/* Competitions & Achievements */}
+              {/* Skills Developed */}
               <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Competitions & Achievements</h2>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <div>
-                      <h4 className="font-medium text-gray-900">NASA USLI</h4>
-                      <p className="text-sm text-gray-600">University Student Launch Initiative</p>
+                <h2 className="text-2xl font-semibold text-gray-900 mb-6">Skills Developed</h2>
+                <div className="space-y-6">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
                     </div>
-                    <div className="text-right">
-                      <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded">Participated</span>
-                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Systems Engineering</h3>
+                    <p className="text-gray-600 text-sm">Complex system design and integration</p>
                   </div>
                   
-                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <div>
-                      <h4 className="font-medium text-gray-900">NASA BIG Idea Challenge</h4>
-                      <p className="text-sm text-gray-600">Breakthrough, Innovative and Game-changing</p>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 515.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 919.288 0M15 7a3 3 0 11-6 0 3 3 0 616 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
                     </div>
-                    <div className="text-right">
-                      <span className="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Team Member</span>
-                    </div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Backend Optimization</h3>
+                    <p className="text-gray-600 text-sm">Improving the backend for a seamless and quick project progress</p>
                   </div>
                   
-                  <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                    <div>
-                      <h4 className="font-medium text-gray-900">CubeSat Development</h4>
-                      <p className="text-sm text-gray-600">Small satellite technology demonstration</p>
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
                     </div>
-                    <div className="text-right">
-                      <span className="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded">Contributor</span>
+                    <h3 className="font-semibold text-gray-900 mb-2">Documentation</h3>
+                    <p className="text-gray-600 text-sm">Technical documentation and requirements management</p>
+                  </div>
+                  
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                      <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
                     </div>
+                    <h3 className="font-semibold text-gray-900 mb-2">Manufacturing</h3>
+                    <p className="text-gray-600 text-sm">Metal laser cutting, VF3 milling, and fabrication techniques</p>
                   </div>
                 </div>
-              </div>
-
-              {/* Future Goals */}
-              <div className="bg-gradient-to-br from-purple-500 to-blue-600 rounded-lg p-6 text-white">
-                <h2 className="text-2xl font-semibold mb-4">Future Mission Goals</h2>
-                <ul className="space-y-2">
-                  <li className="flex items-start">
-                    <span className="mr-3 mt-1">🚀</span>
-                    <span>Advanced propulsion system development</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 mt-1">🛰️</span>
-                    <span>Next-generation CubeSat missions</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-3 mt-1">🌌</span>
-                    <span>Deep space exploration technologies</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Skills Developed */}
-          <div className="bg-white rounded-lg shadow-md p-6">
-            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Skills Developed</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Systems Engineering</h3>
-                <p className="text-gray-600 text-sm">Complex system design and integration</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Propulsion Analysis</h3>
-                <p className="text-gray-600 text-sm">Rocket engine performance and design</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Orbital Mechanics</h3>
-                <p className="text-gray-600 text-sm">Mission design and trajectory analysis</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="font-semibold text-gray-900 mb-2">Project Management</h3>
-                <p className="text-gray-600 text-sm">Leading multidisciplinary space missions</p>
               </div>
             </div>
           </div>
