@@ -634,7 +634,7 @@ export default function Home() {
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                   <a 
-                    href="/Aaryan-Lath_Resume.pdf" 
+                    href="/Aaryan_Lath-Resume.pdf" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
@@ -645,7 +645,7 @@ export default function Home() {
                     Download Resume
                   </a>
                   <a 
-                    href="/Aaryan-Lath_Resume.pdf" 
+                    href="/Aaryan_Lath-Resume.pdf" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
@@ -658,7 +658,7 @@ export default function Home() {
                 </div>
                 <div className="w-full h-[600px] border border-gray-300 rounded-lg overflow-hidden">
                   <iframe
-                    src="/Aaryan-Lath_Resume.pdf"
+                    src="/Aaryan_Lath-Resume.pdf"
                     className="w-full h-full"
                     title="Aaryan Lath Resume"
                   />
@@ -671,8 +671,8 @@ export default function Home() {
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Get In Touch</h3>
               <div className="bg-white rounded-lg shadow-lg p-8">
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                  Interested in aerospace engineering collaboration or have questions about my work? 
-                  I'd love to connect and discuss opportunities in aerospace innovation.
+                  Interested in hiring a dedicated, well-rounded professional whose ambitions never sleep? 
+                  Have questions about my work or want to discuss opportunities? I'd love to connect.
                 </p>
                 
                 <div className="space-y-4">
@@ -705,7 +705,7 @@ export default function Home() {
                       <span className="font-medium">Email:</span> aaryanlath05@gmail.com
                     </p>
                     <p>
-                      <span className="font-medium">Location:</span> West Lafayette, IN
+                      <span className="font-medium">Current Location:</span> West Lafayette, IN
                     </p>
                   </div>
                 </div>

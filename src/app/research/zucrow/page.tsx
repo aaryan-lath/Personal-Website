@@ -29,7 +29,6 @@ export default function ZucrowResearchPage() {
               <span className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg">Inlet Vortex Distortion</span>
               <span className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg">Test Cell Assembly</span>
               <span className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg">Manufacturing Techniques</span>
-              <span className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg">Fan-Rig Calibration</span>
             </div>
           </div>
 
@@ -54,13 +53,6 @@ export default function ZucrowResearchPage() {
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">Key Research Areas</h2>
                 <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="text-blue-600 mr-3 mt-1">•</span>
-                    <div>
-                      <span className="font-semibold text-gray-900">Test Cell Assembly & Calibration:</span>
-                      <span className="text-gray-700 ml-2">Helped assemble and calibrate the test cell's fan-rig</span>
-                    </div>
-                  </li>
                     <li className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1">•</span>
                     <div>
@@ -126,10 +118,6 @@ export default function ZucrowResearchPage() {
               <div className="bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg p-6 text-white">
                 <h2 className="text-2xl font-semibold mb-4">Current Research Focus</h2>
                 <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <span className="mr-3 mt-1">🔧</span>
-                    <span>Fan-rig assembly and calibration</span>
-                  </li>
                   <li className="flex items-start">
                     <span className="mr-3 mt-1">⚙️</span>
                     <span>Looking into cost-effective manufacturing techniques</span>
