@@ -486,8 +486,8 @@ export default function Home() {
                   </svg>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Active member of Purdue&apos;s premier aircraft design and competition teams, 
-                  participating in national competitions including SAE Aero Design and AIAA Design competitions.
+                  Active member of Purdue&apos;s aircraft design and competition teams, 
+                  participated in national competitions including AUVSI SUAS and AIAA Design/ Build/ Fly competitions. Currently, serving as the Chief engineer of the SAE Aero Design team in SAE Purdue.
                 </p>
                 <div className="text-sm text-blue-600 font-medium group-hover:text-blue-800 transition-colors">
                   Aircraft Design • Manufacturing • Testing • Leadership
@@ -509,8 +509,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Contributing to cutting-edge space exploration projects including rocket design, 
-                  satellite development, and mission planning for intercollegiate competitions and research initiatives.
+                  Contributed to the PSP Satellites team as a Structures, Mechanisms and Thermals member, deputy systems director and to the entire organization of 10 teams as the secretary.
                 </p>
                 <div className="text-sm text-purple-600 font-medium group-hover:text-purple-800 transition-colors">
                   Space Systems • Systems Engineering • Mission Design • Collaboration

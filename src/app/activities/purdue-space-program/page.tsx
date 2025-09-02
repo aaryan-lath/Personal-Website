@@ -51,8 +51,7 @@ export default function PurdueSpaceProgramPage() {
             
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Purdue Space Program</h1>
             <p className="text-lg text-gray-600 mb-6">
-              Contributing to cutting-edge space exploration projects including rocket design, 
-              satellite development, and mission planning for intercollegiate competitions.
+              Contributed to the PSP Satellites team as a Structures, Mechanisms and Thermals member, deputy systems director and to the entire organization of 10 teams as the secretary.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
               <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">CubeSat Development</span>
