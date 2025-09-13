@@ -146,7 +146,7 @@ export default function Home() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isScrollingOut, setIsScrollingOut] = useState(false);
   
-  const interests = ['Changemaker', 'Aerospace Engineer', 'Technical Consultant', 'Systems Engineer', 'F1 Race Engineer'];
+  const interests = ['Changemaker', 'Technical Consultant', 'Systems Engineer', 'Product and Design Engineer', 'Aerodynamicist'];
 
   useEffect(() => {
     // Ensure page starts at top and prevent scroll restoration
