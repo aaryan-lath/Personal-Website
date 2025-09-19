@@ -9,11 +9,13 @@ const courses = [
   'AAE 251: Introduction to Aircraft and Spacecraft Design',
   'AAE 301: Signal Analysis',
   'AAE 333: Fluid Mechanics',
+  'AAE 33301: Fluid Mechanics Lab',
   'AAE 334: Aerodynamics',
+  'AAE 33401: Aerodynamics Lab',
   'AAE 339: Aerospace Propulsion',
   'AAE 352: Structures',
   'AAE 364: Control System Analysis',
-  'AAE 412: Computational Fluid Dynamics',
+  'AAE 421: Flight Dynamics',
   'AAE 514: Intermediate Aerodynamics',
   'AAE 550: Multidisciplinary Design Optimization',
   'Data Structures and Algorithms',
@@ -26,61 +28,72 @@ const courses = [
 
 const highlights = [
   {
-    course: 'ENGR 130',
-    description: 'Designed a cost effective and advanced farming system for planting, watering and providing nutrients in an indoor vertical farming setting and for families in a garden setting.'
-  },
-  {
-    course: 'MFET 163',
+    course: 'MFET 163: Graphical Communication And Spatial Analysis',
     description: 'Designed a single piston sterling engine and guided fellow students in creating the part hierarchy and using the CAD and PLM software effectively.',
     reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/ETVOCy8aWolPmrJ0B57ikxoB4e725xDsJ0VqnWJDkVty1A?e=yKYg4z'
   },
   {
-    course: 'AAE 251',
+    course: 'AAE 251: Introduction to Aircraft and Spacecraft Design',
     description: 'Designed a non-human moon landing mission focusing on mission planning and spacecraft design.',
     reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/EaaU4n7dqn5Gq8DKWYQnYa0Bfat58pDDkiVSCMbY4HNGxA?e=XGRMHE'
   },
   {
-    course: 'AAE 33401',
+    course: 'AAE 33401: Aerodynamics Lab',
     description: 'Tested the shock characteristics of different supersonic airfoils (diamond airfoil, stepped wedge and delta wings).',
     reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/EfYx6PGy7X1NhMFA_bwD54IB-X92LHwOIQAR5qcDGxLQug?e=EeUxUZ'
   },
   {
-    course: 'AAE 412',
-    description: 'Simulating the performance of a 2019 Mercedes F1 car with various front wing designs on drag, downforce and overall car behavior.'
+    course: 'AAE 33301: Fluid Mechanics Lab',
+    description: 'Designed comprehensive aerodynamic experiments comparing drag characteristics of a Lamborghini Aventador, Cybertruck, and Ford F-350 through wind tunnel testing and computational fluid dynamics analysis.'
   },
   {
-    course: 'AAE 421',
+    course: 'AAE 421: Flight Dynamics',
     description: 'Developed a Simulink model over the semester for trim conditions and dynamics for the Cessna 182.'
+  },
+  {
+    course: 'ENGR 130: From Ideas to Innovation',
+    description: 'Designed a cost effective and advanced farming system for planting, watering and providing nutrients in an indoor vertical farming setting and for families in a garden setting.'
   }
+
 ];
 
 export default function Academia() {
   const [activeView, setActiveView] = useState<'list' | 'highlights'>('list');
 
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="pt-20 pb-12">
+    <main className="min-h-screen bg-gradient-to-br from-gray-100 to-teal-50 relative"
+      style={{
+        backgroundImage: `url('/images/Urban-Mobility.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="pt-20 pb-12 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <Link 
-              href="/"
-              className="inline-flex items-center text-teal-600 hover:text-teal-800 transition-colors mb-6"
-            >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to Home
-            </Link>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Academic Coursework</h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive overview of my academic journey at Purdue University
-            </p>
+            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
+              <Link 
+                href="/"
+                className="inline-flex items-center text-teal-600 hover:text-teal-800 transition-colors mb-6"
+              >
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                Back to Home
+              </Link>
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">Academic Coursework</h1>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Comprehensive overview of my academic journey at Purdue University
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Course List/Highlights */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg shadow-lg p-6">
+              <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-6">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-semibold text-gray-900">Course Overview</h2>
                   <div className="flex bg-gray-100 rounded-lg p-1">
@@ -154,7 +167,7 @@ export default function Academia() {
 
             {/* Right Column - Transcript */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-lg shadow-lg p-6">
+              <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-6">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">Official Transcript</h2>
                 <div className="flex flex-col gap-4 mb-6">
                   <a 

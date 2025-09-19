@@ -84,15 +84,19 @@ export default function PurdueAircraftTeamsPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Participated in flight testing and data analysis for performance validation</span>
+                    <span className="text-gray-700">Participated in flight testing and data analysis for performance validation.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Mentoring newer team members in aircraft design principles and designed an onboarding project for new members</span>
+                    <span className="text-gray-700">Mentoring newer team members in aircraft design principles and designed an onboarding project for new members.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Applied engineering solutions to resolve manufacturing issues of molds, carbon fiber, and internal structures at the Purdue Aerial Robotics Team</span>
+                    <span className="text-gray-700">Helping expand the club to the next level by creating a footprint and training the next generation to pass the baton for a secure club future.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-3 mt-1">•</span>
+                    <span className="text-gray-700">Applied engineering solutions to resolve manufacturing issues of molds, carbon fiber, and internal structures at the Purdue Aerial Robotics Team.</span>
                   </li>
                 </ul>
               </div>

@@ -235,9 +235,11 @@ export default function Home() {
                 Academia
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full shadow-lg"></div>
-              <p className="text-xl text-white/90 mt-6 max-w-4xl mx-auto drop-shadow-md">
-                With a GPA of 3.74, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through projects such as the Zero-Gravity Flight Experiment class all while balancing research, TA position and being an active member of clubs. To view more courses and course related projects, click on View more.
-              </p>
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 max-w-4xl mx-auto mt-8">
+                <p className="text-xl text-white/90 drop-shadow-md">
+                  With a GPA of 3.74, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through projects such as the Zero-Gravity Flight Experiment class all while balancing research, TA position and being an active member of clubs. To view more courses and course related projects, click on View more.
+                </p>
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               <div className="bg-white/95 backdrop-blur-sm border border-teal-200 rounded-lg p-8 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
@@ -282,7 +284,7 @@ export default function Home() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      AAE 33301: Fluid Mechanics Lab
+                      AAE 412: Computational Fluid Dynamics
                     </h3>
                     <p className="text-teal-600 font-medium text-sm mb-3">Experimental Fluid Dynamics</p>
                   </div>
@@ -293,7 +295,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Designed comprehensive aerodynamic experiments comparing drag characteristics of a Lamborghini Aventador, Cybertruck, and Ford F-350 through wind tunnel testing and computational fluid dynamics analysis.
+                  Simulating the performance of a F1 car with various front wing designs on drag, downforce and overall car behavior.
                 </p>
               </div>
             </div>
@@ -593,9 +595,11 @@ export default function Home() {
                 Awards and Achievements
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full shadow-lg"></div>
-              <p className="text-xl text-white/90 mt-6 max-w-3xl mx-auto drop-shadow-md">
-                Milestones in academic excellence and professional growth
-              </p>
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 max-w-3xl mx-auto mt-6">
+                <p className="text-xl text-white/90 drop-shadow-md">
+                  Milestones in academic excellence and professional growth
+                </p>
+              </div>
             </div>
             
             <TimelineCards />
