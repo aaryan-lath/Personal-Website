@@ -637,7 +637,7 @@ export default function Home() {
               <div className="bg-white rounded-lg shadow-lg p-6">
                 <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                   <a 
-                    href="/Aaryan_Lath-Resume.pdf" 
+                    href="/Aaryan-Lath-Resume.pdf" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
@@ -648,7 +648,7 @@ export default function Home() {
                     Download Resume
                   </a>
                   <a 
-                    href="/Aaryan_Lath-Resume.pdf" 
+                    href="/Aaryan-Lath-Resume.pdf" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
@@ -659,11 +659,12 @@ export default function Home() {
                     Open in New Tab
                   </a>
                 </div>
-                <div className="w-full h-[600px] border border-gray-300 rounded-lg overflow-hidden">
+                <div className="w-full h-[600px] border border-gray-300 rounded-lg overflow-hidden bg-white">
                   <iframe
-                    src="/Aaryan_Lath-Resume.pdf"
-                    className="w-full h-full"
+                    src="/Aaryan-Lath-Resume.pdf#view=FitH&scrollbar=0&toolbar=0&navpanes=0"
+                    className="w-full h-full border-0"
                     title="Aaryan Lath Resume"
+                    style={{ display: 'block' }}
                   />
                 </div>
               </div>
