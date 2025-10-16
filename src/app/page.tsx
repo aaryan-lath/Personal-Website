@@ -145,8 +145,32 @@ function TimelineCards() {
 export default function Home() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isScrollingOut, setIsScrollingOut] = useState(false);
-  
+
   const interests = ['Changemaker', 'Technical Consultant', 'Systems Engineer', 'Product and Design Engineer', 'Aerodynamicist'];
+
+  // Resume and Portfolio options
+  const resumeOptions = {
+    aerodynamics: {
+      name: 'Aerodynamics, Aircraft',
+      file: '/Aaryan-Lath-Resume.pdf',
+      description: 'Focused on aerospace engineering and aircraft design',
+      type: 'pdf'
+    },
+    mechanical: {
+      name: 'Mechanical Based',
+      file: '/Aaryan_Lath-Resume.pdf',
+      description: 'Emphasis on mechanical engineering and systems',
+      type: 'pdf'
+    },
+    portfolio: {
+      name: 'Portfolio',
+      file: 'https://onedrive.live.com/embed?resid=283CC4CEA2648E6D%21109&authkey=%21AIJ9R9xRLBk3P14&em=2',
+      description: 'Complete portfolio of projects and work',
+      type: 'iframe'
+    }
+  };
+
+  const [selectedResume, setSelectedResume] = useState<keyof typeof resumeOptions>('aerodynamics');
 
   useEffect(() => {
     // Ensure page starts at top and prevent scroll restoration
@@ -237,7 +261,7 @@ export default function Home() {
               <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full shadow-lg"></div>
               <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 max-w-4xl mx-auto mt-8">
                 <p className="text-xl text-white/90 drop-shadow-md">
-                  With a GPA of 3.74, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through projects such as the Zero-Gravity Flight Experiment class all while balancing research, TA position and being an active member of clubs. To view more courses and course related projects, click on View more.
+                  With a GPA of 3.74, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through clubs, projects while balancing Research, Teaching Assistant position. To view more courses and course related projects, click on View more.
                 </p>
               </div>
             </div>
@@ -276,7 +300,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Designed and developed a fluid mechanics experiment intended for launch on the New Shepard rocket during a tourist flight, investigating fluid behavior in microgravity environments.
+                  Project Manager for the Small Suborbital orbital refuelling experiment. Created the requirements, budgets and managing 7 engineers for the design of the experiment.
                 </p>
               </div>
 
@@ -571,10 +595,28 @@ export default function Home() {
                 description="Collection of complex mechanical engineering projects showcasing design versatility and technical proficiency."
                 coverImage="/images/Single Piston Sterling Engine.jpg"
                 technologies={['Siemens NX', 'Creo', 'Fusion 360']}
-                driveLink="https://1drv.ms/f/c/283cc4cea2648e6d/EvF8ZzT5bjlJhKyBHEp2QSMBv9b8cMHDS0AUfd_pv7wVVA?e=YDc0oI"
+                driveLink="https://onedrive.live.com/?id=%2Fpersonal%2F283cc4cea2648e6d%2FDocuments%2FPersonal%2DWebsite&viewid=0cf2dcd4%2D7efb%2D43cf%2Dae14%2D6c822d324089&view=0"
                 driveLinkText="View Other CAD Projects"
               />
             </div>
+          </div>
+
+          {/* View Portfolio Button */}
+          <div className="text-center mt-8">
+            <button
+              onClick={() => {
+                setSelectedResume('portfolio');
+                setTimeout(() => {
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+              }}
+              className="inline-flex items-center bg-white text-green-600 border-2 border-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+              </svg>
+              View Complete Design Portfolio
+            </button>
           </div>
           </div>
         </section>
@@ -631,41 +673,81 @@ export default function Home() {
 
           {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Resume Column */}
+            {/* Resume & Portfolio Column */}
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Resume</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Resume & Portfolio</h3>
               <div className="bg-white rounded-lg shadow-lg p-6">
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                  <a 
-                    href="/Aaryan-Lath-Resume.pdf" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
-                  >
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                    Download Resume
-                  </a>
-                  <a 
-                    href="/Aaryan-Lath-Resume.pdf" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
-                  >
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                    Open in New Tab
-                  </a>
+                {/* Resume Selection Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+                  {(Object.keys(resumeOptions) as Array<keyof typeof resumeOptions>).map((key) => (
+                    <button
+                      key={key}
+                      onClick={() => setSelectedResume(key)}
+                      className={`px-4 py-2 rounded-lg font-medium transition-colors text-sm ${
+                        selectedResume === key
+                          ? 'bg-blue-600 text-white shadow-md'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      {resumeOptions[key].name}
+                    </button>
+                  ))}
                 </div>
-                <div className="w-full h-[600px] border border-gray-300 rounded-lg overflow-hidden bg-white">
+                
+                {/* Resume/Portfolio Viewer */}
+                <div className="w-full h-[600px] border border-gray-300 rounded-lg overflow-hidden bg-white mb-6">
                   <iframe
-                    src="/Aaryan-Lath-Resume.pdf#view=FitH&scrollbar=0&toolbar=0&navpanes=0"
+                    key={selectedResume} // Force re-render when selection changes
+                    src={resumeOptions[selectedResume].type === 'pdf'
+                      ? `${resumeOptions[selectedResume].file}#view=FitH&scrollbar=0&toolbar=0&navpanes=0`
+                      : resumeOptions[selectedResume].file
+                    }
                     className="w-full h-full border-0"
-                    title="Aaryan Lath Resume"
+                    title={`Aaryan Lath ${resumeOptions[selectedResume].name}`}
                     style={{ display: 'block' }}
                   />
+                </div>
+
+                {/* Download and Open Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  {resumeOptions[selectedResume].type === 'pdf' ? (
+                    <>
+                      <a
+                        href={resumeOptions[selectedResume].file}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
+                      >
+                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Download Resume
+                      </a>
+                      <a
+                        href={resumeOptions[selectedResume].file}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
+                      >
+                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        Open in New Tab
+                      </a>
+                    </>
+                  ) : (
+                    <a
+                      href="https://onedrive.live.com/?id=%2Fpersonal%2F283cc4cea2648e6d%2FDocuments%2FPersonal%2DWebsite&viewid=0cf2dcd4%2D7efb%2D43cf%2Dae14%2D6c822d324089&view=0"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                      Open Portfolio in OneDrive
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
