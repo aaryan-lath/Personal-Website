@@ -88,11 +88,11 @@ export default function PurdueAircraftTeamsPage() {
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Mentoring newer team members in aircraft design principles and designed an onboarding project for new members.</span>
+                    <span className="text-gray-700">Mentoring newer team members in aircraft design principles and designed an onboarding project for new members. Currently working on designing an conceptual aircraft design certification course for non-aero majors along with freshman and sophomores</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1">•</span>
-                    <span className="text-gray-700">Helping expand the club to the next level by creating a footprint and training the next generation to pass the baton for a secure club future.</span>
+                    <span className="text-gray-700">Helping expand the club to the next level by creating a business team for sponsorships, publicity and budgeting for a secure club future.</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1">•</span>

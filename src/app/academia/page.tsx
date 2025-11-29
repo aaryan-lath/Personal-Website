@@ -33,6 +33,10 @@ const highlights = [
     reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/ETVOCy8aWolPmrJ0B57ikxoB4e725xDsJ0VqnWJDkVty1A?e=yKYg4z'
   },
   {
+    course: 'AAE 412: Computational Fluid Dynamics',
+    description: 'Simulated the performance of a car using an Ahmed Body approximation. Looked at the effect of different slant angles on drag, downforce and overall car behavior.'
+  },
+  {
     course: 'AAE 251: Introduction to Aircraft and Spacecraft Design',
     description: 'Designed a non-human moon landing mission focusing on mission planning and spacecraft design.',
     reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/EaaU4n7dqn5Gq8DKWYQnYa0Bfat58pDDkiVSCMbY4HNGxA?e=XGRMHE'
@@ -58,7 +62,7 @@ const highlights = [
 ];
 
 export default function Academia() {
-  const [activeView, setActiveView] = useState<'list' | 'highlights'>('list');
+  const [activeView, setActiveView] = useState<'list' | 'highlights'>('highlights');
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-100 to-teal-50 relative"

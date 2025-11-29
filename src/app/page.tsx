@@ -281,7 +281,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Performed accident-style analysis and conference-style research papers investigating the safety challenges and risk mitigation strategies for safe urban air mobility systems.
+                  Performed accident-style analysis and wrote a conference-style research paper investigating the safety challenges and risk mitigation strategies for propulsion systems for urban air mobility vehicles (UAMs).
                 </p>
               </div>
 
@@ -300,7 +300,7 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Project Manager for the Small Suborbital orbital refuelling experiment. Created the requirements, budgets and managing 7 engineers for the design of the experiment.
+                  Project Manager for the Small Suborbital orbital refuelling experiment. Created the requirements, budgets and managing 7 engineers for the design of the experiment to be launched on the New Shepard flight.
                 </p>
               </div>
 
@@ -308,18 +308,18 @@ export default function Home() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                      AAE 412: Computational Fluid Dynamics
+                      AAE 339: Aerospace Propulsion
                     </h3>
-                    <p className="text-teal-600 font-medium text-sm mb-3">Experimental Fluid Dynamics</p>
+                    <p className="text-teal-600 font-medium text-sm mb-3">Advanced Propulsion Systems</p>
                   </div>
                   <div className="bg-teal-200 p-3 rounded-full">
                     <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                   </div>
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Simulating the performance of a F1 car with various front wing designs on drag, downforce and overall car behavior.
+                  Conducted an extensive literature survey on novel techniques within the Urban Air Mobility sector, focusing on Distributed Electric Propulsion (DEP) systems to reduce acoustic noise and optimize battery thermal management.
                 </p>
               </div>
             </div>
@@ -554,7 +554,7 @@ export default function Home() {
                 description="Complete turbofan engine design with bypass ratio optimization and performance analysis using advanced CAD modeling."
                 modelUrl="/models/bypass-engine_asm.gltf"
                 coverImage="/images/Engine design.jpg"
-                technologies={['Creo Parametric', 'CFD Analysis', 'Assembly Design']}
+                technologies={['Creo Parametric', 'CFD Analysis', 'Assembly Design', 'GD&T']}
                 details={[
                   'Full 3D parametric engine assembly',
                   'Bypass ratio optimization studies',
@@ -594,7 +594,7 @@ export default function Home() {
                 title="Single Piston Sterling Engine"
                 description="Collection of complex mechanical engineering projects showcasing design versatility and technical proficiency."
                 coverImage="/images/Single Piston Sterling Engine.jpg"
-                technologies={['Siemens NX', 'Creo', 'Fusion 360']}
+                technologies={['Siemens NX', 'Aras Innovater', 'Teamcenter', 'GD&T']}
                 driveLink="https://onedrive.live.com/?id=%2Fpersonal%2F283cc4cea2648e6d%2FDocuments%2FPersonal%2DWebsite&viewid=0cf2dcd4%2D7efb%2D43cf%2Dae14%2D6c822d324089&view=0"
                 driveLinkText="View Other CAD Projects"
               />
