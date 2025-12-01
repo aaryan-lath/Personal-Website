@@ -146,7 +146,7 @@ export default function Home() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isScrollingOut, setIsScrollingOut] = useState(false);
 
-  const interests = ['Changemaker', 'Technical Consultant', 'Systems Engineer', 'Product and Design Engineer', 'Aerodynamicist'];
+  const interests = ['Changemaker', 'Systems Engineer', 'Product and Design Engineer', 'Aerodynamicist'];
 
   // Resume and Portfolio options
   const resumeOptions = {
