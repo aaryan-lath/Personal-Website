@@ -33,10 +33,12 @@ export default function ParallaxSection({
   }, []);
 
   return (
+    // DO NOT TOUCH unless you know why: negative margin keeps parallax sections tightly stitched
     <section className={`relative ${height} overflow-hidden`} style={{ marginBottom: '-1px' }}>
       <div 
         className="absolute bg-cover bg-center bg-no-repeat"
         style={{
+          // Background positioning + transform controls the parallax effect
           backgroundImage: `url(${backgroundImage})`,
           transform: `translateY(${offsetY * speed}px)`,
           willChange: 'transform',
@@ -54,6 +56,7 @@ export default function ParallaxSection({
         <div 
           className="absolute inset-0"
           style={{
+            // DO NOT TOUCH unless you know why: overlay controls section transparency/legibility
             backgroundColor: overlayColor,
             opacity: overlayOpacity
           }}

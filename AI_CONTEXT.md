@@ -1,0 +1,54 @@
+# AI Context for Personal Website
+
+## 1) What this website is
+This is a personal portfolio website for Aaryan Lath. The audience is recruiters, collaborators, and anyone learning about Aaryan’s academic work, projects, research, and experience.
+
+## 2) Tech stack
+- Framework: Next.js (App Router)
+- Language: TypeScript + React
+- Styling: Tailwind CSS (utility classes in JSX) + global CSS in `src/app/globals.css`
+- Deployment: GitHub -> Vercel (as described by the owner)
+
+## 3) Folder map
+- Pages (routes): `src/app/**/page.tsx`
+- Global layout: `src/app/layout.tsx`
+- Global styles: `src/app/globals.css`
+- UI components: `src/components`
+- Shared state: `src/contexts`
+- Public assets (images, PDFs, videos, models): `public/`
+
+Where text/content is usually edited:
+- Main homepage sections and text: `src/app/page.tsx`
+- Other pages (academia, research, activities, timeline): `src/app/**/page.tsx`
+- Reusable card/box copy is passed as props from those pages
+
+## 4) Editing guide (plain English)
+- If you want to change text, look in the relevant page file under `src/app/**/page.tsx`. The text is mostly hardcoded in those files.
+- If you want to change layout/spacing, adjust Tailwind classes in the JSX for that page or component.
+- If you want to change global fonts or overall styles, check `src/app/layout.tsx` and `src/app/globals.css`.
+
+## 5) DO NOT TOUCH (unless absolutely required, take permission from the user since these are fragile areas)
+- Navigation/routing logic: `src/components/Navigation.tsx` and project routing in `src/components/ProjectCard.tsx` + `src/app/project/[slug]/page.tsx`.
+- Section separation/parallax behavior: `src/components/ParallaxSection.tsx` (negative margin and overlay settings are sensitive).
+- Build/deploy config: `next.config.js`, `package.json`, and any Vercel/GitHub settings.
+
+## 6) How to run, build, deploy
+Scripts in `package.json`:
+- Run dev server: `npm run dev`
+- Lint: `npm run lint`
+- Build: `npm run build`
+- Start production: `npm run start`
+
+Deployment flow: push to GitHub, Vercel builds and deploys.
+
+## 7) Notes for AI assistants
+- Keep diffs minimal.
+- Comment major sections when editing (short, helpful comments only).
+- Never refactor unless explicitly asked.
+- Read only the files needed for the task.
+IMPORTANT JSX RULE:
+- Do NOT use // comments inside JSX return blocks.
+- All JSX comments must use {/* ... */} and must not break JSX syntax.
+- If unsure, place comments ABOVE the return() statement instead.
+
+

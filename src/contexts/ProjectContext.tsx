@@ -22,6 +22,7 @@ interface ProjectContextType {
 const ProjectContext = createContext<ProjectContextType | undefined>(undefined);
 
 export function ProjectProvider({ children }: { children: ReactNode }) {
+  // Stores the currently selected project so the project detail page can render it
   const [currentProject, setCurrentProject] = useState<ProjectData | null>(null);
 
   return (

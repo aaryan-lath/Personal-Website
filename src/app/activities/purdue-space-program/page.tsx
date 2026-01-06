@@ -3,10 +3,14 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+// Page: Purdue Space Program activity details
+// EDIT TEXT HERE: Page copy is hardcoded in this file.
 export default function PurdueSpaceProgramPage() {
   const router = useRouter();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   
+  // EDIT TEXT HERE: Image carousel content.
+  // BLOCK GROUP: Each object is one image; add another by copying an object.
   const images = [
     {
       src: '/images/PSP-Build.jpg',
@@ -49,11 +53,14 @@ export default function PurdueSpaceProgramPage() {
               Back to Activities
             </button>
             
+            {/* EDIT TEXT HERE: Page title */}
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Purdue Space Program</h1>
+            {/* EDIT TEXT HERE: Intro paragraph */}
             <p className="text-lg text-gray-600 mb-6">
               Contributed to the PSP Satellites team as a Structures, Mechanisms and Thermals member, deputy systems director and to the entire organization of 10 teams as the secretary.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
+              {/* EDIT TEXT HERE: Tag labels */}
               <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">CubeSat Development</span>
               <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">Systems Engineering</span>
               <span className="px-4 py-2 bg-purple-100 text-purple-800 font-medium rounded-lg">Collaboration</span>
@@ -77,7 +84,9 @@ export default function PurdueSpaceProgramPage() {
               {/* My Contributions */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">My Contributions</h2>
+                {/* Layout tip: This is a vertical list. If you add many items and want two columns, change this container to a grid and add something like md:grid-cols-2. */}
                 <ul className="space-y-4">
+                  {/* BLOCK GROUP: Each list item is one contribution; add another by copying a list item. */}
                   <li className="flex items-start">
                     <span className="text-purple-600 mr-3 mt-1">•</span>
                     <span className="text-gray-700">Optimized the organizations backend operations as the secretary and performed some technical director tasks, improving overall club efficiency, contributing to its vision.</span>

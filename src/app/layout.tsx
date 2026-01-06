@@ -33,6 +33,7 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
         style={{ scrollBehavior: 'auto' }}
       >
+        {/* App-wide layout wrapper: navigation + shared project context */}
         <ProjectProvider>
           <Navigation />
           {children}

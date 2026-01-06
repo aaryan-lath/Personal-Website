@@ -20,6 +20,7 @@ export default function ResearchBox({
   bgColor = 'bg-white',
   href
 }: ResearchBoxProps) {
+  // Content is hardcoded in the page that renders this component
   const [isVisible, setIsVisible] = useState(false);
   const boxRef = useRef<HTMLDivElement>(null);
 
@@ -54,6 +55,7 @@ export default function ResearchBox({
         )}
       </div>
       <p className="text-gray-600 mb-6">{description}</p>
+      {/* Layout tip: This is a vertical list. If you add many items and want two columns, change this container to a grid and add something like md:grid-cols-2. */}
       <ul className="space-y-2 text-gray-600">
         {points.map((point, index) => (
           <li key={index}>• {point}</li>

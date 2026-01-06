@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 
+// Page: RETHi research overview and poster
+// EDIT TEXT HERE: Page copy is hardcoded in this file.
 export default function RETHiResearchPage() {
   const router = useRouter();
 
@@ -21,7 +23,9 @@ export default function RETHiResearchPage() {
               Back to Research
             </button>
             
+            {/* EDIT TEXT HERE: Page title */}
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Resilient Extraterrestrial Habitat Institute (RETHi)</h1>
+            {/* EDIT TEXT HERE: Intro paragraph */}
             <p className="text-lg text-gray-600 mb-6">
               The Systems Engineering part of my research entailed performing trade studies to evaluate safety controls by assessing the cost and habitat resilience on a disruption on the lunar habitat. Vibration Isolation included conducting FEA simulations to test the loads on the device and conduction tensile tests on the Vectran straps with different stitching patterns.
             </p>
@@ -68,7 +72,9 @@ export default function RETHiResearchPage() {
               {/* Research Areas */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">Key Research Areas</h2>
+                {/* Layout tip: This is a vertical list. If you add many items and want two columns, change this container to a grid and add something like md:grid-cols-2. */}
                 <ul className="space-y-3">
+                  {/* BLOCK GROUP: Each list item is one research area; add another by copying a list item. */}
                   <li className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1">•</span>
                     <div>

@@ -6,7 +6,8 @@ import ProjectCard from '../components/ProjectCard';
 import ParallaxSection from '../components/ParallaxSection';
 import ResearchBox from '../components/ResearchBox';
 
-// Timeline data with grouped images
+// EDIT TEXT HERE: Timeline preview cards on the homepage.
+// BLOCK GROUP: Each object below is one timeline card; add another by copying an object.
 const timelineEvents = [
   {
     id: 1,
@@ -30,6 +31,16 @@ const timelineEvents = [
     images: [
       '/images/timeline/AAE-Banquet.jpg',
       '/images/timeline/AAE-Banquet2.jpg'
+    ]
+  },
+  {
+    id: 4,
+    title: 'Purdue Space Day',
+    date: 'October 2024',
+    description: 'Sparked the love for Aerospace Engineering in the upcoming generation as a Group Commander; keeping them engaged through various techniques such as fun facts and other engaging activities. Had the chance to meet NASA astronaut Jerry Ross.',
+    images: [
+      '/images/timeline/PSD-1.jpg',
+      '/images/timeline/PSD-2.jpg'
     ]
   }
 ];
@@ -71,17 +82,21 @@ function TimelineCards() {
     <>
       <div className="text-center mb-8">
         <div className="inline-flex items-center bg-white/90 backdrop-blur-sm rounded-lg px-4 py-2 text-sm text-gray-600 shadow-lg">
+          {/* Icon sizing/color/spacing are controlled by w-4 h-4, text-gray-500, and mr-2 */}
           <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
           </svg>
+          {/* EDIT TEXT HERE: Helper text above the timeline preview cards */}
           Hover over any card to reveal detailed descriptions
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      {/* BLOCK GROUP: Cards are generated from timelineEvents above. */}
+      {/* Layout tip: 1 card per row on small screens, 2 on md, 4 on lg. */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
         {timelineEvents.map((event, index) => (
           <div
             key={event.id}
-            className="flip-card h-80 perspective-1000 cursor-pointer group"
+            className="flip-card h-64 lg:h-56 perspective-1000 cursor-pointer group"
             onClick={() => handleCardFlip(event.id)}
             onMouseEnter={() => handleCardFlip(event.id)}
             onMouseLeave={() => handleCardFlip(event.id)}
@@ -100,12 +115,12 @@ function TimelineCards() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute top-4 left-4">
                     <div className="bg-black/40 backdrop-blur-sm rounded px-2 py-1">
-                      <p className="text-white text-sm font-medium">{event.date}</p>
+                      <p className="text-white text-xs lg:text-xs font-medium">{event.date}</p>
                     </div>
                   </div>
                   <div className="absolute bottom-4 right-4">
-                    <div className="bg-black/40 backdrop-blur-sm rounded px-3 py-2 text-right">
-                      <h3 className="text-white text-lg font-bold leading-tight">{event.title}</h3>
+                    <div className="bg-black/40 backdrop-blur-sm rounded px-2 py-1.5 text-right">
+                      <h3 className="text-white text-sm lg:text-xs font-bold leading-tight">{event.title}</h3>
                     </div>
                   </div>
                   {event.images.length > 1 && (
@@ -117,10 +132,10 @@ function TimelineCards() {
               </div>
 
               {/* Back of card */}
-              <div className="flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-xl shadow-lg bg-white p-6 flex flex-col justify-center">
+              <div className="flip-card-back absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-xl shadow-lg bg-white p-4 lg:p-3 flex flex-col justify-center">
                 <div className="text-center">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-gray-900 font-bold text-xl flex-1">{event.title}</h3>
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-gray-900 font-bold text-base lg:text-sm flex-1">{event.title}</h3>
                     <svg 
                       className="w-5 h-5 text-gray-400 flex-shrink-0 cursor-pointer" 
                       fill="none" 
@@ -130,8 +145,8 @@ function TimelineCards() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                     </svg>
                   </div>
-                  <p className="text-gray-700 text-sm mb-4 font-medium">{event.date}</p>
-                  <p className="text-gray-600 text-sm leading-relaxed">{event.description}</p>
+                  <p className="text-gray-700 text-xs lg:text-xs mb-3 font-medium">{event.date}</p>
+                  <p className="text-gray-600 text-xs lg:text-xs leading-relaxed">{event.description}</p>
                 </div>
               </div>
             </div>
@@ -142,13 +157,16 @@ function TimelineCards() {
   );
 }
 
+// Page: main landing page with all sections (hero, academia, internships, research, projects, timeline, contact)
 export default function Home() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [isScrollingOut, setIsScrollingOut] = useState(false);
 
-  const interests = ['Changemaker', 'Systems Engineer', 'Product and Design Engineer', 'Aerodynamicist'];
+  // EDIT TEXT HERE: Rotating interests shown in the hero section.
+  const interests = ['Leader', 'Systems Engineer', 'Product and Design Engineer', 'Changemaker'];
 
-  // Resume and Portfolio options
+  // EDIT TEXT HERE: Resume/portfolio options shown in the Resume & Contact section.
+  // BLOCK GROUP: Each object below is one selectable option; add another by duplicating a key.
   const resumeOptions = {
     aerodynamics: {
       name: 'Aerodynamics, Aircraft',
@@ -190,7 +208,7 @@ export default function Home() {
         setCurrentWordIndex((prev) => (prev + 1) % interests.length);
         setIsScrollingOut(false);
       }, 500); // Match the transition duration
-    }, 3000); // Change word every 3 seconds
+    }, 3500); // Change word every 3 seconds
 
     return () => clearInterval(interval);
   }, [interests.length]);
@@ -204,9 +222,11 @@ export default function Home() {
         overlayColor="black"
         overlayOpacity={0.5}
       >
+        {/* Hero section */}
         <section id="home" className="min-h-screen flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
             <div className="text-center">
+              {/* Transparency/blur and padding control the card feel over the background */}
               <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
                 <div className="mb-8">
                   <img 
@@ -215,9 +235,11 @@ export default function Home() {
                     className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white/20 shadow-lg object-cover"
                   />
                 </div>
+                {/* EDIT TEXT HERE: Your name in the hero headline */}
                 <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 drop-shadow-lg">
                   Aaryan Lath
                 </h1>
+                {/* EDIT TEXT HERE: Rotating interests line under your name */}
                 <div className="text-xl sm:text-2xl text-white/90 mb-8 drop-shadow-md">
                   <style jsx>{`
                     .scroll-in {
@@ -231,11 +253,14 @@ export default function Home() {
                     }
                   `}</style>
                   <span className={isScrollingOut ? 'scroll-out' : 'scroll-in'}>
-                    Aspiring {interests[currentWordIndex]}
+                    {interests[currentWordIndex] === 'Leader'
+                      ? 'Leader'
+                      : `Aspiring ${interests[currentWordIndex]}`}
                   </span>
                 </div>
+                {/* EDIT TEXT HERE: Hero intro paragraph */}
                 <p className="text-lg text-white/80 max-w-3xl mx-auto mb-12 drop-shadow-md">
-                  As a senior in Aeronautical and Astronautical Engineering at Purdue University, I've consistently demonstrated academic excellence while gaining hands-on experience in complex engineering systems. Having been admitted to the highly competitive 4+1 program, I maintain a strong academic record with Dean's List recognition every semester. My unique perspective combines technical expertise with business acumen, understanding how engineering decisions impact organizational success. As Chief Engineer of SAE Aero, I lead cross-functional teams while balancing research responsibilities and teaching assistant duties. My experience spans from CubeSat development through the Purdue Space Program to as an aerodynamics engineer at the Purdue Aerial Robotics Team, position me to tackle multidisciplinary challenges in aerospace and beyond.
+                  As a senior in AAE at Purdue, I've consistently demonstrated academic excellence being in the Dean's List for every semester while gaining hands-on experience in complex engineering projects, positioning me to tackle multidisciplinary challenges in aerospace and beyond. My unique perspective and first principles thinking combines technical expertise with business acumen, understanding how decisions impact organizational success. My experience includes being the Chief Engineer of SAE Aero, being an Undergraduate Teaching Assistant, Summer Undergraduate Research Fellowship, CubeSat development to corporate-world experience at Siemens.
                 </p>
               </div>
             </div>
@@ -252,27 +277,33 @@ export default function Home() {
         overlayColor="black"
         overlayOpacity={0.4}
       >
+        {/* Academia overview section */}
         <section id="academia" className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
             <div className="text-center mb-16">
+              {/* EDIT TEXT HERE: Section title */}
               <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Academia
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full shadow-lg"></div>
               <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 max-w-4xl mx-auto mt-8">
+                {/* EDIT TEXT HERE: Section intro paragraph */}
                 <p className="text-xl text-white/90 drop-shadow-md">
-                  With a GPA of 3.74, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through clubs, projects while balancing Research, Teaching Assistant position. To view more courses and course related projects, click on View more.
+                  With a GPA of 3.73, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through clubs, projects while balancing Research, Teaching Assistant position. To view more courses and course related projects, click on View more.
                 </p>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              <div className="bg-white/95 backdrop-blur-sm border border-teal-200 rounded-lg p-8 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+            {/* BLOCK GROUP: Each card below is one highlighted course; duplicate a card to add another. */}
+            {/* Layout tip: 1 card per row on small screens, 2 on md, 4 on lg. */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+              {/* EDIT TEXT HERE: Card 1 content (title, subtitle, description) */}
+              <div className="bg-white/95 backdrop-blur-sm border border-teal-200 rounded-lg p-6 lg:p-5 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
                       AAE 571: Complex System Safety
                     </h3>
-                    <p className="text-teal-600 font-medium text-sm mb-3">Graduate Level Course</p>
+                    <p className="text-teal-600 font-medium text-base lg:text-sm mb-1">Graduate Level Course</p>
                   </div>
                   <div className="bg-teal-200 p-3 rounded-full">
                     <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -280,47 +311,111 @@ export default function Home() {
                     </svg>
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-700 mb-4 leading-relaxed">
                   Performed accident-style analysis and wrote a conference-style research paper investigating the safety challenges and risk mitigation strategies for propulsion systems for urban air mobility vehicles (UAMs).
                 </p>
+                <a
+                  href="https://1drv.ms/b/c/283cc4cea2648e6d/IQDoS6CLJZmyTJFwCmTZQf8gAZhJQr0ZtMoLTUnXOJUff_o?e=jtXzlR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium text-sm"
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  View Report on OneDrive
+                </a>
               </div>
 
-              <div className="bg-white/95 backdrop-blur-sm border border-teal-200 rounded-lg p-8 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <div className="bg-white/95 backdrop-blur-sm border border-teal-200 rounded-lg p-6 lg:p-5 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
                       AAE 418: Zero-Gravity Flight Experiment
                     </h3>
-                    <p className="text-teal-600 font-medium text-sm mb-3">Advanced Experimental Design</p>
+                    <p className="text-teal-600 font-medium text-base lg:text-sm mb-1">Advanced Experimental Design</p>
                   </div>
                   <div className="bg-teal-200 p-3 rounded-full">
                     <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2L10 6h4L12 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v12" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 18l-2 2M16 18l2 2" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 18h4" />
                     </svg>
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-700 mb-4 leading-relaxed">
                   Project Manager for the Small Suborbital orbital refuelling experiment. Created the requirements, budgets and managing 7 engineers for the design of the experiment to be launched on the New Shepard flight.
                 </p>
               </div>
 
-              <div className="bg-white/95 backdrop-blur-sm border border-teal-200 rounded-lg p-8 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <div className="bg-white/95 backdrop-blur-sm border border-teal-200 rounded-lg p-6 lg:p-5 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
                       AAE 339: Aerospace Propulsion
                     </h3>
-                    <p className="text-teal-600 font-medium text-sm mb-3">Advanced Propulsion Systems</p>
+                    <p className="text-teal-600 font-medium text-base lg:text-sm mb-1">Advanced Propulsion Systems</p>
                   </div>
                   <div className="bg-teal-200 p-3 rounded-full">
                     <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      <circle cx="12" cy="12" r="2.5" strokeWidth="2" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v3M12 17v3M4 12h3M17 12h3" />
+                      <circle cx="7" cy="7" r="1.5" strokeWidth="2" />
+                      <circle cx="17" cy="7" r="1.5" strokeWidth="2" />
+                      <circle cx="7" cy="17" r="1.5" strokeWidth="2" />
+                      <circle cx="17" cy="17" r="1.5" strokeWidth="2" />
                     </svg>
                   </div>
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed">
+                <p className="text-gray-700 mb-4 leading-relaxed">
                   Conducted an extensive literature survey on novel techniques within the Urban Air Mobility sector, focusing on Distributed Electric Propulsion (DEP) systems to reduce acoustic noise and optimize battery thermal management.
                 </p>
+                <a
+                  href="https://1drv.ms/b/c/283cc4cea2648e6d/IQA6yHs1H-h6S7gXfrI9-l6AAdf22eKL4iGEPXAwWg3WuQU?e=wKxTTw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium text-sm"
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  View Report on OneDrive
+                </a>
+              </div>
+
+              <div className="bg-white/95 backdrop-blur-sm border border-teal-200 rounded-lg p-6 lg:p-5 hover:bg-teal-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
+                      AAE 412: Computational Fluid Dynamics
+                    </h3>
+                    <p className="text-teal-600 font-medium text-base lg:text-sm mb-1">Advanced CFD Course</p>
+                  </div>
+                  <div className="bg-teal-200 p-3 rounded-full">
+                    <svg className="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10h14l-1-4H6l-1 4z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10v6h14v-6" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16h10" />
+                      <circle cx="8" cy="18" r="1.5" strokeWidth="2" />
+                      <circle cx="16" cy="18" r="1.5" strokeWidth="2" />
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-4 leading-relaxed">
+                  Simulated the performance of a car using an Ahmed Body approximation. Looked at the effect of different slant angles on drag, downforce and overall car behavior.
+                </p>
+                <a
+                  href="https://1drv.ms/b/c/283cc4cea2648e6d/IQCuAfC-0OVNToe4aU7R4HdiAYk1XaGxYH36NZPu4yecjRw?e=dzhqSN"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium text-sm"
+                >
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                  View Report on OneDrive
+                </a>
               </div>
             </div>
             
@@ -329,6 +424,7 @@ export default function Home() {
                 href="/academia"
                 className="inline-flex items-center bg-white text-teal-600 border-2 border-teal-600 px-8 py-3 rounded-lg font-semibold hover:bg-teal-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
+                {/* EDIT TEXT HERE: Button label */}
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
@@ -347,22 +443,27 @@ export default function Home() {
         overlayColor="black"
         overlayOpacity={0.2}
       >
+        {/* Professional experience section */}
         <section id="internships" className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
             <div className="text-center mb-16">
+              {/* EDIT TEXT HERE: Section title */}
               <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Professional Experiences
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-indigo-400 to-indigo-600 mx-auto rounded-full shadow-lg"></div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white/95 backdrop-blur-sm border border-indigo-200 rounded-lg p-8 hover:bg-indigo-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+            {/* BLOCK GROUP: Each card below is one experience; duplicate a card to add another. */}
+            {/* Layout tip: 1 card per row on small screens, 2 on md, 4 on lg. */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {/* EDIT TEXT HERE: Card 1 content (role, company, dates, bullets) */}
+              <div className="bg-white/95 backdrop-blur-sm border border-indigo-200 rounded-lg p-6 lg:p-5 hover:bg-indigo-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
                       Systems Engineering Intern
                     </h3>
-                    <p className="text-indigo-600 font-medium text-lg mb-1">Siemens Smart Infrastructure</p>
+                    <p className="text-indigo-600 font-medium text-base lg:text-sm mb-1">Siemens Smart Infrastructure</p>
                     <p className="text-gray-500 text-sm">Summer 2025</p>
                   </div>
                   <div className="bg-indigo-200 p-3 rounded-full">
@@ -382,13 +483,13 @@ export default function Home() {
                 </div>
               </div>
               
-              <div className="bg-white/95 backdrop-blur-sm border border-cyan-200 rounded-lg p-8 hover:bg-cyan-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <div className="bg-white/95 backdrop-blur-sm border border-cyan-200 rounded-lg p-6 lg:p-5 hover:bg-cyan-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
                       Undergraduate Teaching Assistant
                     </h3>
-                    <p className="text-cyan-600 font-medium text-lg mb-1">Purdue University</p>
+                    <p className="text-cyan-600 font-medium text-base lg:text-sm mb-1">Purdue University</p>
                     <p className="text-gray-500 text-sm">Jan 2025 - Present</p>
                   </div>
                   <div className="bg-cyan-200 p-3 rounded-full">
@@ -399,22 +500,46 @@ export default function Home() {
                 </div>
                 <p className="text-gray-700 mb-4">
                   TA for the Aircraft and Spacecraft Design class (AAE 251):
-                  <br />• Led study sessions to teach 50+ students, core AAE 251 (Aircraft and Spacecraft Design) course material.
-                  <br />• Provided personalized support to students with concepts and MATLAB troubleshooting.
-                  <br />• Guided students in understanding key design principles for the aircraft and spacecraft design project.
+                  <br />• Led study sessions to teach 50+ students, core AAE 251 (Aircraft and Spacecraft Design) course material and troubleshooting MATLAB bugs.
+                  <br />• Provided personalized support to students with concepts and understanding key design principles for the aircraft and spacecraft design projects.
                 </p>
                 <div className="text-sm text-cyan-600 font-medium">
                   Teaching • MATLAB • Aircraft Design • Spacecraft Design • Student Mentoring
                 </div>
               </div>
 
-              <div className="bg-white/95 backdrop-blur-sm border border-emerald-200 rounded-lg p-8 hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <div className="bg-white/95 backdrop-blur-sm border border-cyan-200 rounded-lg p-6 lg:p-5 hover:bg-cyan-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-semibold text-gray-900 mb-2">
+                    <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
+                      Student Grader
+                    </h3>
+                    <p className="text-cyan-600 font-medium text-base lg:text-sm mb-1">Purdue University</p>
+                    <p className="text-gray-500 text-sm">Fall 2024, Spring 2026</p>
+                  </div>
+                  <div className="bg-cyan-200 p-3 rounded-full">
+                    <svg className="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-gray-700 mb-4">
+                  Grader for the Aircraft and Spacecraft Design class (AAE 251):
+                  <br />• Corrected 80+ Homework questions and Individual Self-Assessments.
+                  <br />• Provided relevant feedback to help the student improve the quality of their work for subsequent homeworks
+                </p>
+                <div className="text-sm text-cyan-600 font-medium">
+                  Grading • Aircraft Design • Spacecraft Design • Feedback
+                </div>
+              </div>
+
+              <div className="bg-white/95 backdrop-blur-sm border border-emerald-200 rounded-lg p-6 lg:p-5 hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
                       Financial Analyst
                     </h3>
-                    <p className="text-emerald-600 font-medium text-lg mb-1">Ganshyam Balaji Financials</p>
+                    <p className="text-emerald-600 font-medium text-base lg:text-sm mb-1">Ganshyam Balaji Financials</p>
                     <p className="text-gray-500 text-sm">Summer 2024</p>
                   </div>
                   <div className="bg-emerald-200 p-3 rounded-full">
@@ -445,15 +570,20 @@ export default function Home() {
         overlayColor="black"
         overlayOpacity={0.4}
       >
+        {/* Research section */}
         <section id="research" className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-0">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 relative z-0">
             <div className="text-center mb-16">
+              {/* EDIT TEXT HERE: Section title */}
               <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Research Work
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-600 mx-auto rounded-full shadow-lg"></div>
             </div>
+          {/* BLOCK GROUP: Each ResearchBox below is one research item; add another ResearchBox to add more. */}
+          {/* Layout tip: 1 box per row on small screens, 2 on lg. If you add a 3rd box and want 3 on one row (large screens), change lg:grid-cols-2 to lg:grid-cols-3. */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* EDIT TEXT HERE: Research item content (title, description, points) */}
             <ResearchBox
               title="Resilient Extraterrestrial Habitat Institute (RETHi)"
               description="Worked on 2 projects from the Summer of 2024 to Spring 2025: Systems Engineering and Vibration Isolation"
@@ -492,15 +622,20 @@ export default function Home() {
         overlayColor="black"
         overlayOpacity={0.2}
       >
+        {/* Applied engineering projects section */}
         <section id="activities" className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
             <div className="text-center mb-16">
+              {/* EDIT TEXT HERE: Section title */}
               <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Applied Engineering Projects
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full shadow-lg"></div>
             </div>
+          {/* BLOCK GROUP: Each Link card below is one activity; duplicate a block to add another. */}
+          {/* Layout tip: 1 card per row on small screens, 2 on md. If you add a 3rd card and want 3 on one row (medium/large screens), change md:grid-cols-2 to md:grid-cols-3. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {/* EDIT TEXT HERE: Activity card 1 content (title, description, tags, CTA) */}
             <Link href="/activities/purdue-aircraft-teams" className="group">
               <div className="bg-blue-50 rounded-lg p-8 hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer">
                 <div className="flex items-start justify-between mb-4">
@@ -547,8 +682,11 @@ export default function Home() {
             </Link>
           </div>
           
+          {/* BLOCK GROUP: Each ProjectCard below is one project; duplicate a ProjectCard to add another. */}
+          {/* Layout tip: 1 card per row on small screens, 2 on md. If you add a 3rd card and want 3 on one row (medium/large screens), change md:grid-cols-2 to md:grid-cols-3. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div style={{ animationDelay: '0.1s' }}>
+              {/* EDIT TEXT HERE: Project card 1 content (title, description, links, images) */}
               <ProjectCard
                 title="TurboFan Engine Assembly"
                 description="Complete turbofan engine design with bypass ratio optimization and performance analysis using advanced CAD modeling."
@@ -601,7 +739,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* View Portfolio Button */}
+          {/* EDIT TEXT HERE: Button label for the portfolio call-to-action */}
           <div className="text-center mt-8">
             <button
               onClick={() => {
@@ -630,20 +768,24 @@ export default function Home() {
         overlayColor="black"
         overlayOpacity={0.6}
       >
+        {/* Awards and achievements section */}
         <section id="timeline" className="py-20 relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
             <div className="text-center mb-16">
+              {/* EDIT TEXT HERE: Section title */}
               <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Awards and Achievements
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full shadow-lg"></div>
               <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 max-w-3xl mx-auto mt-6">
+                {/* EDIT TEXT HERE: Section intro line */}
                 <p className="text-xl text-white/90 drop-shadow-md">
                   Milestones in academic excellence and professional growth
                 </p>
               </div>
             </div>
             
+            {/* BLOCK GROUP: TimelineCards uses timelineEvents above; add events in that array. */}
             <TimelineCards />
             
             <div className="text-center">
@@ -651,6 +793,7 @@ export default function Home() {
                 href="/timeline"
                 className="inline-flex items-center bg-white text-orange-600 border-2 border-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
+                {/* EDIT TEXT HERE: Button label */}
                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                 </svg>
@@ -661,11 +804,15 @@ export default function Home() {
         </section>
       </ParallaxSection>
 
+      {/* Resume + contact section */}
+      {/* py-20 sets vertical spacing; bg-gray-50 separates this section visually */}
       <section id="contact" className="py-20 bg-gray-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Contact Header */}
           <div className="text-center mb-16">
+            {/* EDIT TEXT HERE: Section title */}
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Resume & Contact</h2>
+            {/* EDIT TEXT HERE: Section intro paragraph */}
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Download my resume and get in touch for aerospace engineering collaboration opportunities
             </p>
@@ -675,10 +822,13 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Resume & Portfolio Column */}
             <div>
+              {/* EDIT TEXT HERE: Column header */}
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Resume & Portfolio</h3>
               <div className="bg-white rounded-lg shadow-lg p-6">
                 {/* Resume Selection Buttons */}
+                {/* Layout tip: Buttons stack in one column on small screens, and switch to a row on sm+. If you add more buttons and want two rows, change sm:flex-row to sm:flex-col. */}
                 <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+                  {/* BLOCK GROUP: Buttons are generated from resumeOptions above. */}
                   {(Object.keys(resumeOptions) as Array<keyof typeof resumeOptions>).map((key) => (
                     <button
                       key={key}
@@ -754,14 +904,17 @@ export default function Home() {
 
             {/* Contact Column */}
             <div>
+              {/* EDIT TEXT HERE: Column header */}
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Get In Touch</h3>
               <div className="bg-white rounded-lg shadow-lg p-8">
+                {/* EDIT TEXT HERE: Contact intro paragraph */}
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                   Interested in hiring a dedicated, well-rounded professional whose ambitions never sleep? 
                   Have questions about my work or want to discuss opportunities? I'd love to connect.
                 </p>
                 
                 <div className="space-y-4">
+                  {/* EDIT TEXT HERE: Email button label */}
                   <a 
                     href="mailto:aaryanlath05@gmail.com" 
                     className="w-full bg-blue-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
@@ -772,6 +925,7 @@ export default function Home() {
                     Send Email
                   </a>
                   
+                  {/* EDIT TEXT HERE: LinkedIn button label */}
                   <a 
                     href="https://www.linkedin.com/in/aaryan-lath/" 
                     target="_blank"
@@ -787,6 +941,7 @@ export default function Home() {
 
                 <div className="mt-8 pt-8 border-t border-gray-200">
                   <div className="text-sm text-gray-500 text-center">
+                    {/* EDIT TEXT HERE: Contact details */}
                     <p className="mb-2">
                       <span className="font-medium">Email:</span> aaryanlath05@gmail.com
                     </p>

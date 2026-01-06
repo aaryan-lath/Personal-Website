@@ -2,6 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 
+// Page: Zucrow lab research overview
+// EDIT TEXT HERE: Page copy is hardcoded in this file.
 export default function ZucrowResearchPage() {
   const router = useRouter();
 
@@ -21,7 +23,9 @@ export default function ZucrowResearchPage() {
               Back to Research
             </button>
             
+            {/* EDIT TEXT HERE: Page title */}
             <h1 className="text-4xl font-bold text-gray-900 mb-4">Zucrow Research</h1>
+            {/* EDIT TEXT HERE: Intro paragraph */}
             <p className="text-lg text-gray-600 mb-6">
               Working at Prof. Nicole Key's High Speed Compressor lab from August 2025 - Present conducting research on inlet vortex distortion.
             </p>
@@ -52,7 +56,9 @@ export default function ZucrowResearchPage() {
               {/* Research Areas */}
               <div className="bg-white rounded-lg shadow-md p-6">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">Key Research Areas</h2>
+                {/* Layout tip: This is a vertical list. If you add many items and want two columns, change this container to a grid and add something like md:grid-cols-2. */}
                 <ul className="space-y-3">
+                    {/* BLOCK GROUP: Each list item is one research area; add another by copying a list item. */}
                     <li className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1">•</span>
                     <div>

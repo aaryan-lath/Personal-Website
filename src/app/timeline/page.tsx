@@ -3,6 +3,9 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
+// Page: full timeline of awards/achievements
+// EDIT TEXT HERE: Timeline cards are hardcoded below.
+// BLOCK GROUP: Each object in timelineData is one card; add another by copying an object.
 interface TimelineItem {
   id: string;
   image?: string;
@@ -164,20 +167,26 @@ export default function TimelinePage() {
     <div className="min-h-screen bg-gray-50">
       <div className="pt-24 pb-16 px-4 max-w-7xl mx-auto">
         <div className="text-center mb-16">
+          {/* EDIT TEXT HERE: Page title */}
           <h1 className="text-7xl font-bold text-gray-900 mb-6">
             Timeline
           </h1>
+          {/* EDIT TEXT HERE: Page intro line */}
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             A visual journey through key moments and achievements
           </p>
           <div className="inline-flex items-center bg-gray-100 rounded-lg px-4 py-2 text-sm text-gray-600">
+            {/* Icon sizing/color/spacing are controlled by w-4 h-4, text-gray-500, and mr-2 */}
             <svg className="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
             </svg>
+            {/* EDIT TEXT HERE: Helper text above the cards */}
             Hover over any card to reveal detailed descriptions
           </div>
         </div>
 
+        {/* BLOCK GROUP: Cards are generated from timelineData above. */}
+        {/* Layout tip: 1 card per row on small screens, 2 on md, 3 on lg, 4 on xl. If you add a 5th card and want 5 on one row (extra large screens), change xl:grid-cols-4 to xl:grid-cols-5. */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {timelineData.map((item) => (
             <div

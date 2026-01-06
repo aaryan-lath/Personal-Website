@@ -3,6 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
+// Page: academic coursework and highlights
+// Content sources below are hardcoded arrays in this file.
+// EDIT TEXT HERE: Course list shown in the "Course List" view.
+// BLOCK GROUP: Each string below is one course line; add another by adding a new string.
 const courses = [
   'AAE 203: Aeromechanics',
   'AAE 204: Aeromechanics II',
@@ -26,6 +30,8 @@ const courses = [
   'Macroeconomics'
 ];
 
+// EDIT TEXT HERE: Highlight cards shown in the "Highlights" view.
+// BLOCK GROUP: Each object below is one highlight card; add another by copying an object.
 const highlights = [
   {
     course: 'MFET 163: Graphical Communication And Spatial Analysis',
@@ -34,7 +40,18 @@ const highlights = [
   },
   {
     course: 'AAE 412: Computational Fluid Dynamics',
-    description: 'Simulated the performance of a car using an Ahmed Body approximation. Looked at the effect of different slant angles on drag, downforce and overall car behavior.'
+    description: 'Simulated the performance of a car using an Ahmed Body approximation. Looked at the effect of different slant angles on drag, downforce and overall car behavior.',
+    reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/IQCuAfC-0OVNToe4aU7R4HdiAYk1XaGxYH36NZPu4yecjRw?e=dzhqSN'
+  },
+  {
+    course: 'AAE 339: Aerospace Propulsion',
+    description: 'Conducted an extensive literature survey on novel techniques within the Urban Air Mobility sector, focusing on Distributed Electric Propulsion (DEP) systems to reduce acoustic noise and optimize battery thermal management.',
+    reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/IQA6yHs1H-h6S7gXfrI9-l6AAdf22eKL4iGEPXAwWg3WuQU?e=wKxTTw'
+  },
+  {
+    course: 'AAE 571: Complex System Safety',
+    description: 'Performed accident-style analysis and wrote a conference-style research paper investigating the safety challenges and risk mitigation strategies for propulsion systems for urban air mobility vehicles (UAMs).',
+    reportLink: 'https://1drv.ms/b/c/283cc4cea2648e6d/IQDoS6CLJZmyTJFwCmTZQf8gAZhJQr0ZtMoLTUnXOJUff_o?e=jtXzlR'
   },
   {
     course: 'AAE 251: Introduction to Aircraft and Spacecraft Design',
@@ -67,6 +84,7 @@ export default function Academia() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-100 to-teal-50 relative"
       style={{
+        // Background image and fixed attachment create the page atmosphere
         backgroundImage: `url('/images/Urban-Mobility.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -78,6 +96,7 @@ export default function Academia() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
+              {/* EDIT TEXT HERE: Back button label */}
               <Link 
                 href="/"
                 className="inline-flex items-center text-teal-600 hover:text-teal-800 transition-colors mb-6"
@@ -87,7 +106,9 @@ export default function Academia() {
                 </svg>
                 Back to Home
               </Link>
+              {/* EDIT TEXT HERE: Page title */}
               <h1 className="text-4xl font-bold text-gray-900 mb-4">Academic Coursework</h1>
+              {/* EDIT TEXT HERE: Page intro paragraph */}
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                 Comprehensive overview of my academic journey at Purdue University
               </p>
@@ -99,6 +120,7 @@ export default function Academia() {
             <div className="lg:col-span-2">
               <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-6">
                 <div className="flex items-center justify-between mb-6">
+                  {/* EDIT TEXT HERE: Section title */}
                   <h2 className="text-2xl font-semibold text-gray-900">Course Overview</h2>
                   <div className="flex bg-gray-100 rounded-lg p-1">
                     <button
@@ -109,6 +131,7 @@ export default function Academia() {
                           : 'text-gray-600 hover:text-gray-900'
                       }`}
                     >
+                      {/* EDIT TEXT HERE: Tab label */}
                       Course List
                     </button>
                     <button
@@ -119,13 +142,16 @@ export default function Academia() {
                           : 'text-gray-600 hover:text-gray-900'
                       }`}
                     >
+                      {/* EDIT TEXT HERE: Tab label */}
                       Highlights
                     </button>
                   </div>
                 </div>
 
                 {activeView === 'list' ? (
+                  {/* Layout tip: This is a vertical list. If you add many courses and want two columns, change this container to a grid and add something like md:grid-cols-2. */}
                   <div className="space-y-3">
+                    {/* BLOCK GROUP: Each item comes from the courses array above. */}
                     {courses.map((course, index) => (
                       <div
                         key={index}
@@ -137,7 +163,9 @@ export default function Academia() {
                     ))}
                   </div>
                 ) : (
+                  {/* Layout tip: This is a vertical stack of highlight cards. If you add more and want two columns, change this container to a grid and add something like md:grid-cols-2. */}
                   <div className="space-y-6">
+                    {/* BLOCK GROUP: Each item comes from the highlights array above. */}
                     {highlights.map((highlight, index) => (
                       <div
                         key={index}
@@ -172,6 +200,7 @@ export default function Academia() {
             {/* Right Column - Transcript */}
             <div className="lg:col-span-1">
               <div className="bg-white/95 backdrop-blur-sm rounded-lg shadow-lg p-6">
+                {/* EDIT TEXT HERE: Section title */}
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">Official Transcript</h2>
                 <div className="flex flex-col gap-4 mb-6">
                   <a 
@@ -183,6 +212,7 @@ export default function Academia() {
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
+                    {/* EDIT TEXT HERE: Button label */}
                     Download Transcript
                   </a>
                   <a 
@@ -194,6 +224,7 @@ export default function Academia() {
                     <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
+                    {/* EDIT TEXT HERE: Button label */}
                     Open in New Tab
                   </a>
                 </div>

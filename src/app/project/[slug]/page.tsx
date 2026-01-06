@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useProject } from '../../../contexts/ProjectContext';
 
+// Page: project detail view (data is provided via ProjectContext from the home page)
 const CADViewer = dynamic(
   () => import('../../../components/CADViewer').catch(() => {
     // Return a fallback component if CADViewer fails to load
@@ -85,6 +86,7 @@ export default function ProjectPage() {
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="mb-8">
+            {/* EDIT TEXT HERE: Back button label */}
             <button
               onClick={() => router.back()}
               className="flex items-center text-blue-600 hover:text-blue-800 mb-4 font-medium"
@@ -95,6 +97,7 @@ export default function ProjectPage() {
               Back to Projects
             </button>
             
+            {/* EDIT TEXT HERE: These fields come from the selected project on the homepage */}
             <h1 className="text-4xl font-bold text-gray-900 mb-4">{currentProject.title}</h1>
             <p className="text-lg text-gray-600">{currentProject.description}</p>
           </div>
@@ -102,7 +105,9 @@ export default function ProjectPage() {
           {/* Technologies */}
           {currentProject.technologies && currentProject.technologies.length > 0 && (
             <div className="mb-8">
+              {/* EDIT TEXT HERE: Section label */}
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Technologies</h2>
+              {/* Layout tip: Tags wrap to the next line automatically. If you want a fixed number per row, change this container to a grid and set grid-cols-* (example: grid-cols-4). */}
               <div className="flex flex-wrap gap-3">
                 {currentProject.technologies.map((tech: string, index: number) => (
                   <span
@@ -119,6 +124,7 @@ export default function ProjectPage() {
           {/* 3D Model */}
           {currentProject.modelUrl && (
             <div className="mb-8">
+              {/* EDIT TEXT HERE: Section label */}
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">3D Model</h2>
               <div className="bg-white rounded-lg shadow-md p-6">
                 <CADViewer
@@ -133,8 +139,10 @@ export default function ProjectPage() {
           {/* Project Details */}
           {currentProject.details && currentProject.details.length > 0 && (
             <div className="mb-8">
+              {/* EDIT TEXT HERE: Section label */}
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Project Details</h2>
               <div className="bg-white rounded-lg shadow-md p-6">
+                {/* Layout tip: This is a vertical list. If you add many items and want two columns, change this container to a grid and add something like md:grid-cols-2. */}
                 <ul className="space-y-3">
                   {currentProject.details.map((detail: string, index: number) => (
                     <li key={index} className="flex items-start">
@@ -150,7 +158,9 @@ export default function ProjectPage() {
           {/* Gallery */}
           {currentProject.images && currentProject.images.length > 0 && (
             <div className="mb-8">
+              {/* EDIT TEXT HERE: Section label */}
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Gallery</h2>
+              {/* Layout tip: 1 image per row on small screens, 2 on md, 3 on lg. If you add more and want 4 on one row (large screens), change lg:grid-cols-3 to lg:grid-cols-4. */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {currentProject.images.map((image: string, index: number) => (
                   <div

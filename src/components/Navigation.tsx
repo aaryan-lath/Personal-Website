@@ -19,6 +19,7 @@ export default function Navigation() {
   const isTimelinePage = pathname?.startsWith('/timeline');
   const isAcademiaPage = pathname?.startsWith('/academia');
 
+  // DO NOT TOUCH unless you know why: this controls navigation routes vs in-page anchors
   const navItems = (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage) ? [
     { name: 'Home', href: '/' },
     { name: 'Academia', href: '/#academia' },
@@ -116,6 +117,7 @@ export default function Navigation() {
     }
   }, [activeSection, isProjectPage, isActivityPage, isResearchPage, isTimelinePage, isAcademiaPage]);
 
+  // DO NOT TOUCH unless you know why: smooth scrolling is only for the main page
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage) {
       // On project/activity/research/timeline/academia pages, just navigate normally (no preventDefault)

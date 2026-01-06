@@ -27,6 +27,7 @@ export default function ProjectCard({
   driveLink,
   driveLinkText
 }: ProjectCardProps) {
+  // Card content is driven entirely by props passed in from the page (hardcoded there)
   const router = useRouter();
   const { setCurrentProject } = useProject();
   const [showDetails, setShowDetails] = useState(false);
@@ -58,6 +59,7 @@ export default function ProjectCard({
         isVisible ? 'animate-slide-in-up' : 'project-card-animate'
       }`}
     >
+        {/* Image area height + relative positioning set the card’s top section */}
         <div className="h-64 relative">
           {coverImage ? (
             <img 
@@ -83,6 +85,7 @@ export default function ProjectCard({
         
         {technologies.length > 0 && (
           <div className="mb-4">
+            {/* Layout tip: Tags wrap to the next line automatically. If you want a fixed number per row, change this container to a grid and set grid-cols-* (example: grid-cols-4). */}
             <div className="flex flex-wrap gap-2">
               {technologies.map((tech, index) => (
                 <span
@@ -98,11 +101,13 @@ export default function ProjectCard({
         
         {details.length > 0 && (
           <div className="border-t border-gray-200 pt-4">
+            {/* EDIT TEXT HERE: Toggle label for details list */}
             <button
               onClick={() => setShowDetails(!showDetails)}
               className="flex items-center text-blue-600 hover:text-blue-800 font-medium text-sm"
             >
               {showDetails ? 'Hide Details' : 'View Details'}
+              {/* Icon sizing/color are controlled by w-4/h-4 + currentColor */}
               <svg
                 className={`ml-1 w-4 h-4 transform transition-transform ${showDetails ? 'rotate-180' : ''}`}
                 fill="none"
@@ -113,6 +118,7 @@ export default function ProjectCard({
               </svg>
             </button>
             
+            {/* Layout tip: This is a vertical list. If you add many items and want two columns, change this container to a grid and add something like sm:grid-cols-2. */}
             {showDetails && (
               <div className="mt-3 space-y-2">
                 {details.map((detail, index) => (
@@ -145,6 +151,7 @@ export default function ProjectCard({
         )}
         
         <div className="mt-4">
+          {/* EDIT TEXT HERE: Button label to open the project detail page */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -163,7 +170,7 @@ export default function ProjectCard({
                 driveLinkText
               });
               
-              // Navigate with just the slug
+              // DO NOT TOUCH unless you know why: this routing keeps project details in sync
               router.push(`/project/${slug}`);
             }}
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors cursor-pointer"
