@@ -84,7 +84,6 @@ export default function Academia() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-100 to-teal-50 relative"
       style={{
-        // Background image and fixed attachment create the page atmosphere
         backgroundImage: `url('/images/Urban-Mobility.jpg')`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
