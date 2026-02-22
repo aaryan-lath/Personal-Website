@@ -163,7 +163,7 @@ export default function Home() {
   const [isScrollingOut, setIsScrollingOut] = useState(false);
 
   // EDIT TEXT HERE: Rotating interests shown in the hero section.
-  const interests = ['Leader', 'Systems Engineer', 'Product and Design Engineer', 'Changemaker'];
+  const interests = ['Systems Engineer', 'Aerodynamicist', 'Product and Design Engineer', 'Changemaker'];
 
   // EDIT TEXT HERE: Resume/portfolio options shown in the Resume & Contact section.
   // BLOCK GROUP: Each object below is one selectable option; add another by duplicating a key.
@@ -599,7 +599,7 @@ export default function Home() {
               href="/research/rethi"
             />
             <ResearchBox
-              title="Other Research"
+              title="Other Research Indulgements"
               description="Current research project is focusing on Multidisciplinary Design Optimization of electric aircraft. Worked at the high speed compressor lab in Fall 2025."
               points={[
                 'Abstract accepted for the AIAA Aviation forum 2026 on "A Modular MDO Framework for Rapid Electric Aircraft Design"',
