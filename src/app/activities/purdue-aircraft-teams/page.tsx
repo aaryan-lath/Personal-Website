@@ -1,36 +1,11 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 // Page: Purdue Aircraft Teams activity details
 // EDIT TEXT HERE: Page copy is hardcoded in this file.
 export default function PurdueAircraftTeamsPage() {
   const router = useRouter();
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
-  
-  // EDIT TEXT HERE: Video carousel content.
-  // BLOCK GROUP: Each object is one video; add another by copying an object.
-  const videos = [
-    {
-      src: '/images/PART-aircraft_testflight.mp4',
-      title: 'PART Aircraft Test Flight',
-      description: 'Successful test flight demonstration'
-    },
-    {
-      src: '/images/PART-aircraft-testcrash.mp4',
-      title: 'PART Aircraft Test Crash',
-      description: 'Test crash analysis and learning'
-    }
-  ];
-  
-  const nextVideo = () => {
-    setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
-  };
-  
-  const prevVideo = () => {
-    setCurrentVideoIndex((prev) => (prev - 1 + videos.length) % videos.length);
-  };
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -61,6 +36,39 @@ export default function PurdueAircraftTeamsPage() {
               <span className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg">Competition</span>
               <span className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg">Testing</span>
               <span className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg">Leadership</span>
+            </div>
+          </div>
+
+          {/* Test flight videos (shown before guide section) */}
+          <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Test Flight Videos</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Mk1 Test Flight</h3>
+                <p className="text-gray-600 text-sm mb-3">Mk1 proof of concept flight. The aircraft CG was incorrect, hence it was pitching way too much leading to an aborted mission.</p>
+                <div className="w-full rounded-lg overflow-hidden border border-gray-200">
+                  <video
+                    controls
+                    className="w-full h-64"
+                    src="/images/Mk1_flight.mp4"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Mk2 Test Flight</h3>
+                <p className="text-gray-600 text-sm mb-3">Mk2 flight test. The first PSAEA aircraft to land without a rapid unscheduled disassembly</p>
+                <div className="w-full rounded-lg overflow-hidden border border-gray-200">
+                  <video
+                    controls
+                    className="w-full h-64"
+                    src="/images/Mk2_flight.mp4"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -175,121 +183,48 @@ export default function PurdueAircraftTeamsPage() {
             </div>
           </div>
 
-          {/* Video Carousel and Skills Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Video Carousel */}
-            <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">PART Aircraft Testing Videos</h2>
-                
-                {/* Video Player */}
-                <div className="relative mb-4">
-                  <video
-                    key={currentVideoIndex}
-                    controls
-                    className="w-full h-64 md:h-80 rounded-lg"
-                    src={videos[currentVideoIndex].src}
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                  
-                  {/* Navigation Arrows */}
-                  {videos.length > 1 && (
-                    <>
-                      <button
-                        onClick={prevVideo}
-                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                      </button>
-                      <button
-                        onClick={nextVideo}
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                    </>
-                  )}
+          {/* Skills Section */}
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Skills Developed</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  </svg>
                 </div>
-                
-                {/* Video Info */}
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {videos[currentVideoIndex].title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {videos[currentVideoIndex].description}
-                  </p>
-                </div>
-                
-                {/* Video Indicators */}
-                {videos.length > 1 && (
-                  <div className="flex justify-center space-x-2">
-                    {videos.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentVideoIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-colors ${
-                          index === currentVideoIndex
-                            ? 'bg-blue-600'
-                            : 'bg-gray-300 hover:bg-gray-400'
-                        }`}
-                      />
-                    ))}
-                  </div>
-                )}
+                <h3 className="font-semibold text-gray-900 mb-2">Design Optimization</h3>
+                <p className="text-gray-600 text-sm">Aircraft configuration and performance optimization techniques</p>
               </div>
-            </div>
-            
-            {/* Right Column - Skills Developed */}
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-6">Skills Developed</h2>
-                <div className="space-y-6">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                      </svg>
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Design Optimization</h3>
-                    <p className="text-gray-600 text-sm">Aircraft configuration and performance optimization techniques</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                      </svg>
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Manufacturing</h3>
-                    <p className="text-gray-600 text-sm">Troubleshooting manufacturing problems in real-time</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 515.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 919.288 0M15 7a3 3 0 11-6 0 3 3 0 616 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Team Leadership</h3>
-                    <p className="text-gray-600 text-sm">Leading technical teams and mentoring junior members</p>
-                  </div>
-                  
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                      <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
-                    <h3 className="font-semibold text-gray-900 mb-2">Aerodynamic Analysis</h3>
-                    <p className="text-gray-600 text-sm">Using XFLR5 for airfoil and wing analysis</p>
-                  </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                  </svg>
                 </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Manufacturing</h3>
+                <p className="text-gray-600 text-sm">Troubleshooting manufacturing problems in real-time</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 515.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 919.288 0M15 7a3 3 0 11-6 0 3 3 0 616 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Team Leadership</h3>
+                <p className="text-gray-600 text-sm">Leading technical teams and mentoring junior members</p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <svg className="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <h3 className="font-semibold text-gray-900 mb-2">Aerodynamic Analysis</h3>
+                <p className="text-gray-600 text-sm">Using XFLR5 for airfoil and wing analysis</p>
               </div>
             </div>
           </div>

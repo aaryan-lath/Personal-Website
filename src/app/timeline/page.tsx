@@ -19,6 +19,27 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
+    id: 'mk2',
+    image: '/images/Mk2.jpg',
+    title: 'Mk2',
+    date: 'January 2026',
+    description: 'Mk2 iteration showing design and performance improvements.'
+  },
+  {
+    id: 'wind-tunnel-test',
+    image: '/images/Wind_Tunnel-test.jpeg',
+    title: 'Wind_Tunnel-test',
+    date: 'January 2026',
+    description: 'Wind tunnel testing campaign for aerodynamic validation.'
+  },
+  {
+    id: 'mk1',
+    image: '/images/Mk1.png',
+    title: 'Mk1',
+    date: 'December 2025',
+    description: 'Initial Mk1 build and validation milestone.'
+  },
+  {
     id: '1',
     image: '/images/timeline/Internship.jpeg',
     title: 'Mechanical/ Systems Engineering Internship',

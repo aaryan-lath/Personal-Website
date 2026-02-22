@@ -11,37 +11,31 @@ import ResearchBox from '../components/ResearchBox';
 const timelineEvents = [
   {
     id: 1,
+    title: 'Wind_Tunnel-test',
+    date: 'January 2026',
+    description: 'Wind tunnel testing campaign for aerodynamic validation (completed after Mk2).',
+    images: ['/images/Wind_Tunnel-test.jpeg']
+  },
+  {
+    id: 2,
+    title: 'Mk2',
+    date: 'January 2026',
+    description: 'Mk2 iteration showing design and performance improvements.',
+    images: ['/images/Mk2.jpg']
+  },
+  {
+    id: 3,
+    title: 'Mk1',
+    date: 'December 2025',
+    description: 'Initial Mk1 build and validation milestone.',
+    images: ['/images/Mk1.png']
+  },
+  {
+    id: 4,
     title: 'Mechanical/ Systems Engineering Internship',
     date: 'Summer 2025',
     description: 'Gained valuable industry experience working at the Grand Prairie plant in the Smart Infrastructure industry. I applied theoretical knowledge to real-world challenges and contributed to making the back-end system more efficient.',
     images: ['/images/timeline/Internship.jpeg']
-  },
-  {
-    id: 2,
-    title: 'Research Presentation',
-    date: 'April 2025',
-    description: 'Presented my research findings on potential hazards and method to approach those hazards to permanent lunar habitats to faculty and peers, showcasing months of dedicated work systems engineering analysis.',
-    images: ['/images/timeline/Research presentation.jpeg']
-  },
-  {
-    id: 3,
-    title: 'AAE OAE Banquet',
-    date: 'April 2025',
-    description: 'Honored to attend the annual AAE banquet at Purdue University, celebrating their life achievements and learning from their life experiences.',
-    images: [
-      '/images/timeline/AAE-Banquet.jpg',
-      '/images/timeline/AAE-Banquet2.jpg'
-    ]
-  },
-  {
-    id: 4,
-    title: 'Purdue Space Day',
-    date: 'October 2024',
-    description: 'Sparked the love for Aerospace Engineering in the upcoming generation as a Group Commander; keeping them engaged through various techniques such as fun facts and other engaging activities. Had the chance to meet NASA astronaut Jerry Ross.',
-    images: [
-      '/images/timeline/PSD-1.jpg',
-      '/images/timeline/PSD-2.jpg'
-    ]
   }
 ];
 
@@ -260,7 +254,7 @@ export default function Home() {
                 </div>
                 {/* EDIT TEXT HERE: Hero intro paragraph */}
                 <p className="text-lg text-white/80 max-w-3xl mx-auto mb-12 drop-shadow-md">
-                  As a senior in AAE at Purdue, I've consistently demonstrated academic excellence being in the Dean's List for every semester while gaining hands-on experience in complex engineering projects, positioning me to tackle multidisciplinary challenges in aerospace and beyond. My unique perspective and first principles thinking combines technical expertise with business acumen, understanding how decisions impact organizational success. My experience includes being the Chief Engineer of SAE Aero, being an Undergraduate Teaching Assistant, Summer Undergraduate Research Fellowship, CubeSat development to corporate-world experience at Siemens.
+                  As a senior in AAE at Purdue, I've consistently demonstrated academic excellence being in the Dean's List for every semester while gaining hands-on experience in complex engineering projects, positioning me to tackle multidisciplinary challenges in aerospace and beyond. My unique perspective, experience and first principles thinking combines technical expertise with business acumen, understanding how decisions impact organizational success.
                 </p>
               </div>
             </div>
