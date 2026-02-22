@@ -599,9 +599,10 @@ export default function Home() {
               href="/research/rethi"
             />
             <ResearchBox
-              title="Zucrow Research"
-              description="Working at Prof. Nicole Key's High Speed Compressor lab from August 2025 - Present conducting research on inlet vortex distortion."
+              title="Other Research"
+              description="Current research project is focusing on Multidisciplinary Design Optimization of electric aircraft. Worked at the high speed compressor lab in Fall 2025."
               points={[
+                'Abstract accepted for the AIAA Aviation forum 2026 on "A Modular MDO Framework for Rapid Electric Aircraft Design"',
                 'Helped assemble and calibrate the Test cell\'s fan-rig',
                 'Working on manufacturing techniques to build parts effectively'
               ]}
