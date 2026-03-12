@@ -32,10 +32,13 @@ const timelineEvents = [
   },
   {
     id: 4,
-    title: 'Mechanical/ Systems Engineering Internship',
-    date: 'Summer 2025',
-    description: 'Gained valuable industry experience working at the Grand Prairie plant in the Smart Infrastructure industry. I applied theoretical knowledge to real-world challenges and contributed to making the back-end system more efficient.',
-    images: ['/images/timeline/Internship.jpeg']
+    title: 'SAE Aero Design East Competition',
+    date: 'March 2026',
+    description: 'The best competition yet for the team — a successful aircraft landing and loads of learning experiences at the SAE Aero Design East competition, marking a major milestone for the PSAEA team.',
+    images: [
+      '/images/timeline/Aircraft_Solo.jpeg',
+      '/images/timeline/Aircraft_Team.jpeg'
+    ]
   }
 ];
 
@@ -815,15 +818,56 @@ export default function Home() {
 
           {/* Two Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Resume & Portfolio Column */}
+            {/* Resume Column */}
             <div>
               {/* EDIT TEXT HERE: Column header */}
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Resume</h3>
+              <div className="bg-white rounded-lg shadow-lg p-6">
+                {/* Resume Viewer */}
+                <div className="w-full h-[600px] border border-gray-300 rounded-lg overflow-hidden bg-white mb-6">
+                  <iframe
+                    src="/Aaryan_Lath-Resume.pdf#view=FitH&scrollbar=0&toolbar=0&navpanes=0"
+                    className="w-full h-full border-0"
+                    title="Aaryan Lath Resume"
+                    style={{ display: 'block' }}
+                  />
+                </div>
+                {/* Download and Open Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="/Aaryan_Lath-Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
+                  >
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download Resume
+                  </a>
+                  <a
+                    href="/Aaryan_Lath-Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
+                  >
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    Open in New Tab
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/*
+            === COMMENTED OUT: Multi-option resume selector (aerodynamics, mechanical, portfolio) ===
+            === To restore, remove this comment block and delete the single resume section above. ===
+
+            <div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Resume & Portfolio</h3>
               <div className="bg-white rounded-lg shadow-lg p-6">
-                {/* Resume Selection Buttons */}
-                {/* Layout tip: Buttons stack in one column on small screens, and switch to a row on sm+. If you add more buttons and want two rows, change sm:flex-row to sm:flex-col. */}
                 <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
-                  {/* BLOCK GROUP: Buttons are generated from resumeOptions above. */}
                   {(Object.keys(resumeOptions) as Array<keyof typeof resumeOptions>).map((key) => (
                     <button
                       key={key}
@@ -838,11 +882,9 @@ export default function Home() {
                     </button>
                   ))}
                 </div>
-                
-                {/* Resume/Portfolio Viewer */}
                 <div className="w-full h-[600px] border border-gray-300 rounded-lg overflow-hidden bg-white mb-6">
                   <iframe
-                    key={selectedResume} // Force re-render when selection changes
+                    key={selectedResume}
                     src={resumeOptions[selectedResume].type === 'pdf'
                       ? `${resumeOptions[selectedResume].file}#view=FitH&scrollbar=0&toolbar=0&navpanes=0`
                       : resumeOptions[selectedResume].file
@@ -852,50 +894,29 @@ export default function Home() {
                     style={{ display: 'block' }}
                   />
                 </div>
-
-                {/* Download and Open Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   {resumeOptions[selectedResume].type === 'pdf' ? (
                     <>
-                      <a
-                        href={resumeOptions[selectedResume].file}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
-                      >
-                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
+                      <a href={resumeOptions[selectedResume].file} target="_blank" rel="noopener noreferrer"
+                        className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center">
                         Download Resume
                       </a>
-                      <a
-                        href={resumeOptions[selectedResume].file}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center justify-center"
-                      >
-                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
+                      <a href={resumeOptions[selectedResume].file} target="_blank" rel="noopener noreferrer"
+                        className="border-2 border-blue-600 text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors inline-flex items-center justify-center">
                         Open in New Tab
                       </a>
                     </>
                   ) : (
-                    <a
-                      href="https://onedrive.live.com/?id=%2Fpersonal%2F283cc4cea2648e6d%2FDocuments%2FPersonal%2DWebsite&viewid=0cf2dcd4%2D7efb%2D43cf%2Dae14%2D6c822d324089&view=0"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
-                    >
-                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
+                    <a href="https://onedrive.live.com/?id=%2Fpersonal%2F283cc4cea2648e6d%2FDocuments%2FPersonal%2DWebsite&viewid=0cf2dcd4%2D7efb%2D43cf%2Dae14%2D6c822d324089&view=0"
+                      target="_blank" rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors inline-flex items-center justify-center">
                       Open Portfolio in OneDrive
                     </a>
                   )}
                 </div>
               </div>
             </div>
+            */}
 
             {/* Contact Column */}
             <div>

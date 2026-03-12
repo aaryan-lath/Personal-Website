@@ -42,14 +42,15 @@ export default function PurdueAircraftTeamsPage() {
           {/* Test flight videos (shown before guide section) */}
           <div className="bg-white rounded-lg shadow-md p-6 mb-8">
             <h2 className="text-2xl font-semibold text-gray-900 mb-6">Test Flight Videos</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Mk1 Test Flight</h3>
                 <p className="text-gray-600 text-sm mb-3">Mk1 proof of concept flight. The aircraft CG was incorrect, hence it was pitching way too much leading to an aborted mission.</p>
                 <div className="w-full rounded-lg overflow-hidden border border-gray-200">
                   <video
                     controls
-                    className="w-full h-64"
+                    muted
+                    className="w-full h-52"
                     src="/images/Mk1_flight.mp4"
                   >
                     Your browser does not support the video tag.
@@ -58,12 +59,27 @@ export default function PurdueAircraftTeamsPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Mk2 Test Flight</h3>
-                <p className="text-gray-600 text-sm mb-3">Mk2 flight test. The first PSAEA aircraft to land without a rapid unscheduled disassembly</p>
+                <p className="text-gray-600 text-sm mb-3">Mk2 flight test. The first PSAEA aircraft to land without a rapid unscheduled disassembly.</p>
                 <div className="w-full rounded-lg overflow-hidden border border-gray-200">
                   <video
                     controls
-                    className="w-full h-64"
+                    muted
+                    className="w-full h-52"
                     src="/images/Mk2_flight.mp4"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Competition Flight</h3>
+                <p className="text-gray-600 text-sm mb-3">SAE Aero Design East competition flight — a successful landing and a proud milestone for the team.</p>
+                <div className="w-full rounded-lg overflow-hidden border border-gray-200">
+                  <video
+                    controls
+                    muted
+                    className="w-full h-52"
+                    src="/images/Flight-attempt2.mp4"
                   >
                     Your browser does not support the video tag.
                   </video>

@@ -19,6 +19,14 @@ interface TimelineItem {
 
 const timelineData: TimelineItem[] = [
   {
+    id: 'sae-aero-east',
+    images: ['/images/timeline/Aircraft_Solo.jpeg', '/images/timeline/Aircraft_Team.jpeg'],
+    title: 'SAE Aero Design East Competition',
+    date: 'March 2026',
+    description: 'The best competition yet for the team — a successful aircraft landing and loads of learning experiences at the SAE Aero Design East competition, marking a major milestone for the PSAEA team.',
+    isCarousel: true
+  },
+  {
     id: 'mk2',
     image: '/images/Mk2.jpg',
     title: 'Mk2',
