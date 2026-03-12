@@ -95,7 +95,7 @@ export default function Academia() {
       <div className="pt-20 pb-12 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 sm:p-8 max-w-4xl mx-auto">
               {/* EDIT TEXT HERE: Back button label */}
               <Link 
                 href="/"
@@ -107,9 +107,9 @@ export default function Academia() {
                 Back to Home
               </Link>
               {/* EDIT TEXT HERE: Page title */}
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">Academic Coursework</h1>
+              <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">Academic Coursework</h1>
               {/* EDIT TEXT HERE: Page intro paragraph */}
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto">
                 Comprehensive overview of my academic journey at Purdue University
               </p>
             </div>

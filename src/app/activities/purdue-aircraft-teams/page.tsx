@@ -24,7 +24,7 @@ export default function PurdueAircraftTeamsPage() {
             </button>
             
             {/* EDIT TEXT HERE: Page title */}
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Purdue Aircraft Teams</h1>
+            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">Purdue Aircraft Teams</h1>
             {/* EDIT TEXT HERE: Intro paragraph */}
             <p className="text-lg text-gray-600 mb-6">
               Active member of Purdue&apos;s aircraft design and competition teams, 

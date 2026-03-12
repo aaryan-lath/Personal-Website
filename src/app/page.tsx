@@ -11,34 +11,34 @@ import ResearchBox from '../components/ResearchBox';
 const timelineEvents = [
   {
     id: 1,
+    title: 'SAE Aero Design East Competition',
+    date: 'March 2026',
+    description: 'The best competition yet for the team — a successful aircraft landing and loads of learning experiences at the SAE Aero Design East competition, marking a major milestone for the PSAEA team.',
+    images: [
+      '/images/Aircraft_Solo.jpeg',
+      '/images/Aircraft_Team.jpeg'
+    ]
+  },
+  {
+    id: 2,
     title: 'Wind_Tunnel-test',
     date: 'January 2026',
     description: 'Wind tunnel testing campaign for aerodynamic validation (completed after Mk2).',
     images: ['/images/Wind_Tunnel-test.jpeg']
   },
   {
-    id: 2,
+    id: 3,
     title: 'Mk2',
     date: 'January 2026',
     description: 'Mk2 iteration showing design and performance improvements.',
     images: ['/images/Mk2.jpg']
   },
   {
-    id: 3,
+    id: 4,
     title: 'Mk1',
     date: 'December 2025',
     description: 'Initial Mk1 build and validation milestone.',
     images: ['/images/Mk1.png']
-  },
-  {
-    id: 4,
-    title: 'SAE Aero Design East Competition',
-    date: 'March 2026',
-    description: 'The best competition yet for the team — a successful aircraft landing and loads of learning experiences at the SAE Aero Design East competition, marking a major milestone for the PSAEA team.',
-    images: [
-      '/images/timeline/Aircraft_Solo.jpeg',
-      '/images/timeline/Aircraft_Team.jpeg'
-    ]
   }
 ];
 
@@ -224,20 +224,20 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
             <div className="text-center">
               {/* Transparency/blur and padding control the card feel over the background */}
-              <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
-                <div className="mb-8">
+              <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-4 sm:p-8 max-w-4xl mx-auto">
+                <div className="mb-4 sm:mb-8">
                   <img 
                     src="/images/profile.jpeg" 
                     alt="Aaryan Lath" 
-                    className="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white/20 shadow-lg object-cover"
+                    className="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-4 sm:mb-6 border-4 border-white/20 shadow-lg object-cover"
                   />
                 </div>
                 {/* EDIT TEXT HERE: Your name in the hero headline */}
-                <h1 className="text-4xl sm:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                <h1 className="text-3xl sm:text-6xl font-bold text-white mb-4 sm:mb-6 drop-shadow-lg">
                   Aaryan Lath
                 </h1>
                 {/* EDIT TEXT HERE: Rotating interests line under your name */}
-                <div className="text-xl sm:text-2xl text-white/90 mb-8 drop-shadow-md">
+                <div className="text-lg sm:text-2xl text-white/90 mb-6 sm:mb-8 drop-shadow-md">
                   <style jsx>{`
                     .scroll-in {
                       opacity: 1;
@@ -256,7 +256,7 @@ export default function Home() {
                   </span>
                 </div>
                 {/* EDIT TEXT HERE: Hero intro paragraph */}
-                <p className="text-lg text-white/80 max-w-3xl mx-auto mb-12 drop-shadow-md">
+                <p className="text-sm sm:text-lg text-white/80 max-w-3xl mx-auto mb-8 sm:mb-12 drop-shadow-md">
                   As a senior in AAE at Purdue, I've consistently demonstrated academic excellence being in the Dean's List for every semester while gaining hands-on experience in complex engineering projects, positioning me to tackle multidisciplinary challenges in aerospace and beyond. My unique perspective, experience and first principles thinking combines technical expertise with business acumen, understanding how decisions impact organizational success.
                 </p>
               </div>
@@ -275,17 +275,17 @@ export default function Home() {
         overlayOpacity={0.4}
       >
         {/* Academia overview section */}
-        <section id="academia" className="py-20 relative">
+        <section id="academia" className="py-12 sm:py-20 relative">
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-16">
               {/* EDIT TEXT HERE: Section title */}
-              <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Academia
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-teal-400 to-teal-600 mx-auto rounded-full shadow-lg"></div>
-              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-6 max-w-4xl mx-auto mt-8">
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 sm:p-6 max-w-4xl mx-auto mt-6 sm:mt-8">
                 {/* EDIT TEXT HERE: Section intro paragraph */}
-                <p className="text-xl text-white/90 drop-shadow-md">
+                <p className="text-base sm:text-xl text-white/90 drop-shadow-md">
                   With a GPA of 3.73, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through clubs, projects while balancing Research, Teaching Assistant position. To view more courses and course related projects, click on View more.
                 </p>
               </div>
@@ -441,11 +441,11 @@ export default function Home() {
         overlayOpacity={0.2}
       >
         {/* Professional experience section */}
-        <section id="internships" className="py-20 relative">
+        <section id="internships" className="py-12 sm:py-20 relative">
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-16">
               {/* EDIT TEXT HERE: Section title */}
-              <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Professional Experiences
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-indigo-400 to-indigo-600 mx-auto rounded-full shadow-lg"></div>
@@ -568,18 +568,18 @@ export default function Home() {
         overlayOpacity={0.4}
       >
         {/* Research section */}
-        <section id="research" className="py-20 relative">
+        <section id="research" className="py-12 sm:py-20 relative">
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 relative z-0">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-16">
               {/* EDIT TEXT HERE: Section title */}
-              <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Research Work
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-600 mx-auto rounded-full shadow-lg"></div>
             </div>
           {/* BLOCK GROUP: Each ResearchBox below is one research item; add another ResearchBox to add more. */}
           {/* Layout tip: 1 box per row on small screens, 2 on lg. If you add a 3rd box and want 3 on one row (large screens), change lg:grid-cols-2 to lg:grid-cols-3. */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12">
             {/* EDIT TEXT HERE: Research item content (title, description, points) */}
             <ResearchBox
               title="Resilient Extraterrestrial Habitat Institute (RETHi)"
@@ -621,11 +621,11 @@ export default function Home() {
         overlayOpacity={0.2}
       >
         {/* Applied engineering projects section */}
-        <section id="activities" className="py-20 relative">
+        <section id="activities" className="py-12 sm:py-20 relative">
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-16">
               {/* EDIT TEXT HERE: Section title */}
-              <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Applied Engineering Projects
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-green-400 to-green-600 mx-auto rounded-full shadow-lg"></div>
@@ -635,7 +635,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* EDIT TEXT HERE: Activity card 1 content (title, description, tags, CTA) */}
             <Link href="/activities/purdue-aircraft-teams" className="group">
-              <div className="bg-blue-50 rounded-lg p-8 hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer">
+              <div className="bg-blue-50 rounded-lg p-5 sm:p-8 hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">
                     Purdue Aircraft Teams
@@ -658,7 +658,7 @@ export default function Home() {
             </Link>
             
             <Link href="/activities/purdue-space-program" className="group">
-              <div className="bg-purple-50 rounded-lg p-8 hover:bg-purple-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer">
+              <div className="bg-purple-50 rounded-lg p-5 sm:p-8 hover:bg-purple-100 transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer">
                 <div className="flex items-start justify-between mb-4">
                   <h3 className="text-2xl font-semibold text-gray-900 group-hover:text-purple-700 transition-colors">
                     Purdue Space Program
@@ -767,17 +767,17 @@ export default function Home() {
         overlayOpacity={0.6}
       >
         {/* Awards and achievements section */}
-        <section id="timeline" className="py-20 relative">
+        <section id="timeline" className="py-12 sm:py-20 relative">
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 sm:mb-16">
               {/* EDIT TEXT HERE: Section title */}
-              <h2 className="text-4xl font-bold text-white mb-2 drop-shadow-lg">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
                 Awards and Achievements
               </h2>
               <div className="w-32 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full shadow-lg"></div>
-              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 max-w-3xl mx-auto mt-6">
+              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 max-w-3xl mx-auto mt-4 sm:mt-6">
                 {/* EDIT TEXT HERE: Section intro line */}
-                <p className="text-xl text-white/90 drop-shadow-md">
+                <p className="text-base sm:text-xl text-white/90 drop-shadow-md">
                   Milestones in academic excellence and professional growth
                 </p>
               </div>
@@ -804,14 +804,14 @@ export default function Home() {
 
       {/* Resume + contact section */}
       {/* py-20 sets vertical spacing; bg-gray-50 separates this section visually */}
-      <section id="contact" className="py-20 bg-gray-50 relative">
+      <section id="contact" className="py-12 sm:py-20 bg-gray-50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Contact Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-16">
             {/* EDIT TEXT HERE: Section title */}
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Resume & Contact</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Resume & Contact</h2>
             {/* EDIT TEXT HERE: Section intro paragraph */}
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto">
               Download my resume and get in touch for aerospace engineering collaboration opportunities
             </p>
           </div>
@@ -824,7 +824,7 @@ export default function Home() {
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Resume</h3>
               <div className="bg-white rounded-lg shadow-lg p-6">
                 {/* Resume Viewer */}
-                <div className="w-full h-[600px] border border-gray-300 rounded-lg overflow-hidden bg-white mb-6">
+                <div className="w-full h-[350px] sm:h-[600px] border border-gray-300 rounded-lg overflow-hidden bg-white mb-6">
                   <iframe
                     src="/Aaryan_Lath-Resume.pdf#view=FitH&scrollbar=0&toolbar=0&navpanes=0"
                     className="w-full h-full border-0"
@@ -922,9 +922,9 @@ export default function Home() {
             <div>
               {/* EDIT TEXT HERE: Column header */}
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">Get In Touch</h3>
-              <div className="bg-white rounded-lg shadow-lg p-8">
+              <div className="bg-white rounded-lg shadow-lg p-5 sm:p-8">
                 {/* EDIT TEXT HERE: Contact intro paragraph */}
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-base sm:text-lg text-gray-600 mb-6 sm:mb-8 leading-relaxed">
                   Interested in hiring a dedicated, well-rounded professional whose ambitions never sleep? 
                   Have questions about my work or want to discuss opportunities? I'd love to connect.
                 </p>

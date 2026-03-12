@@ -20,7 +20,7 @@ interface TimelineItem {
 const timelineData: TimelineItem[] = [
   {
     id: 'sae-aero-east',
-    images: ['/images/timeline/Aircraft_Solo.jpeg', '/images/timeline/Aircraft_Team.jpeg'],
+    images: ['/images/Aircraft_Solo.jpeg', '/images/Aircraft_Team.jpeg'],
     title: 'SAE Aero Design East Competition',
     date: 'March 2026',
     description: 'The best competition yet for the team — a successful aircraft landing and loads of learning experiences at the SAE Aero Design East competition, marking a major milestone for the PSAEA team.',
@@ -194,14 +194,14 @@ export default function TimelinePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="pt-24 pb-16 px-4 max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+      <div className="pt-20 pb-12 sm:pb-16 px-4 max-w-7xl mx-auto">
+        <div className="text-center mb-10 sm:mb-16">
           {/* EDIT TEXT HERE: Page title */}
-          <h1 className="text-7xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl sm:text-7xl font-bold text-gray-900 mb-4 sm:mb-6">
             Timeline
           </h1>
           {/* EDIT TEXT HERE: Page intro line */}
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             A visual journey through key moments and achievements
           </p>
           <div className="inline-flex items-center bg-gray-100 rounded-lg px-4 py-2 text-sm text-gray-600">

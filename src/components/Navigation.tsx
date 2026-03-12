@@ -140,10 +140,10 @@ export default function Navigation() {
   if (isModalOpen) return null;
 
   return (
-    <nav className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 ${
+    <nav className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 max-w-[calc(100vw-2rem)] ${
       isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border border-gray-200 rounded-full px-6 py-2' 
-        : 'bg-white/10 backdrop-blur-sm rounded-full px-6 py-3'
+        ? 'bg-white/95 backdrop-blur-md shadow-lg border border-gray-200 rounded-full px-4 sm:px-6 py-2' 
+        : 'bg-white/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-3'
     }`}>
       <div className="flex items-center w-full gap-8">
         <Link 

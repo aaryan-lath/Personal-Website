@@ -69,7 +69,7 @@ export default function ResearchBox({
     </>
   );
 
-  const baseClasses = `${bgColor} rounded-lg p-8 shadow-sm research-box-scale ${
+  const baseClasses = `${bgColor} rounded-lg p-5 sm:p-8 shadow-sm research-box-scale ${
     side === 'left' 
       ? isVisible ? 'animate-tilt-in-left' : 'research-box-left'
       : isVisible ? 'animate-tilt-in-right' : 'research-box-right'
