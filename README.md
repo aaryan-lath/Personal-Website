@@ -21,6 +21,19 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## Mach (AI chat widget)
+
+"Mach" is the floating chat widget on every page; it calls `/api/chat`, which uses the Google Gemini API.
+
+1. Get a free API key from <https://aistudio.google.com/apikey> (no credit card required).
+2. Locally, create `.env.local` in the project root with:
+   ```
+   GEMINI_API_KEY=your_key_here
+   ```
+3. On Vercel, add the same `GEMINI_API_KEY` env var to the Production and Preview environments.
+
+The chatbot's knowledge of Aaryan lives in `src/data/about-aaryan.ts` — edit that file whenever the home page content changes (or to add new personal details). Per-IP rate limiting (10 requests / hour, in-memory) lives in `src/lib/rate-limit.ts`.
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## Learn More

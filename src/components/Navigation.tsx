@@ -26,6 +26,7 @@ export default function Navigation() {
     { name: 'Internships', href: '/#internships' },
     { name: 'Research', href: '/#research' },
     { name: 'Hands-On', href: '/#activities' },
+    { name: 'Hackathons', href: '/#hackathons' },
     { name: 'Achievements', href: '/timeline' },
     { name: 'Contact', href: '/#contact' },
   ] : [
@@ -34,6 +35,7 @@ export default function Navigation() {
     { name: 'Internships', href: '#internships' },
     { name: 'Research', href: '#research' },
     { name: 'Hands-On', href: '#activities' },
+    { name: 'Hackathons', href: '#hackathons' },
     { name: 'Achievements', href: '#timeline' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -44,7 +46,7 @@ export default function Navigation() {
       
       // Only detect sections on main page
       if (!isProjectPage && !isActivityPage && !isResearchPage && !isTimelinePage && !isAcademiaPage) {
-        const sections = ['home', 'academia', 'internships', 'research', 'activities', 'timeline', 'contact'];
+        const sections = ['home', 'academia', 'internships', 'research', 'activities', 'hackathons', 'timeline', 'contact'];
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
         

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "../components/Navigation";
+import AskMach from "../components/AskMach";
 import { ProjectProvider } from "../contexts/ProjectContext";
 
 const inter = Inter({
@@ -37,6 +38,7 @@ export default function RootLayout({
         <ProjectProvider>
           <Navigation />
           {children}
+          <AskMach />
         </ProjectProvider>
       </body>
     </html>

@@ -5,6 +5,8 @@ import Link from 'next/link';
 import ProjectCard from '../components/ProjectCard';
 import ParallaxSection from '../components/ParallaxSection';
 import ResearchBox from '../components/ResearchBox';
+import HackathonCard from '../components/HackathonCard';
+import { hackathons } from '../data/hackathons';
 
 // EDIT TEXT HERE: Timeline preview cards on the homepage.
 // BLOCK GROUP: Each object below is one timeline card; add another by copying an object.
@@ -758,49 +760,83 @@ export default function Home() {
         </section>
       </ParallaxSection>
 
-      <ParallaxSection 
-        backgroundImage="/images/Timeline.jpg" 
-        height="auto"
-        speed={0.1}
-        overlay={true}
-        overlayColor="black"
-        overlayOpacity={0.6}
+      {/* Hackathons section — plain section with fixed background to avoid parallax scroll gaps */}
+      <section
+        id="hackathons"
+        className="relative py-12 sm:py-20 bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ backgroundImage: "url('/images/Hackathon.png')", backgroundColor: '#1f2937' }}
       >
-        {/* Awards and achievements section */}
-        <section id="timeline" className="py-12 sm:py-20 relative">
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-            <div className="text-center mb-10 sm:mb-16">
-              {/* EDIT TEXT HERE: Section title */}
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
-                Awards and Achievements
-              </h2>
-              <div className="w-32 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full shadow-lg"></div>
-              <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 max-w-3xl mx-auto mt-4 sm:mt-6">
-                {/* EDIT TEXT HERE: Section intro line */}
-                <p className="text-base sm:text-xl text-white/90 drop-shadow-md">
-                  Milestones in academic excellence and professional growth
-                </p>
-              </div>
-            </div>
-            
-            {/* BLOCK GROUP: TimelineCards uses timelineEvents above; add events in that array. */}
-            <TimelineCards />
-            
-            <div className="text-center">
-              <Link 
-                href="/timeline"
-                className="inline-flex items-center bg-white text-orange-600 border-2 border-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                {/* EDIT TEXT HERE: Button label */}
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
-                </svg>
-                View Full Timeline
-              </Link>
+        <div className="absolute inset-0 bg-black/55 pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+          <div className="text-center mb-10 sm:mb-16">
+            {/* EDIT TEXT HERE: Section title */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
+              Hackathons
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-rose-400 to-pink-600 mx-auto rounded-full shadow-lg"></div>
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 max-w-3xl mx-auto mt-4 sm:mt-6">
+              <p className="text-base sm:text-xl text-white/90 drop-shadow-md">
+                Build sprints — what I shipped, with whom, and what we learned
+              </p>
             </div>
           </div>
-        </section>
-      </ParallaxSection>
+
+          {/* BLOCK GROUP: cards are driven by src/data/hackathons.ts. Edit that file to add or update entries. */}
+          {hackathons.length === 1 ? (
+            <div className="flex justify-center">
+              <div className="w-full max-w-md">
+                <HackathonCard key={hackathons[0].id} {...hackathons[0]} />
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {hackathons.map((h) => (
+                <HackathonCard key={h.id} {...h} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Awards and achievements section — plain section with fixed background to avoid parallax scroll gaps */}
+      <section
+        id="timeline"
+        className="relative py-12 sm:py-20 bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ backgroundImage: "url('/images/Timeline.jpg')", backgroundColor: '#1f2937' }}
+      >
+        <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+          <div className="text-center mb-10 sm:mb-16">
+            {/* EDIT TEXT HERE: Section title */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
+              Awards and Achievements
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto rounded-full shadow-lg"></div>
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 max-w-3xl mx-auto mt-4 sm:mt-6">
+              {/* EDIT TEXT HERE: Section intro line */}
+              <p className="text-base sm:text-xl text-white/90 drop-shadow-md">
+                Milestones in academic excellence and professional growth
+              </p>
+            </div>
+          </div>
+
+          {/* BLOCK GROUP: TimelineCards uses timelineEvents above; add events in that array. */}
+          <TimelineCards />
+
+          <div className="text-center">
+            <Link
+              href="/timeline"
+              className="inline-flex items-center bg-white text-orange-600 border-2 border-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              {/* EDIT TEXT HERE: Button label */}
+              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+              </svg>
+              View Full Timeline
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Resume + contact section */}
       {/* py-20 sets vertical spacing; bg-gray-50 separates this section visually */}
