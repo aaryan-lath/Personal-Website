@@ -50,14 +50,14 @@ export default function AskMach() {
       });
 
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        if (res.status === 429) {
-          setError(data.error ?? 'Too many messages. Please wait a bit.');
-        } else if (res.status === 503) {
-          setError('Chat is not configured yet.');
-        } else {
-          setError(data.error ?? 'Something went wrong.');
-        }
+        const data = (await res.json().catch(() => ({}))) as { error?: string };
+        const fallbackByStatus =
+          res.status === 429
+            ? 'Too many messages. Please wait a bit.'
+            : res.status === 503
+              ? 'Chat is not configured yet.'
+              : 'Something went wrong.';
+        setError(data.error ?? fallbackByStatus);
         setLoading(false);
         return;
       }
@@ -103,7 +103,7 @@ export default function AskMach() {
       {/* Toggle button */}
       <button
         onClick={() => setOpen((o) => !o)}
-        aria-label={open ? 'Close Ask Mach 0.5 chat' : 'Open Ask Mach 0.5 chat'}
+        aria-label={open ? 'Close Ask Mach 0.96 chat' : 'Open Ask Mach 0.96 chat'}
         className={`fixed bottom-5 right-5 z-50 flex items-center gap-2 rounded-full shadow-xl transition-all duration-300 ${
           open
             ? 'bg-gray-900 text-white hover:bg-gray-800 px-4 py-3'
@@ -119,7 +119,7 @@ export default function AskMach() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
             </svg>
-            <span className="text-sm font-medium">Ask Mach 0.5</span>
+            <span className="text-sm font-medium">Ask Mach 0.96</span>
           </>
         )}
       </button>
@@ -134,7 +134,7 @@ export default function AskMach() {
           <div className="flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-indigo-600/90 to-purple-600/90 backdrop-blur-xl text-white border-b border-white/30">
             <div className="w-9 h-9 rounded-full bg-white/25 backdrop-blur ring-1 ring-white/40 flex items-center justify-center text-lg font-semibold">M</div>
             <div className="flex-1 min-w-0">
-              <div className="text-sm font-semibold leading-tight">Mach 0.5</div>
+              <div className="text-sm font-semibold leading-tight">Mach 0.96</div>
               <div className="text-xs text-white/85 leading-tight">Ask about Aaryan&apos;s hackathon prize, research, and more</div>
             </div>
           </div>
@@ -144,7 +144,7 @@ export default function AskMach() {
             {messages.length === 0 && (
               <div className="space-y-3">
                 <p className="text-sm text-gray-700">
-                  Hi, I&apos;m Mach 0.5. Ask me anything about Aaryan — his work, research, projects, or his recent StarkHacks finish.
+                  Hi, I&apos;m Mach 0.96. Ask me anything about Aaryan — his work, research, projects, or his recent StarkHacks finish.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {STARTER_PROMPTS.map((p) => (

@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# RAG index — regenerated on every Vercel deploy by `npm run build:index`
+src/data/rag-index.json

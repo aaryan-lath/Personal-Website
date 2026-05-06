@@ -1,6 +1,8 @@
 import { GoogleGenAI } from '@google/genai';
-import { aboutAaryan } from '../../../data/about-aaryan';
+import { personaPrompt } from '../../../data/about-aaryan';
 import { checkRateLimit, getClientIp } from '../../../lib/rate-limit';
+import { embedText } from '../../../lib/rag/embed';
+import { getIndex, retrieveTopK, formatRetrievedAsContext } from '../../../lib/rag/retrieve';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -10,9 +12,12 @@ interface ChatMessage {
   content: string;
 }
 
-const MODEL = 'gemini-2.5-flash';
+const MODEL = 'gemini-2.5-flash-lite';
 const MAX_HISTORY = 20;
 const MAX_CONTENT_CHARS = 2000;
+const TOP_K = 7;
+const MAX_GENERATION_RETRIES = 2;
+const RETRIEVAL_USER_TURNS = 3;
 
 export async function POST(req: Request) {
   const ip = getClientIp(req);
@@ -60,23 +65,88 @@ export async function POST(req: Request) {
   }));
 
   const ai = new GoogleGenAI({ apiKey });
+  const lastUserMessage = messages[messages.length - 1].content;
 
-  const stream = await ai.models.generateContentStream({
-    model: MODEL,
-    contents,
-    config: {
-      systemInstruction: aboutAaryan,
-      temperature: 0.4,
-      maxOutputTokens: 512,
-    },
-  });
+  // RAG: embed the last few USER turns combined (no assistant messages — those
+  // are Mach's own verbose responses and pollute retrieval intent). Short
+  // follow-ups like "Professionally?" then carry the prior question's intent.
+  const recentUserTurns = messages
+    .filter((m) => m.role === 'user')
+    .slice(-RETRIEVAL_USER_TURNS)
+    .map((m) => m.content);
+  const retrievalQuery = recentUserTurns.join('\n');
+
+  let retrievedBlock = '(no facts retrieved)';
+  try {
+    const [queryEmbedding, index] = await Promise.all([
+      embedText(ai, retrievalQuery),
+      getIndex(),
+    ]);
+    const top = retrieveTopK(index, queryEmbedding, TOP_K);
+    retrievedBlock = formatRetrievedAsContext(top);
+  } catch (err) {
+    console.error('[Mach retrieval] failed, falling back to persona-only prompt:', err);
+  }
+
+  const systemInstruction = `${personaPrompt}
+
+# Retrieved facts (top ${TOP_K} most relevant to the user's latest question)
+${retrievedBlock}
+`;
+
+  let stream;
+  let lastErr: unknown;
+  for (let attempt = 0; attempt <= MAX_GENERATION_RETRIES; attempt++) {
+    try {
+      stream = await ai.models.generateContentStream({
+        model: MODEL,
+        contents,
+        config: {
+          systemInstruction,
+          temperature: 0.4,
+          maxOutputTokens: 512,
+        },
+      });
+      break;
+    } catch (err) {
+      lastErr = err;
+      const msg = err instanceof Error ? err.message : String(err);
+      const isOverloaded = /503|UNAVAILABLE|overloaded|high demand/i.test(msg);
+      if (!isOverloaded || attempt === MAX_GENERATION_RETRIES) break;
+      const wait = 800 * (attempt + 1);
+      console.warn(`[Mach] gemini overloaded, retrying in ${wait}ms (attempt ${attempt + 1}/${MAX_GENERATION_RETRIES})`);
+      await new Promise((r) => setTimeout(r, wait));
+    }
+  }
+
+  if (!stream) {
+    const msg = lastErr instanceof Error ? lastErr.message : String(lastErr);
+    const isOverloaded = /503|UNAVAILABLE|overloaded|high demand/i.test(msg);
+    const isQuota = /429|RESOURCE_EXHAUSTED|quota/i.test(msg);
+    console.error('[Mach] generateContentStream failed after retries:', msg);
+    if (isOverloaded) {
+      return new Response(
+        JSON.stringify({ error: 'Gemini is overloaded right now. Please try again in a minute.' }),
+        { status: 503, headers: { 'content-type': 'application/json' } }
+      );
+    }
+    if (isQuota) {
+      return new Response(
+        JSON.stringify({ error: 'Daily chat quota reached. Please try again tomorrow.' }),
+        { status: 429, headers: { 'content-type': 'application/json' } }
+      );
+    }
+    return new Response(
+      JSON.stringify({ error: 'Something went wrong reaching the model. Please try again.' }),
+      { status: 502, headers: { 'content-type': 'application/json' } }
+    );
+  }
 
   // Mach can append a gap marker like "[GAP: career goals]" when it lacks info.
   // Strip these from the user-facing stream and log them server-side so Aaryan
   // sees what visitors are asking that the bot can't answer well.
   const GAP_TAG = /\[GAP:\s*([^\]]*?)\]/g;
   const HOLD_CHARS = 80; // hold the tail of the stream so we can detect a forming "[GAP:" tag
-  const lastUserMessage = messages[messages.length - 1].content;
 
   const encoder = new TextEncoder();
   const readable = new ReadableStream({
