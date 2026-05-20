@@ -167,7 +167,7 @@ export default function Navigation() {
           Aaryan Lath
         </Link>
 
-        <div ref={navRef} className="hidden md:flex items-center space-x-1 relative flex-1">
+        <div ref={navRef} className="hidden xl:flex items-center space-x-1 relative flex-1">
           {/* Moving indicator */}
           <div 
             ref={indicatorRef}
@@ -190,9 +190,9 @@ export default function Navigation() {
                 key={item.name}
                 href={item.href}
                 data-nav-item={sectionId}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/20 relative z-10 ${
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/20 relative z-10 whitespace-nowrap ${
                   isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage
-                    ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100' 
+                    ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                     : 'text-white/90 hover:text-white'
                 }`}
                 onClick={(e) => handleNavClick(e, item.href)}
@@ -203,7 +203,7 @@ export default function Navigation() {
           })}
         </div>
 
-        <div className="md:hidden">
+        <div className="xl:hidden">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`p-2 rounded-full transition-colors ${
@@ -224,7 +224,7 @@ export default function Navigation() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg">
+        <div className="xl:hidden absolute top-full left-0 right-0 mt-2 bg-white/95 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg">
           <div className="px-4 py-3 space-y-1">
             {navItems.map((item) => (
               <Link

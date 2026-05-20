@@ -4,15 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build:index": "tsx scripts/build-index.ts",
-    "prebuild": "npm run build:index",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@google/genai": "^1.50.1",
+    "@upstash/redis": "^1.38.0",
     "@vercel/analytics": "^2.0.1",
+    "groq-sdk": "^1.2.0",
     "next": "14.2.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -22,15 +22,12 @@
     "@gltf-transform/cli": "^4.2.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
-    "@types/pdf-parse": "^1.1.5",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.21",
     "eslint": "^8.0.0",
     "eslint-config-next": "14.2.15",
-    "pdf-parse": "^2.4.5",
     "tailwindcss": "^4",
-    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

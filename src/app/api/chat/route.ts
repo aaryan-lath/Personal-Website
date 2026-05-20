@@ -1,8 +1,6 @@
-import { GoogleGenAI } from '@google/genai';
-import { personaPrompt } from '../../../data/about-aaryan';
+import { aboutAaryan } from '../../../data/about-aaryan';
 import { checkRateLimit, getClientIp } from '../../../lib/rate-limit';
-import { embedText } from '../../../lib/rag/embed';
-import { getIndex, retrieveTopK, formatRetrievedAsContext } from '../../../lib/rag/retrieve';
+import { callWithFallback, AllProvidersExhaustedError } from '../../../lib/providers/registry';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -12,12 +10,8 @@ interface ChatMessage {
   content: string;
 }
 
-const MODEL = 'gemini-2.5-flash-lite';
 const MAX_HISTORY = 20;
 const MAX_CONTENT_CHARS = 2000;
-const TOP_K = 7;
-const MAX_GENERATION_RETRIES = 2;
-const RETRIEVAL_USER_TURNS = 3;
 
 export async function POST(req: Request) {
   const ip = getClientIp(req);
@@ -25,14 +19,16 @@ export async function POST(req: Request) {
   if (!limit.ok) {
     return new Response(
       JSON.stringify({ error: 'Too many requests. Please try again later.' }),
-      { status: 429, headers: { 'content-type': 'application/json', 'retry-after': String(limit.retryAfterSeconds) } }
+      {
+        status: 429,
+        headers: { 'content-type': 'application/json', 'retry-after': String(limit.retryAfterSeconds) },
+      }
     );
   }
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
+  if (!process.env.GEMINI_API_KEY && !process.env.GROQ_API_KEY) {
     return new Response(
-      JSON.stringify({ error: 'Chat is temporarily unavailable.' }),
+      JSON.stringify({ error: 'Chat is not configured. Set GEMINI_API_KEY or GROQ_API_KEY.' }),
       { status: 503, headers: { 'content-type': 'application/json' } }
     );
   }
@@ -59,83 +55,28 @@ export async function POST(req: Request) {
     });
   }
 
-  const contents = messages.map((m) => ({
-    role: m.role === 'assistant' ? 'model' : 'user',
-    parts: [{ text: m.content }],
-  }));
-
-  const ai = new GoogleGenAI({ apiKey });
   const lastUserMessage = messages[messages.length - 1].content;
 
-  // RAG: embed the last few USER turns combined (no assistant messages — those
-  // are Mach's own verbose responses and pollute retrieval intent). Short
-  // follow-ups like "Professionally?" then carry the prior question's intent.
-  const recentUserTurns = messages
-    .filter((m) => m.role === 'user')
-    .slice(-RETRIEVAL_USER_TURNS)
-    .map((m) => m.content);
-  const retrievalQuery = recentUserTurns.join('\n');
-
-  let retrievedBlock = '(no facts retrieved)';
+  let providerName: string;
+  let providerStream;
   try {
-    const [queryEmbedding, index] = await Promise.all([
-      embedText(ai, retrievalQuery),
-      getIndex(),
-    ]);
-    const top = retrieveTopK(index, queryEmbedding, TOP_K);
-    retrievedBlock = formatRetrievedAsContext(top);
+    const result = await callWithFallback({
+      systemInstruction: aboutAaryan,
+      messages,
+      temperature: 0.3,
+      maxOutputTokens: 512,
+    });
+    providerName = result.providerName;
+    providerStream = result.stream;
   } catch (err) {
-    console.error('[Mach retrieval] failed, falling back to persona-only prompt:', err);
-  }
-
-  const systemInstruction = `${personaPrompt}
-
-# Retrieved facts (top ${TOP_K} most relevant to the user's latest question)
-${retrievedBlock}
-`;
-
-  let stream;
-  let lastErr: unknown;
-  for (let attempt = 0; attempt <= MAX_GENERATION_RETRIES; attempt++) {
-    try {
-      stream = await ai.models.generateContentStream({
-        model: MODEL,
-        contents,
-        config: {
-          systemInstruction,
-          temperature: 0.4,
-          maxOutputTokens: 512,
-        },
-      });
-      break;
-    } catch (err) {
-      lastErr = err;
-      const msg = err instanceof Error ? err.message : String(err);
-      const isOverloaded = /503|UNAVAILABLE|overloaded|high demand/i.test(msg);
-      if (!isOverloaded || attempt === MAX_GENERATION_RETRIES) break;
-      const wait = 800 * (attempt + 1);
-      console.warn(`[Mach] gemini overloaded, retrying in ${wait}ms (attempt ${attempt + 1}/${MAX_GENERATION_RETRIES})`);
-      await new Promise((r) => setTimeout(r, wait));
-    }
-  }
-
-  if (!stream) {
-    const msg = lastErr instanceof Error ? lastErr.message : String(lastErr);
-    const isOverloaded = /503|UNAVAILABLE|overloaded|high demand/i.test(msg);
-    const isQuota = /429|RESOURCE_EXHAUSTED|quota/i.test(msg);
-    console.error('[Mach] generateContentStream failed after retries:', msg);
-    if (isOverloaded) {
+    if (err instanceof AllProvidersExhaustedError) {
       return new Response(
-        JSON.stringify({ error: 'Gemini is overloaded right now. Please try again in a minute.' }),
-        { status: 503, headers: { 'content-type': 'application/json' } }
-      );
-    }
-    if (isQuota) {
-      return new Response(
-        JSON.stringify({ error: 'Daily chat quota reached. Please try again tomorrow.' }),
+        JSON.stringify({ error: 'Daily chat quota reached across all providers. Please try again tomorrow.' }),
         { status: 429, headers: { 'content-type': 'application/json' } }
       );
     }
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error('[Mach] provider chain failed:', msg);
     return new Response(
       JSON.stringify({ error: 'Something went wrong reaching the model. Please try again.' }),
       { status: 502, headers: { 'content-type': 'application/json' } }
@@ -143,18 +84,25 @@ ${retrievedBlock}
   }
 
   // Mach can append a gap marker like "[GAP: career goals]" when it lacks info.
-  // Strip these from the user-facing stream and log them server-side so Aaryan
-  // sees what visitors are asking that the bot can't answer well.
+  // Strip these from the user-facing stream and log them server-side.
   const GAP_TAG = /\[GAP:\s*([^\]]*?)\]/g;
-  const HOLD_CHARS = 80; // hold the tail of the stream so we can detect a forming "[GAP:" tag
+  const HOLD_CHARS = 80;
+  const SAFETY_REFUSAL = "I can't help with that one. Try a different question about Aaryan.";
 
   const encoder = new TextEncoder();
   const readable = new ReadableStream({
     async start(controller) {
       let raw = '';
       let sentLen = 0;
+      let safetyBlocked = false;
+      let blockReason = '';
       try {
-        for await (const chunk of stream) {
+        for await (const chunk of providerStream) {
+          if (chunk.safetyBlocked) {
+            safetyBlocked = true;
+            blockReason = chunk.blockReason ?? 'unknown';
+            break;
+          }
           const text = chunk.text;
           if (!text) continue;
           raw += text;
@@ -165,6 +113,17 @@ ${retrievedBlock}
             sentLen += toSend.length;
           }
         }
+
+        if (safetyBlocked) {
+          console.warn(
+            `[Mach safety-block] provider=${providerName} reason=${blockReason} question=${JSON.stringify(lastUserMessage)}`
+          );
+          const prefix = sentLen > 0 ? '\n\n' : '';
+          controller.enqueue(encoder.encode(prefix + SAFETY_REFUSAL));
+          controller.close();
+          return;
+        }
+
         const finalCleaned = raw.replace(GAP_TAG, '');
         const tail = finalCleaned.slice(sentLen);
         if (tail) controller.enqueue(encoder.encode(tail));
@@ -174,11 +133,11 @@ ${retrievedBlock}
         if (matches.length > 0) {
           const topics = matches.map((m) => m[1].trim()).filter(Boolean);
           console.warn(
-            `[Mach gap] question=${JSON.stringify(lastUserMessage)} topics=${JSON.stringify(topics)}`
+            `[Mach gap] provider=${providerName} question=${JSON.stringify(lastUserMessage)} topics=${JSON.stringify(topics)}`
           );
         }
       } catch (err) {
-        console.error('Gemini stream error:', err);
+        console.error(`[Mach] stream error from ${providerName}:`, err);
         controller.enqueue(encoder.encode('\n\n[Sorry, something went wrong generating a reply.]'));
         controller.close();
       }
@@ -189,6 +148,7 @@ ${retrievedBlock}
     headers: {
       'content-type': 'text/plain; charset=utf-8',
       'cache-control': 'no-store',
+      'x-mach-provider': providerName,
     },
   });
 }

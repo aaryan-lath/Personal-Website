@@ -23,16 +23,36 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 ## Mach (AI chat widget)
 
-"Mach" is the floating chat widget on every page; it calls `/api/chat`, which uses the Google Gemini API.
+"Mach 0.96" is the floating chat widget on every page; it calls `/api/chat`, which routes through a **provider fallback chain**: Gemini models in order, then Groq as a safety net. Each Gemini model has its own free-tier daily bucket, so the chain extends usable headroom from one model's 20/day to ~100+/day across the chain plus Groq's much larger quota.
 
-1. Get a free API key from <https://aistudio.google.com/apikey> (no credit card required).
-2. Locally, create `.env.local` in the project root with:
-   ```
-   GEMINI_API_KEY=your_key_here
-   ```
-3. On Vercel, add the same `GEMINI_API_KEY` env var to the Production and Preview environments.
+### Required env
 
-The chatbot's knowledge of Aaryan lives in `src/data/about-aaryan.ts` — edit that file whenever the home page content changes (or to add new personal details). Per-IP rate limiting (10 requests / hour, in-memory) lives in `src/lib/rate-limit.ts`.
+- `GEMINI_API_KEY` — free from <https://aistudio.google.com/apikey> (no credit card). Primary provider.
+
+### Recommended env
+
+- `GROQ_API_KEY` — free from <https://console.groq.com> (no credit card). Final fallback when all Gemini models exhaust. Daily quotas are significantly higher than Gemini free tier.
+
+### Optional env (persistent exhaustion tracking)
+
+For production, exhausted-model state should survive across Vercel cold starts and across Lambda instances. Enable **Upstash Redis** from the Vercel Marketplace (Storage → Marketplace → Upstash Redis). Vercel will inject:
+
+- `KV_REST_API_URL` (or `UPSTASH_REDIS_REST_URL`)
+- `KV_REST_API_TOKEN` (or `UPSTASH_REDIS_REST_TOKEN`)
+
+If these are absent, the route falls back to a per-Lambda in-memory cache — still functional, just less efficient (each new instance pays one 429 to rediscover an exhausted model).
+
+### Local setup
+
+Create `.env.local` in the project root:
+```
+GEMINI_API_KEY=your_gemini_key_here
+GROQ_API_KEY=your_groq_key_here    # optional but recommended
+```
+
+Then `npm run dev`. The chatbot's knowledge of Aaryan lives in `src/data/about-aaryan.ts` — edit it whenever content changes; no rebuild needed. Per-IP rate limiting (10 requests / hour, in-memory) lives in `src/lib/rate-limit.ts`. Provider chain definition lives in `src/lib/providers/registry.ts`.
+
+The response includes an `x-mach-provider` header so you can see which model actually served a given request (useful for debugging).
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
