@@ -31,10 +31,14 @@ async function checkKv(): Promise<HealthReport['kv']> {
   try {
     const redis = new Redis({ url, token });
     const key = `mach:health:${Date.now()}`;
-    await redis.set(key, '1', { ex: 60 });
+    // Use a random alphanumeric nonce. Upstash's REST client auto-deserializes
+    // numeric-looking values to numbers, so plain "1" round-trips as 1 — using
+    // a non-numeric token avoids that comparison footgun.
+    const nonce = `n${Math.random().toString(36).slice(2, 12)}`;
+    await redis.set(key, nonce, { ex: 60 });
     const got = await redis.get<string>(key);
     await redis.del(key);
-    return got === '1' ? 'ok' : `unexpected-value:${got}`;
+    return String(got) === nonce ? 'ok' : `unexpected-value:${JSON.stringify(got)}`;
   } catch (err) {
     return `error:${(err as Error).message.slice(0, 120)}`;
   }
