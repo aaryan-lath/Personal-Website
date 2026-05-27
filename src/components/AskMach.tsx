@@ -5,7 +5,10 @@ import { useEffect, useRef, useState } from 'react';
 interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;
+  unlock?: { path: string };
 }
+
+const UNLOCK_SENTINEL = '__MACH_UNLOCK__';
 
 const STARTER_PROMPTS = [
   "What's Aaryan's race with Prof. Parsons?",
@@ -72,15 +75,36 @@ export default function AskMach() {
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
+      let raw = '';
+      let unlock: { path: string } | undefined;
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
-        const chunk = decoder.decode(value, { stream: true });
+        raw += decoder.decode(value, { stream: true });
+        // Detect the __MACH_UNLOCK__{"path":"..."} sentinel emitted by the server.
+        // Anything from the sentinel onward is metadata, not visible content.
+        let visible = raw;
+        const idx = raw.indexOf(UNLOCK_SENTINEL);
+        if (idx >= 0) {
+          visible = raw.slice(0, idx).replace(/\n+$/, '');
+          const after = raw.slice(idx + UNLOCK_SENTINEL.length);
+          const jsonMatch = after.match(/^\s*(\{[^}]*\})/);
+          if (jsonMatch) {
+            try {
+              const parsed = JSON.parse(jsonMatch[1]) as { path?: unknown };
+              if (typeof parsed.path === 'string' && parsed.path.startsWith('/')) {
+                unlock = { path: parsed.path };
+              }
+            } catch {
+              // Wait for more bytes; partial JSON across chunks.
+            }
+          }
+        }
         setMessages((prev) => {
           const updated = [...prev];
           const last = updated[updated.length - 1];
           if (last?.role === 'assistant') {
-            updated[updated.length - 1] = { ...last, content: last.content + chunk };
+            updated[updated.length - 1] = { ...last, content: visible, unlock };
           }
           return updated;
         });
@@ -165,19 +189,33 @@ export default function AskMach() {
                 key={i}
                 className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <div
-                  className={`max-w-[85%] rounded-2xl px-3.5 py-2 text-sm whitespace-pre-wrap shadow-sm ${
-                    m.role === 'user'
-                      ? 'bg-indigo-600/90 backdrop-blur text-white rounded-br-sm border border-indigo-400/40'
-                      : 'bg-white/70 backdrop-blur-md text-gray-800 border border-white/60 rounded-bl-sm'
-                  }`}
-                >
-                  {m.content || (
-                    <span className="inline-flex gap-1">
-                      <span className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <span className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <span className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-                    </span>
+                <div className="flex flex-col gap-2 max-w-[85%]">
+                  <div
+                    className={`rounded-2xl px-3.5 py-2 text-sm whitespace-pre-wrap shadow-sm ${
+                      m.role === 'user'
+                        ? 'bg-indigo-600/90 backdrop-blur text-white rounded-br-sm border border-indigo-400/40'
+                        : 'bg-white/70 backdrop-blur-md text-gray-800 border border-white/60 rounded-bl-sm'
+                    }`}
+                  >
+                    {m.content || (
+                      <span className="inline-flex gap-1">
+                        <span className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                        <span className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                        <span className="w-1.5 h-1.5 bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      </span>
+                    )}
+                  </div>
+                  {m.role === 'assistant' && m.unlock && (
+                    <a
+                      href={m.unlock.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="self-start inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 py-2 text-xs font-semibold shadow-md hover:opacity-90 transition-opacity"
+                    >
+                      <span aria-hidden>🔐</span>
+                      <span>Open Team Manager</span>
+                      <span aria-hidden>→</span>
+                    </a>
                   )}
                 </div>
               </div>
