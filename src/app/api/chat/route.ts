@@ -83,11 +83,18 @@ export async function POST(req: Request) {
     );
   }
 
-  // Mach can append a gap marker like "[GAP: career goals]" when it lacks info.
-  // Strip these from the user-facing stream and log them server-side.
+  // Mach can append two kinds of inline tags:
+  //   - "[GAP: career goals]"            — knowledge gap, log server-side, strip from output.
+  //   - "[UNLOCK: /admin/team-manager.html]" — Mach revealed the hidden admin route to
+  //     a recognized trigger phrase. Strip from text, append a `__MACH_UNLOCK__{json}`
+  //     sentinel line so AskMach.tsx can render an unlock-link card.
   const GAP_TAG = /\[GAP:\s*([^\]]*?)\]/g;
+  const UNLOCK_TAG = /\[UNLOCK:\s*([^\]]*?)\]/g;
+  const stripTags = (s: string) => s.replace(GAP_TAG, '').replace(UNLOCK_TAG, '');
   const HOLD_CHARS = 80;
   const SAFETY_REFUSAL = "I can't help with that one. Try a different question about Aaryan.";
+  // Whitelist of paths Mach is allowed to unlock. Anything else is dropped silently.
+  const UNLOCK_WHITELIST = new Set(['/admin/team-manager.html']);
 
   const encoder = new TextEncoder();
   const readable = new ReadableStream({
@@ -106,7 +113,7 @@ export async function POST(req: Request) {
           const text = chunk.text;
           if (!text) continue;
           raw += text;
-          const cleaned = raw.replace(GAP_TAG, '');
+          const cleaned = stripTags(raw);
           if (cleaned.length - sentLen > HOLD_CHARS) {
             const toSend = cleaned.slice(sentLen, cleaned.length - HOLD_CHARS);
             controller.enqueue(encoder.encode(toSend));
@@ -124,9 +131,29 @@ export async function POST(req: Request) {
           return;
         }
 
-        const finalCleaned = raw.replace(GAP_TAG, '');
+        const finalCleaned = stripTags(raw);
         const tail = finalCleaned.slice(sentLen);
         if (tail) controller.enqueue(encoder.encode(tail));
+
+        // Surface any whitelisted UNLOCK tag as a sentinel JSON frame for the client.
+        const unlockMatches = [...raw.matchAll(UNLOCK_TAG)];
+        for (const m of unlockMatches) {
+          const path = m[1].trim();
+          if (UNLOCK_WHITELIST.has(path)) {
+            controller.enqueue(
+              encoder.encode(`\n\n__MACH_UNLOCK__${JSON.stringify({ path })}\n`)
+            );
+            console.log(
+              `[Mach unlock] provider=${providerName} path=${path} question=${JSON.stringify(lastUserMessage)}`
+            );
+            break; // only emit the first whitelisted unlock per response
+          } else {
+            console.warn(
+              `[Mach unlock-rejected] provider=${providerName} path=${path} not in whitelist`
+            );
+          }
+        }
+
         controller.close();
 
         const matches = [...raw.matchAll(GAP_TAG)];
