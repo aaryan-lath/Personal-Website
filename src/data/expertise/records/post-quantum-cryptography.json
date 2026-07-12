@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../docs/expertise-record.schema.json",
+  "slug": "post-quantum-cryptography",
+  "title": "Post-Quantum Cryptography and CryptiQ",
+  "shortTitle": "Post-Quantum & CryptiQ",
+  "metaTitle": "Post-Quantum Cryptography: CryptiQ Cofounder",
+  "metaDescription": "How Aaryan Lath works in post-quantum cryptography: cofounder and CFO of CryptiQ, whose product migrates a company's encryption to NIST standards.",
+  "hero": "Post-quantum cryptography is the arena of Aaryan's startup CryptiQ, where he is a cofounder and CFO. CryptiQ helps companies find the quantum-vulnerable encryption running across their systems and migrate it to NIST post-quantum standards. Aaryan's own contribution is on the founding side: he drives finance and strategy for the venture on a four-person team.",
+  "tags": ["Post-Quantum Cryptography", "Startup", "Finance & Strategy", "Cofounder"],
+  "evidence": [
+    {
+      "context": "CryptiQ, a post-quantum security startup Aaryan co-founded and where he serves as Cofounder & CFO, built through Founders, Inc.'s Off Season II program in San Francisco during Summer 2026.",
+      "whatIDid": "Co-founded CryptiQ as one of a four-person founding team and took the Cofounder and CFO seat, where his work centers on finance and strategy for the venture rather than the cryptographic engineering. He is building the company through Founders, Inc.'s Off Season II program in San Francisco over Summer 2026, working alongside three co-founders to take the product from an early founding stage into an accelerator cohort. The finance-and-strategy remit covers the business side of a deep-tech company operating in the post-quantum cryptography space.",
+      "outcome": "CryptiQ is being built out of the Off Season II cohort in San Francisco; more on the company is available at cryp-iq.com, linked from the projects section of this site.",
+      "sourceUrl": "/#projects",
+      "sourceLabel": "CryptiQ in Projects",
+      "groundedIn": ["src/data/personal-projects.ts", "src/data/about-aaryan.ts", "src/data/structured-data.ts"]
+    },
+    {
+      "context": "CryptiQ's product thesis, which addresses the risk that quantum computers pose to the encryption companies rely on today; this is the company's stack, not code Aaryan writes personally.",
+      "whatIDid": "CryptiQ builds a complete inventory of the cryptography a company actually runs (a cryptographic bill of materials, or CBOM) and uses it to pinpoint where that company depends on quantum-vulnerable encryption. From there the product prioritizes what to fix first and migrates those systems onto NIST post-quantum standards such as ML-KEM for key encapsulation and ML-DSA for digital signatures. The approach is designed to work without outside consultants and without placing agents on production systems, keeping the migration self-contained for the customer.",
+      "outcome": "The product is positioned as post-quantum security made easy: inventory, prioritize, and migrate encryption to NIST standards, with no consultants and no agents on production systems.",
+      "sourceUrl": "/#projects",
+      "sourceLabel": "What CryptiQ builds",
+      "groundedIn": ["src/data/personal-projects.ts"]
+    },
+    {
+      "context": "Aaryan's specific role within CryptiQ, distinct from the cryptographic engineering, on the four-person founding team and within the accelerator cohort.",
+      "whatIDid": "As CFO on the four-person founding team, Aaryan owns finance and strategy for CryptiQ rather than the cryptographic implementation, which belongs to the company's product and technical work. That founder-level role runs through the Founders, Inc. Off Season II program the team is building in, spanning the financial and strategic decisions a deep-tech startup faces while operating in the post-quantum cryptography market. The site attributes the cryptography stack to CryptiQ as a product and Aaryan's contribution to the business side of the venture.",
+      "outcome": "Aaryan is listed as Cofounder & CFO of CryptiQ in the site's structured data and projects, with finance and strategy as his stated focus.",
+      "sourceUrl": "/#projects",
+      "sourceLabel": "Aaryan's role at CryptiQ",
+      "groundedIn": ["src/data/personal-projects.ts", "src/data/about-aaryan.ts"]
+    }
+  ],
+  "courses": [],
+  "projects": [
+    {
+      "name": "CryptiQ",
+      "summary": "Post-quantum security startup that inventories a company's cryptography and migrates it to NIST standards; Aaryan is Cofounder & CFO.",
+      "href": "/#projects"
+    }
+  ],
+  "tools": ["Post-Quantum Cryptography", "ML-KEM", "ML-DSA", "CBOM", "NIST PQC standards", "Finance & Strategy"],
+  "relatedSlugs": ["advanced-air-mobility", "systems-engineering"],
+  "knowsAbout": "Post-Quantum Cryptography",
+  "sameAs": ["https://www.cryp-iq.com"],
+  "lastReviewed": "2026-07-12"
+}

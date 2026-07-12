@@ -1,0 +1,71 @@
+{
+  "$schema": "../../../../docs/expertise-record.schema.json",
+  "slug": "design-optimization",
+  "title": "Multidisciplinary Design Optimization (MDO)",
+  "shortTitle": "Design Optimization",
+  "metaTitle": "MDO and Design Optimization | Aaryan Lath",
+  "metaDescription": "Aaryan Lath's multidisciplinary design optimization work: a modular MDO framework for electric aircraft accepted to AIAA Aviation 2026, plus graduate AAE 550.",
+  "hero": "Aaryan builds optimization into early aerospace design: he is developing a modular multidisciplinary design optimization framework for rapid electric aircraft conceptual design, applying it to competition aircraft trade studies, and carrying graduate-level MDO coursework as an undergraduate at Purdue.",
+  "tags": ["MDO", "Design Optimization", "Conceptual Design", "Trade Studies", "Graduate Coursework"],
+  "evidence": [
+    {
+      "context": "Aaryan's current research at Purdue, developing a multidisciplinary design optimization framework for rapid electric aircraft conceptual design.",
+      "whatIDid": "Built a modular MDO algorithm that connects sizing, performance, and mission-level constraints in one workflow so early design iterations stay rigorous while moving quickly. The toolchain uses Python and MATLAB for the optimization loops, sensitivity checks, and design-space exploration that drive the conceptual-design trades, structured so individual disciplines can be swapped or extended without rebuilding the whole architecture.",
+      "outcome": "An abstract on \"A Modular MDO Framework for Rapid Electric Aircraft Design\" was accepted to the AIAA Aviation Forum 2026.",
+      "sourceUrl": "/research/zucrow",
+      "sourceLabel": "MDO research",
+      "groundedIn": ["src/app/research/zucrow/page.tsx", "src/app/page.tsx"]
+    },
+    {
+      "context": "Applied optimization for the Purdue SAE Aero Design Team during the competition aircraft conceptual design stage.",
+      "whatIDid": "Put the same modular MDO framework to work on the team's conceptual design workflow, using it to compare candidate aircraft configurations against sizing, performance, and mission-level constraints in one place. Running the trades through a single optimization loop let the team weigh configurations consistently rather than evaluating them in isolation, turning early design questions into faster, better-supported decisions.",
+      "outcome": "The framework let the team compare configurations and make faster design decisions during the conceptual stage.",
+      "sourceUrl": "/research/zucrow",
+      "sourceLabel": "MDO research",
+      "groundedIn": ["src/app/research/zucrow/page.tsx"]
+    },
+    {
+      "context": "AAE 550 Multidisciplinary Design Optimization, named on this site as a graduate-level course, taken as an undergraduate in Purdue's aerospace engineering program.",
+      "whatIDid": "Carried AAE 550 as an undergraduate, working through the formal MDO methods behind the research: framing objectives and constraints, driving optimization algorithms, and running sensitivity and design-space studies. Aaryan deliberately loaded this graduate course alongside AAE 514 Intermediate Aerodynamics on top of the standard aerospace curriculum, grounding the applied framework work in the underlying optimization theory.",
+      "outcome": "AAE 550 appears in the Academia page course list, and the site describes it as a graduate-level course taken as an undergraduate.",
+      "sourceUrl": "/academia",
+      "sourceLabel": "Coursework details",
+      "groundedIn": ["src/app/page.tsx", "src/app/academia/page.tsx"]
+    },
+    {
+      "context": "TurboFan Engine Assembly, a fully parametric engine modeled as a personal project, used here as an applied optimization example.",
+      "whatIDid": "Ran bypass ratio optimization studies and performance parameter calculations on the fully parametric TurboFan engine assembly, which is modeled end to end in Creo Parametric. It serves here as a compact, hands-on example of applying design optimization to a real engine model rather than to an abstract test case.",
+      "outcome": "The complete parametric assembly, gallery, and project files are browsable on the project page.",
+      "sourceUrl": "/project/turbofan-engine-assembly",
+      "sourceLabel": "TurboFan Engine Assembly",
+      "groundedIn": ["src/data/cad-projects.ts"]
+    }
+  ],
+  "courses": [
+    {
+      "code": "AAE 550: Multidisciplinary Design Optimization",
+      "note": "Graduate-level MDO course taken as an undergraduate; the theory behind Aaryan's modular framework research."
+    },
+    {
+      "code": "AAE 514: Intermediate Aerodynamics",
+      "note": "Graduate-level aerodynamics course loaded alongside AAE 550 on top of the standard aerospace curriculum."
+    }
+  ],
+  "projects": [
+    {
+      "name": "Modular MDO framework for electric aircraft",
+      "summary": "A modular MDO workflow connecting sizing, performance, and mission constraints; abstract accepted to AIAA Aviation Forum 2026.",
+      "href": "/research/zucrow"
+    },
+    {
+      "name": "TurboFan Engine Assembly",
+      "summary": "Bypass ratio optimization studies on a fully parametric Creo engine model as an applied optimization example.",
+      "href": "/project/turbofan-engine-assembly"
+    }
+  ],
+  "tools": ["Python", "MATLAB", "Design-space exploration", "Sensitivity analysis", "Trade studies", "Optimization loops"],
+  "relatedSlugs": ["aerodynamic-design", "aircraft-design", "aerospace-propulsion"],
+  "knowsAbout": "Multidisciplinary Design Optimization",
+  "sameAs": [],
+  "lastReviewed": "2026-07-12"
+}

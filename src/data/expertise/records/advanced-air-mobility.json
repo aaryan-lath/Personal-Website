@@ -1,0 +1,71 @@
+{
+  "$schema": "../../../../docs/expertise-record.schema.json",
+  "slug": "advanced-air-mobility",
+  "title": "Advanced Air Mobility and eVTOL Systems",
+  "shortTitle": "Advanced Air Mobility",
+  "metaTitle": "Advanced Air Mobility, eVTOL and UAM",
+  "metaDescription": "Aaryan Lath's advanced air mobility work: a LuftCar eVTOL venture, distributed electric propulsion, urban air mobility safety study, and electric-aircraft MDO.",
+  "hero": "Advanced Air Mobility runs through Aaryan's venture work, coursework, and research at Purdue: he builds and grows the digital presence for an eVTOL company, has surveyed distributed electric propulsion and written on urban air mobility safety, and researches design optimization for electric aircraft.",
+  "tags": ["eVTOL", "Urban Air Mobility", "Distributed Electric Propulsion", "Vertiport Infrastructure", "Electric Aircraft"],
+  "evidence": [
+    {
+      "context": "LuftCar, a company building an Advanced Air Mobility platform spanning the Meethu hydrogen-hybrid eVTOL, SkyBase rapid-deploy vertiport infrastructure, and the SkyPAATH AI planning system, where Aaryan serves as SkyBase Manager.",
+      "whatIDid": "Designed and built the company's website at luftcar.com end to end, and now drives growth for the SkyBase vertiport platform. The scope here is the digital presence and platform growth for SkyBase, not the aircraft or planning-system engineering, which are LuftCar's own products.",
+      "outcome": "The live site is at luftcar.com and the venture appears in the Personal Projects section of this portfolio.",
+      "sourceUrl": "/#projects",
+      "sourceLabel": "LuftCar in Personal Projects",
+      "groundedIn": ["src/data/personal-projects.ts", "src/data/about-aaryan.ts"]
+    },
+    {
+      "context": "AAE 339: Aerospace Propulsion, a propulsion course in Purdue's School of Aeronautics and Astronautics that Aaryan completed as part of the aerospace curriculum.",
+      "whatIDid": "Conducted an extensive literature survey on novel techniques within the Urban Air Mobility sector, focusing on Distributed Electric Propulsion systems as a way to reduce acoustic noise and optimize battery thermal management, then compiled the findings into a course report.",
+      "outcome": "The full survey report is available from the Academia section of this site via OneDrive.",
+      "sourceUrl": "/academia",
+      "sourceLabel": "See the Academia page",
+      "groundedIn": ["src/app/academia/page.tsx", "src/app/page.tsx"]
+    },
+    {
+      "context": "AAE 571: Complex System Safety, a graduate-level systems-safety course applied to the propulsion systems of urban air mobility vehicles.",
+      "whatIDid": "Performed accident-style analysis and wrote a conference-style research paper investigating the safety challenges and risk-mitigation strategies for the propulsion systems of urban air mobility vehicles, connecting system-safety methods to the failure modes specific to UAM aircraft.",
+      "outcome": "The conference-style paper is linked from the Academia section of this site.",
+      "sourceUrl": "/academia",
+      "sourceLabel": "Coursework details",
+      "groundedIn": ["src/app/page.tsx", "src/app/academia/page.tsx"]
+    },
+    {
+      "context": "Multidisciplinary design optimization research at Purdue, where electric aircraft sit adjacent to the eVTOL and Advanced Air Mobility space.",
+      "whatIDid": "Developed a modular MDO framework for rapid electric aircraft conceptual design, connecting sizing, performance, and mission-level constraints in one workflow so early design iterations stay rigorous while moving quickly. The framework was also used by the Purdue SAE Aero Design team during conceptual design.",
+      "outcome": "The abstract was accepted to the AIAA Aviation Forum 2026, with the extended abstract browsable on the research page.",
+      "sourceUrl": "/research/zucrow",
+      "sourceLabel": "Electric aircraft MDO research",
+      "groundedIn": ["src/app/research/zucrow/page.tsx", "src/app/page.tsx"]
+    }
+  ],
+  "courses": [
+    {
+      "code": "AAE 339: Aerospace Propulsion",
+      "note": "Literature survey on distributed electric propulsion for urban air mobility, targeting acoustic noise and battery thermal management."
+    },
+    {
+      "code": "AAE 571: Complex System Safety",
+      "note": "Conference-style paper on safety challenges and risk mitigation for the propulsion systems of urban air mobility vehicles."
+    }
+  ],
+  "projects": [
+    {
+      "name": "LuftCar (SkyBase)",
+      "summary": "Built the luftcar.com website end to end and drives growth for the SkyBase rapid-deploy vertiport platform.",
+      "href": "/#projects"
+    },
+    {
+      "name": "Electric aircraft MDO framework",
+      "summary": "Modular MDO framework for rapid electric aircraft conceptual design; abstract accepted to AIAA Aviation Forum 2026.",
+      "href": "/research/zucrow"
+    }
+  ],
+  "tools": ["Distributed Electric Propulsion", "Vertiport infrastructure", "Web design & build", "Systems safety", "MDO", "Electric aircraft conceptual design", "Next.js"],
+  "relatedSlugs": ["aerospace-propulsion", "design-optimization", "post-quantum-cryptography"],
+  "knowsAbout": "Advanced Air Mobility",
+  "sameAs": ["https://www.luftcar.com"],
+  "lastReviewed": "2026-07-12"
+}

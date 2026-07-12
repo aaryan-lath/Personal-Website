@@ -11,6 +11,7 @@ export const baseKnowsAbout = [
   'Multidisciplinary Design Optimization',
   'Aerospace Propulsion',
   'Systems Engineering',
+  'Aerospace Structures',
   'CAD and PLM',
   'Post-Quantum Cryptography',
   'Advanced Air Mobility',

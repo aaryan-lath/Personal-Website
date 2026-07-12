@@ -1,0 +1,75 @@
+{
+  "$schema": "../../../../docs/expertise-record.schema.json",
+  "slug": "aircraft-design",
+  "title": "Aircraft Design and Competition Flight Vehicles",
+  "shortTitle": "Aircraft Design",
+  "metaTitle": "Aircraft Design | Aaryan Lath",
+  "metaDescription": "Aaryan Lath aircraft design: leading Purdue SAE Aero competition aircraft as Chief Engineer, plus XFLR5 wing analysis, DBF and AAE 251 lunar mission design.",
+  "hero": "Aaryan works the full aircraft design loop at Purdue, from conceptual sizing to flight test: he led an SAE Aero competition aircraft as Chief Engineer, analyzed wings and airfoils on the Aerial Robotics Team, built with Design/Build/Fly, and designed a lunar mission in AAE 251.",
+  "tags": ["Conceptual Design", "Flight Testing", "SAE Aero Design", "Team Leadership", "Mission Design"],
+  "evidence": [
+    {
+      "context": "SAE Aero Design at Purdue (SAE Purdue), where Aaryan served as Chief Engineer of the Regular Class competition aircraft from May 2025 onward.",
+      "whatIDid": "Led the aircraft through the full conceptual-design-to-flight-test cycle across the Mk1, Mk2, and competition iterations, reviewing trade studies across three sub teams and driving each design revision from the initial Mk1 proof-of-concept flight to the flight-ready competition build. The Mk2 was the first team aircraft to land without a rapid unscheduled disassembly.",
+      "outcome": "The team flew to a successful landing and placed 16th overall at SAE Aero Design East 2026.",
+      "sourceUrl": "/activities/purdue-aircraft-teams",
+      "sourceLabel": "Purdue Aircraft Teams",
+      "groundedIn": ["src/app/activities/purdue-aircraft-teams/page.tsx", "src/data/about-aaryan.ts", "src/app/page.tsx"]
+    },
+    {
+      "context": "AAE 251 Introduction to Aircraft and Spacecraft Design at Purdue, a design-intensive course Aaryan also supported as an undergraduate teaching assistant and grader.",
+      "whatIDid": "Designed a non-human moon-landing mission end to end, focusing on mission planning and spacecraft design to size and lay out the vehicle for its objectives. In parallel he served as a teaching assistant and grader for AAE 251, leading study sessions on aircraft and spacecraft design principles and MATLAB debugging for the design projects.",
+      "outcome": "The AAE 251 mission design report is available from the Academia section of this site via OneDrive.",
+      "sourceUrl": "/academia",
+      "sourceLabel": "See the Academia page",
+      "groundedIn": ["src/app/academia/page.tsx", "src/app/page.tsx", "src/data/about-aaryan.ts"]
+    },
+    {
+      "context": "Purdue Aerial Robotics Team (PART), where Aaryan served as an Aerodynamics Engineer during the 2023-2024 academic year.",
+      "whatIDid": "Used XFLR5 for airfoil and wing analysis on the team's aircraft, and applied engineering solutions to resolve manufacturing issues with molds, carbon fiber, and internal structures. The role connected the aerodynamic design of the lifting surfaces to the practical realities of building and finishing them.",
+      "outcome": "The aircraft design and manufacturing work is detailed on the Purdue Aircraft Teams page.",
+      "sourceUrl": "/activities/purdue-aircraft-teams",
+      "sourceLabel": "Purdue Aircraft Teams",
+      "groundedIn": ["src/app/activities/purdue-aircraft-teams/page.tsx"]
+    },
+    {
+      "context": "AIAA Design/Build/Fly (DBF) during the 2022-2023 academic year, an early team aircraft project in Aaryan's aircraft design history at Purdue.",
+      "whatIDid": "Helped build a competition aircraft for the Design/Build/Fly competition, contributing to the design and construction of the airframe while carrying a full course load through the academic year. The project was an early hands-on introduction to translating an aircraft design into a flying, competition-ready build.",
+      "outcome": "The team secured a 47th-place finish at the Design/Build/Fly competition.",
+      "sourceUrl": "/timeline",
+      "sourceLabel": "See the Timeline",
+      "groundedIn": ["src/app/timeline/page.tsx", "src/app/activities/purdue-aircraft-teams/page.tsx"]
+    }
+  ],
+  "courses": [
+    {
+      "code": "AAE 251: Introduction to Aircraft and Spacecraft Design",
+      "note": "Designed a non-human moon-landing mission focused on mission planning and spacecraft design; also served as TA and grader."
+    },
+    {
+      "code": "AAE 421: Flight Dynamics",
+      "note": "Built a Simulink model over the semester for trim conditions and dynamics of the Cessna 182."
+    },
+    {
+      "code": "AAE 334: Aerodynamics",
+      "note": "Core aerodynamics coursework underpinning the airfoil and wing design work on the competition aircraft."
+    }
+  ],
+  "projects": [
+    {
+      "name": "SAE Aero competition aircraft",
+      "summary": "Chief Engineer leading the Mk1 to Mk2 to competition design cycle through to a successful landing at SAE Aero Design East 2026.",
+      "href": "/activities/purdue-aircraft-teams"
+    },
+    {
+      "name": "AAE 251 lunar mission design",
+      "summary": "A non-human moon-landing mission designed around mission planning and spacecraft design.",
+      "href": "/academia"
+    }
+  ],
+  "tools": ["XFLR5", "MATLAB/Simulink", "Creo Parametric", "Conceptual design", "Flight testing"],
+  "relatedSlugs": ["aerodynamic-design", "design-optimization", "advanced-air-mobility"],
+  "knowsAbout": "Aircraft Design",
+  "sameAs": [],
+  "lastReviewed": "2026-07-12"
+}

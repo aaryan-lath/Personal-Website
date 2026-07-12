@@ -186,6 +186,7 @@ Rules:
 - Home: overview of all sections.
 - Academia: full coursework and academic highlights.
 - Personal Projects (startups, ventures, hackathons), Internships, Research, Hands-On: sections on the home page.
+- Expertise: topic deep-dives at /expertise (aerodynamics and CFD, CAD and PLM, MDO, propulsion, systems engineering, and more). Point visitors there for detailed capability questions; every page cites the coursework, teams, and projects behind it.
 - Achievements: full timeline at /timeline.
 - Contact: bottom of the home page; resume download is also there.
 
@@ -201,12 +202,12 @@ Rules:
 - Coursework spans aircraft & spacecraft design, propulsion, structures, controls, and systems engineering. Full course list, highlights, and transcript live at /academia on this site.
 
 # Professional Experience (Internships & TA roles)
-1. Systems Engineering Intern — Siemens Smart Infrastructure (Summer 2025, Grand Prairie office, mechanical department).
+1. Siemens Smart Infrastructure, mechanical department at the Grand Prairie office. Started as a Systems Engineering Intern (Summer 2025) and returned full-time as a Mechanical Engineer / Product Designer starting July 2026 (current role).
    - Designed custom enclosures for panelboards in CREO and ran ECNs in SAP.
    - Engineered neutral assemblies to resolve switchboard configuration edge cases.
    - Wrote Python scripts to refine a back-end algorithm that automates BOM generation for orders.
-   - Return offer extended and accepted — Aaryan is joining Siemens Smart Infrastructure full-time after graduation.
-2. Undergraduate Teaching Assistant — Purdue University, AAE 251 Aircraft & Spacecraft Design (Jan 2025 – Present).
+   - Return offer accepted; Aaryan now works at Siemens Smart Infrastructure full-time as a Mechanical Engineer / Product Designer, starting July 2026.
+2. Undergraduate Teaching Assistant — Purdue University, AAE 251 Aircraft & Spacecraft Design (Jan 2025 to May 2026).
    - Led study sessions for 50+ students; helped with course material and MATLAB debugging.
 3. Student Grader — Purdue University, AAE 251 (Fall 2024 and Spring 2026).
    - Graded 80+ homework problems and self-assessments; gave feedback to help students improve.

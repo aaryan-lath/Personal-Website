@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface ParallaxSectionProps {
   children: React.ReactNode;
@@ -21,21 +21,39 @@ export default function ParallaxSection({
   overlayColor = 'black',
   overlayOpacity = 0.4
 }: ParallaxSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
   const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setOffsetY(window.pageYOffset);
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const el = sectionRef.current;
+      // Drive the parallax from THIS section's position in the viewport, not the
+      // absolute page scroll. window.pageYOffset made sections far down the page
+      // translate hundreds of px, pushing the background past its -60% buffer and
+      // exposing the dark fill ("black space" at the top of the frame). getBoundingClientRect().top
+      // stays within roughly one viewport while the section is visible, so the
+      // translate stays inside the buffer.
+      if (el) setOffsetY(el.getBoundingClientRect().top);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
     // DO NOT TOUCH unless you know why: negative margin keeps parallax sections tightly stitched
-    <section className={`relative ${height} overflow-hidden`} style={{ marginBottom: '-1px' }}>
-      <div 
+    <section ref={sectionRef} className={`relative ${height} overflow-hidden`} style={{ marginBottom: '-1px' }}>
+      <div
         className="absolute bg-cover bg-center bg-no-repeat"
         style={{
           // Background positioning + transform controls the parallax effect
@@ -51,9 +69,9 @@ export default function ParallaxSection({
           backgroundColor: '#1f2937'
         }}
       />
-      
+
       {overlay && (
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             // DO NOT TOUCH unless you know why: overlay controls section transparency/legibility
@@ -62,7 +80,7 @@ export default function ParallaxSection({
           }}
         />
       )}
-      
+
       <div className="relative z-10 h-full">
         {children}
       </div>

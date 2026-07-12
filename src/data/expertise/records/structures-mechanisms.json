@@ -1,0 +1,71 @@
+{
+  "$schema": "../../../../docs/expertise-record.schema.json",
+  "slug": "structures-mechanisms",
+  "title": "Structures, Mechanisms and Thermal Design",
+  "shortTitle": "Structures & Mechanisms",
+  "metaTitle": "Aerospace Structures and Mechanisms",
+  "metaDescription": "Aaryan Lath's aerospace structures work: CubeSat structural design in Fusion 360, RETHi vibration-isolation FEA, Vectran tensile testing, and GD&T mechanisms.",
+  "hero": "Structural design is where Aaryan turns aerospace concepts into hardware: he has designed CubeSat structures in Fusion 360, run FEA and materials tests on a lunar-habitat vibration-isolation device, tested supersonic-airfoil shocks in the lab, and detailed engine mechanisms with GD&T across coursework, research, and personal projects at Purdue.",
+  "tags": ["Structural Design", "FEA", "Mechanism Design", "Materials Testing", "Manufacturing"],
+  "evidence": [
+    {
+      "context": "Purdue Space Program, as a Structures, Mechanisms and Thermals member on the Satellites team building the BoilerBus, a 3U CubeSat developed with approximately 40 engineers.",
+      "whatIDid": "Used Fusion 360 to design a 3U CubeSat estimated at ~$100K, producing walls, end plates, and bulkhead prototypes for the BoilerBus. Applied manufacturing techniques including metal laser cutting and VF3 milling for the end plates, and developed trade and research studies for the structural components, materials, designs, and fabrication methods behind the satellite structure.",
+      "outcome": "The walls, end plates, and bulkhead prototypes were developed and manufactured for the BoilerBus, with the work documented on the Purdue Space Program page.",
+      "sourceUrl": "/activities/purdue-space-program",
+      "sourceLabel": "Purdue Space Program",
+      "groundedIn": ["src/app/activities/purdue-space-program/page.tsx", "src/app/page.tsx", "src/data/about-aaryan.ts"]
+    },
+    {
+      "context": "Resilient Extraterrestrial Habitat Institute (RETHi), a Purdue research institute developing resilient habitat systems for long-duration lunar missions, where Aaryan worked on vibration isolation.",
+      "whatIDid": "Conducted finite element analysis simulations to test the structural loads on the vibration-isolation device, then ran tensile tests on Vectran straps with different stitching patterns to characterize and compare their behavior under load, tying the experimental material results back to the structural design of the isolation system.",
+      "outcome": "The FEA and Vectran tensile-testing work is presented in the RETHi research summary and accompanying poster on this site.",
+      "sourceUrl": "/research/rethi",
+      "sourceLabel": "RETHi research",
+      "groundedIn": ["src/app/research/rethi/page.tsx", "src/app/page.tsx"]
+    },
+    {
+      "context": "Structures and structural-testing coursework in Purdue's aeronautical and astronautical engineering program, including AAE 352 Structures and the AAE 33401 Aerodynamics Lab.",
+      "whatIDid": "Completed AAE 352 Structures for the fundamentals of aerospace structural analysis, and in the AAE 33401 Aerodynamics Lab tested the shock characteristics of different supersonic airfoils, including a diamond airfoil, a stepped wedge, and delta wings, to study how their geometry drives the shock structure.",
+      "outcome": "The supersonic-airfoil shock report is available from the Academia section of this site via OneDrive.",
+      "sourceUrl": "/academia",
+      "sourceLabel": "Academia coursework",
+      "groundedIn": ["src/app/academia/page.tsx"]
+    },
+    {
+      "context": "Single Piston Sterling Engine, a personal mechanical-design project modeled from the mechanism outward.",
+      "whatIDid": "Designed the engine mechanism in Siemens NX, working through the moving assembly and its structural detailing, and applied GD&T across the model to define the tolerances and fits needed for the mechanism to function as designed.",
+      "outcome": "The Sterling engine and related CAD work are collected on the project page.",
+      "sourceUrl": "/project/single-piston-sterling-engine",
+      "sourceLabel": "Sterling Engine project",
+      "groundedIn": ["src/data/cad-projects.ts"]
+    }
+  ],
+  "courses": [
+    {
+      "code": "AAE 352",
+      "note": "Structures: fundamentals of aerospace structural analysis, applied across the CubeSat and mechanism design work."
+    },
+    {
+      "code": "AAE 33401",
+      "note": "Aerodynamics Lab: tested the shock characteristics of supersonic airfoils, including a diamond airfoil, stepped wedge, and delta wings."
+    }
+  ],
+  "projects": [
+    {
+      "name": "BoilerBus 3U CubeSat",
+      "summary": "Fusion 360 structural design of walls, end plates, and bulkhead prototypes, with metal laser cutting and VF3 milling.",
+      "href": "/activities/purdue-space-program"
+    },
+    {
+      "name": "Single Piston Sterling Engine",
+      "summary": "Engine mechanism designed in Siemens NX with GD&T-driven structural detailing.",
+      "href": "/project/single-piston-sterling-engine"
+    }
+  ],
+  "tools": ["Fusion 360", "FEA", "Siemens NX", "GD&T", "Metal laser cutting", "VF3 milling", "Tensile testing"],
+  "relatedSlugs": ["cad-plm", "systems-engineering", "aircraft-design"],
+  "knowsAbout": "Aerospace Structures",
+  "sameAs": ["https://www.purdue.edu/rethi/"],
+  "lastReviewed": "2026-07-12"
+}

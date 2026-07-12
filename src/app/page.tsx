@@ -10,57 +10,25 @@ import { personalProjects } from '../data/personal-projects';
 import JsonLd from '../components/JsonLd';
 import { SITE_URL } from '../data/structured-data';
 import { cadProjects } from '../data/cad-projects';
+import { timelineData } from '../data/timeline';
 
-// EDIT TEXT HERE: Timeline preview cards on the homepage.
-// BLOCK GROUP: Each object below is one timeline card; add another by copying an object.
-const timelineEvents = [
-  {
-    id: 1,
-    title: 'SAE Aero Design East Competition',
-    date: 'March 2026',
-    description: 'The best competition yet for the team — a successful aircraft landing and loads of learning experiences at the SAE Aero Design East competition, marking a major milestone for the PSAEA team.',
-    images: [
-      '/images/Aircraft_Solo.jpeg',
-      '/images/Aircraft_Team.jpeg'
-    ]
-  },
-  {
-    id: 2,
-    title: 'Wind_Tunnel-test',
-    date: 'January 2026',
-    description: 'Wind tunnel testing campaign for aerodynamic validation (completed after Mk2).',
-    images: ['/images/Wind_Tunnel-test.jpeg']
-  },
-  {
-    id: 3,
-    title: 'Mk2',
-    date: 'January 2026',
-    description: 'Mk2 iteration showing design and performance improvements.',
-    images: ['/images/Mk2.jpg']
-  },
-  {
-    id: 4,
-    title: 'Mk1',
-    date: 'December 2025',
-    description: 'Initial Mk1 build and validation milestone.',
-    images: ['/images/Mk1.png']
-  }
-];
+// Homepage timeline preview. RULE: always shows the FIRST 4 items of the shared
+// timeline data (src/data/timeline.ts), so it mirrors the top of /timeline.
+const homeTimeline = timelineData.slice(0, 4);
+const homeTimelineFrames = homeTimeline.map((e) =>
+  e.images && e.images.length ? e.images : e.image ? [e.image] : []
+);
 
 function TimelineCards() {
-  const [currentImages, setCurrentImages] = useState(
-    timelineEvents.map(() => 0)
-  );
-  const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
+  const [currentImages, setCurrentImages] = useState(homeTimeline.map(() => 0));
+  const [flippedCards, setFlippedCards] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImages(prev => 
+      setCurrentImages(prev =>
         prev.map((current, index) => {
-          const event = timelineEvents[index];
-          return event.images.length > 1 
-            ? (current + 1) % event.images.length 
-            : current;
+          const frames = homeTimelineFrames[index];
+          return frames.length > 1 ? (current + 1) % frames.length : current;
         })
       );
     }, 4000);
@@ -68,7 +36,7 @@ function TimelineCards() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleCardFlip = (id: number) => {
+  const handleCardFlip = (id: string) => {
     setFlippedCards(prev => {
       const newSet = new Set(prev);
       if (newSet.has(id)) {
@@ -92,10 +60,12 @@ function TimelineCards() {
           Hover over any card to reveal detailed descriptions
         </div>
       </div>
-      {/* BLOCK GROUP: Cards are generated from timelineEvents above. */}
+      {/* BLOCK GROUP: Cards are the first 4 of the shared timeline data. */}
       {/* Layout tip: 1 card per row on small screens, 2 on md, 4 on lg. */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-        {timelineEvents.map((event, index) => (
+        {homeTimeline.map((event, index) => {
+          const frames = homeTimelineFrames[index];
+          return (
           <div
             key={event.id}
             className="flip-card h-64 lg:h-56 perspective-1000 cursor-pointer group"
@@ -109,11 +79,22 @@ function TimelineCards() {
               {/* Front of card */}
               <div className="flip-card-front absolute inset-0 w-full h-full backface-hidden rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <div className="relative w-full h-full">
-                  <img 
-                    src={event.images[currentImages[index]]} 
-                    alt={event.title}
-                    className="w-full h-full object-cover transition-opacity duration-1000"
-                  />
+                  {event.video ? (
+                    <video
+                      src={event.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={frames[currentImages[index]]}
+                      alt={event.title}
+                      className="w-full h-full object-cover transition-opacity duration-1000"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute top-4 left-4">
                     <div className="bg-black/40 backdrop-blur-sm rounded px-2 py-1">
@@ -125,9 +106,9 @@ function TimelineCards() {
                       <h3 className="text-white text-sm lg:text-xs font-bold leading-tight">{event.title}</h3>
                     </div>
                   </div>
-                  {event.images.length > 1 && (
+                  {frames.length > 1 && (
                     <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-sm text-white text-xs px-2 py-1 rounded">
-                      {currentImages[index] + 1}/{event.images.length}
+                      {currentImages[index] + 1}/{frames.length}
                     </div>
                   )}
                 </div>
@@ -138,10 +119,10 @@ function TimelineCards() {
                 <div className="text-center">
                   <div className="flex items-center justify-between mb-3">
                     <h3 className="text-gray-900 font-bold text-base lg:text-sm flex-1">{event.title}</h3>
-                    <svg 
-                      className="w-5 h-5 text-gray-400 flex-shrink-0 cursor-pointer" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-5 h-5 text-gray-400 flex-shrink-0 cursor-pointer"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
@@ -153,7 +134,8 @@ function TimelineCards() {
               </div>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </>
   );
@@ -511,10 +493,10 @@ export default function Home() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
-                      Systems Engineering Intern
+                      Mechanical Engineer / Product Designer
                     </h3>
                     <p className="text-indigo-600 font-medium text-base lg:text-sm mb-1">Siemens Smart Infrastructure</p>
-                    <p className="text-gray-500 text-sm">Summer 2025</p>
+                    <p className="text-gray-500 text-sm">July 2026 - Present</p>
                   </div>
                   <div className="bg-indigo-200 p-3 rounded-full">
                     <svg className="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -523,13 +505,13 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Worked at the Grand Prairie office in Siemens' Smart Infrastructure division in the mechanical department:
-                  <br />• Designed custom enclosures for panelboards using CREO and executed ECNs in SAP.
+                  Current full-time role at the Grand Prairie office, after joining Siemens' Smart Infrastructure mechanical department as a <span className="font-semibold text-gray-900">Systems Engineering Intern</span> in Summer 2025:
+                  <br />• Designed panelboard enclosures in CREO and executed ECNs in SAP.
                   <br />• Streamlined switchboard configurations by engineering neutral assemblies to resolve design edge cases.
-                  <br />• Developed Python scripts to refine a back-end algorithm, automating the BOM generation process for orders.
+                  <br />• Developed automation scripts to refine a back-end algorithm for BOM generation on orders.
                 </p>
                 <div className="text-sm text-indigo-600 font-medium">
-                  CREO CAD • SAP • Python Scripting • Systems Engineering
+                  CREO CAD • Product Design • SAP • Automation
                 </div>
               </div>
               
@@ -540,7 +522,7 @@ export default function Home() {
                       Undergraduate Teaching Assistant
                     </h3>
                     <p className="text-cyan-600 font-medium text-base lg:text-sm mb-1">Purdue University</p>
-                    <p className="text-gray-500 text-sm">Jan 2025 - Present</p>
+                    <p className="text-gray-500 text-sm">Jan 2025 - May 2026</p>
                   </div>
                   <div className="bg-cyan-200 p-3 rounded-full">
                     <svg className="w-6 h-6 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -666,7 +648,7 @@ export default function Home() {
       </ParallaxSection>
 
       <ParallaxSection 
-        backgroundImage="/images/activities-bg.jpeg" 
+        backgroundImage="/images/Wind_Tunnel-activities.jpeg"
         height="min-h-screen"
         speed={0.1}
         overlay={true}
@@ -796,7 +778,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* BLOCK GROUP: TimelineCards uses timelineEvents above; add events in that array. */}
+          {/* BLOCK GROUP: TimelineCards shows the first 4 of the shared timeline data (src/data/timeline.ts). */}
           <TimelineCards />
 
           <div className="text-center">

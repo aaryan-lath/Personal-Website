@@ -1,0 +1,71 @@
+{
+  "$schema": "../../../../docs/expertise-record.schema.json",
+  "slug": "systems-engineering",
+  "title": "Systems Engineering and Requirements",
+  "shortTitle": "Systems Engineering",
+  "metaTitle": "Systems Engineering | Aaryan Lath",
+  "metaDescription": "Aaryan Lath's systems engineering: requirements at Siemens and Purdue Space Program, RETHi safety trade studies, and managing an AAE 418 suborbital experiment.",
+  "hero": "Aaryan approaches hardware as a system of requirements, interfaces, and trade-offs: he has managed requirements and budgets for student and industry teams, run safety trade studies for a lunar habitat, and carried systems work from an internship at Siemens into a full-time role.",
+  "tags": ["Requirements Management", "Trade Studies", "Systems Integration", "Project Management"],
+  "evidence": [
+    {
+      "context": "Siemens Smart Infrastructure, Summer 2025 internship in the mechanical department at the Grand Prairie office, where Aaryan worked as a Systems Engineering Intern.",
+      "whatIDid": "Approached switchboard production designs as a system: engineered neutral assemblies that resolved switchboard configuration edge cases across production designs, then moved upstream into the ordering pipeline by writing Python scripts that refined a back-end algorithm to automate the bill-of-materials generation process for orders, tying the mechanical design work to the systems that feed it.",
+      "outcome": "Returned with a full-time offer, which Aaryan accepted; he joins Siemens Smart Infrastructure after graduation.",
+      "sourceUrl": "/#internships",
+      "sourceLabel": "Professional experience",
+      "groundedIn": ["src/app/page.tsx", "src/data/about-aaryan.ts"]
+    },
+    {
+      "context": "Purdue Space Program Satellites team, where Aaryan served as Deputy Systems Director for the BoilerBus CubeSat within an organization of 10 teams.",
+      "whatIDid": "Owned the requirements baseline as Deputy Systems Director, formulating, reviewing, and refining over 200 project system-level and sub-system requirements for the BoilerBus, then performed a Systems Review in Spring 2024 to check the system and subsystem requirements against the design as it matured.",
+      "outcome": "Held the requirements and Systems Review work for a 3U CubeSat program worked by roughly 40 engineers.",
+      "sourceUrl": "/activities/purdue-space-program",
+      "sourceLabel": "Purdue Space Program",
+      "groundedIn": ["src/app/activities/purdue-space-program/page.tsx", "src/app/page.tsx"]
+    },
+    {
+      "context": "RETHi (Resilient Extraterrestrial Habitat Institute) at Purdue, where the systems engineering portion of Aaryan's research addressed safety controls for a lunar habitat.",
+      "whatIDid": "Performed trade studies to evaluate candidate safety controls, assessing each option against cost and against the resilience of the habitat under a disruption to the lunar habitat, so that control selection could be weighed as a cost-versus-resilience decision rather than in isolation.",
+      "outcome": "The research was presented at the summer symposium at Purdue, with the poster available from the RETHi page.",
+      "sourceUrl": "/research/rethi",
+      "sourceLabel": "RETHi research",
+      "groundedIn": ["src/app/research/rethi/page.tsx", "src/app/page.tsx"]
+    },
+    {
+      "context": "AAE 418, an advanced experimental design course in Purdue's School of Aeronautics and Astronautics, where Aaryan served as Project Manager for a small suborbital experiment.",
+      "whatIDid": "Managed the small suborbital orbital-refuelling experiment end to end as Project Manager, creating the requirements and budgets for the effort and directing a team of 7 engineers through the design of the experiment, which was intended to be launched on a New Shepard flight.",
+      "outcome": "Delivered the requirements, budgets, and team coordination for the experiment design targeted at a New Shepard flight.",
+      "sourceUrl": "/#academia",
+      "sourceLabel": "Academic highlights",
+      "groundedIn": ["src/app/page.tsx"]
+    }
+  ],
+  "courses": [
+    {
+      "code": "AAE 418",
+      "note": "Advanced experimental design course where Aaryan project-managed a suborbital orbital-refuelling experiment, owning requirements and budgets."
+    },
+    {
+      "code": "AAE 571: Complex System Safety",
+      "note": "Graduate coursework in the safety of complex systems, complementing the safety-control trade studies from the RETHi research."
+    }
+  ],
+  "projects": [
+    {
+      "name": "BoilerBus CubeSat requirements",
+      "summary": "Over 200 system-level and sub-system requirements formulated and reviewed as Deputy Systems Director, with a Spring 2024 Systems Review.",
+      "href": "/activities/purdue-space-program"
+    },
+    {
+      "name": "RETHi safety-control trade studies",
+      "summary": "Cost-versus-resilience trade studies evaluating safety controls under disruptions to a lunar habitat.",
+      "href": "/research/rethi"
+    }
+  ],
+  "tools": ["Requirements management", "Trade studies", "Systems integration", "Project management", "SAP", "Python", "MATLAB/Simulink"],
+  "relatedSlugs": ["cad-plm", "structures-mechanisms", "advanced-air-mobility"],
+  "knowsAbout": "Systems Engineering",
+  "sameAs": [],
+  "lastReviewed": "2026-07-12"
+}

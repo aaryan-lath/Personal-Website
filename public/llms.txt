@@ -14,6 +14,21 @@ Aaryan is completing his BSAAE at Purdue (GPA 3.73) and joins Siemens Smart Infr
 - [Purdue Aircraft Teams](https://www.aaryanlath.com/activities/purdue-aircraft-teams): SAE Aero Design chief engineer history plus AUVSI SUAS and AIAA Design/Build/Fly competition work
 - [Purdue Space Program](https://www.aaryanlath.com/activities/purdue-space-program): Satellites team structures, mechanisms, and thermals work, deputy systems director, and org secretary roles
 
+## Expertise
+
+Topic deep-dives at /expertise, each grounded in on-site coursework, teams, research, and projects.
+
+- [Engineering Expertise](https://www.aaryanlath.com/expertise): Index of the topic deep-dives below
+- [Aerodynamic Design and CFD](https://www.aaryanlath.com/expertise/aerodynamic-design): Ahmed body CFD in AAE 412, SAE Aero wind tunnel campaigns, and turbofan CFD
+- [CAD, GD&T and PLM Workflows](https://www.aaryanlath.com/expertise/cad-plm): Creo and Siemens NX assemblies, SAP engineering change notices, Teamcenter PLM
+- [Multidisciplinary Design Optimization (MDO)](https://www.aaryanlath.com/expertise/design-optimization): Modular MDO framework for electric aircraft accepted to AIAA Aviation 2026, graduate AAE 550
+- [Systems Engineering and Requirements](https://www.aaryanlath.com/expertise/systems-engineering): Requirements at Siemens and Purdue Space Program, RETHi safety trade studies, AAE 418 experiment
+- [Advanced Air Mobility and eVTOL Systems](https://www.aaryanlath.com/expertise/advanced-air-mobility): LuftCar eVTOL venture, distributed electric propulsion, UAM safety, electric-aircraft MDO
+- [Aircraft Design](https://www.aaryanlath.com/expertise/aircraft-design): Purdue SAE Aero competition aircraft as Chief Engineer, XFLR5 wing analysis, DBF, AAE 251 mission design
+- [Aerospace Propulsion and Engine Systems](https://www.aaryanlath.com/expertise/aerospace-propulsion): Distributed electric propulsion survey, UAM propulsion safety, turbofan bypass ratio analysis
+- [Structures, Mechanisms and Thermal Design](https://www.aaryanlath.com/expertise/structures-mechanisms): CubeSat structural design in Fusion 360, RETHi vibration-isolation FEA, Vectran tensile testing
+- [Post-Quantum Cryptography and CryptiQ](https://www.aaryanlath.com/expertise/post-quantum-cryptography): Cofounder and CFO of CryptiQ, whose product migrates encryption to NIST post-quantum standards
+
 ## Projects
 
 - [TurboFan Engine Assembly](https://www.aaryanlath.com/project/turbofan-engine-assembly): Full 3D parametric turbofan assembly in Creo Parametric with bypass ratio optimization, CFD analysis, and GD&T

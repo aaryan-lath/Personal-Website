@@ -38,7 +38,7 @@ export const personalProjects: PersonalProject[] = [
     id: 'luftcar-skybase',
     title: 'LuftCar',
     org: 'Next-Gen Advanced Air Mobility',
-    date: '2026',
+    date: 'July 2026',
     role: 'SkyBase Manager',
     description:
       'LuftCar is building a complete Advanced Air Mobility platform — the Meethu™ hydrogen-hybrid eVTOL, SkyBase™ rapid-deploy vertiport infrastructure, and the SkyPAATH™ AI planning system. Designed and built the company\'s website end to end, and now drive growth for the SkyBase™ vertiport platform.',

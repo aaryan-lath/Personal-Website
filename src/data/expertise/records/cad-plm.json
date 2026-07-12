@@ -1,0 +1,66 @@
+{
+  "$schema": "../../../../docs/expertise-record.schema.json",
+  "slug": "cad-plm",
+  "title": "CAD, GD&T and PLM Workflows",
+  "shortTitle": "CAD & PLM",
+  "metaDescription": "Aaryan Lath's CAD and PLM work: Creo and Siemens NX assemblies with GD&T, SAP engineering change notices at Siemens, and Teamcenter PLM workflows.",
+  "hero": "From parametric engine assemblies to production change notices, Aaryan works across the full design-data lifecycle: modeling in Creo and Siemens NX, dimensioning with GD&T, and managing releases through PLM systems like Teamcenter and Aras Innovator.",
+  "tags": ["Creo Parametric", "Siemens NX", "GD&T", "PLM"],
+  "evidence": [
+    {
+      "context": "TurboFan Engine Assembly, a complete engine modeled as a personal project in Creo Parametric.",
+      "whatIDid": "Built the full 3D parametric assembly with bypass ratio optimization studies, component integration and interference checking, and performance parameter calculations, applying GD&T across the design throughout.",
+      "outcome": "The assembly ships with a browsable 3D model and a 21-image gallery on the project page.",
+      "sourceUrl": "/project/turbofan-engine-assembly",
+      "sourceLabel": "TurboFan Engine Assembly",
+      "groundedIn": ["src/data/cad-projects.ts"]
+    },
+    {
+      "context": "Siemens Smart Infrastructure, Summer 2025 internship in the mechanical department at the Grand Prairie office.",
+      "whatIDid": "Designed custom enclosures for panelboards in CREO and executed engineering change notices in SAP, and engineered neutral assemblies that resolved switchboard configuration edge cases in production designs.",
+      "outcome": "Returned with a full-time offer; Aaryan joins Siemens Smart Infrastructure after graduation.",
+      "sourceUrl": "/#internships",
+      "sourceLabel": "Professional experience",
+      "groundedIn": ["src/app/page.tsx", "src/data/about-aaryan.ts"]
+    },
+    {
+      "context": "Single Piston Sterling Engine, a mechanical design project run through enterprise design-data tooling.",
+      "whatIDid": "Designed the engine in Siemens NX and managed the design data through Teamcenter and Aras Innovator, exercising the same PLM release workflows used in industry alongside GD&T-driven detailing of the mechanism.",
+      "outcome": "Project files and related CAD work are collected on the project page.",
+      "sourceUrl": "/project/single-piston-sterling-engine",
+      "sourceLabel": "Sterling Engine project",
+      "groundedIn": ["src/data/cad-projects.ts"]
+    },
+    {
+      "context": "Purdue Space Program Satellites team, as a Structures, Mechanisms and Thermals member.",
+      "whatIDid": "Contributed structures and mechanisms design work for the satellite team, including Fusion 360 design work and laser-cut hardware, while also serving as deputy systems director for the Satellites team.",
+      "outcome": "Carried the work across a 10-team organization where he also served as secretary.",
+      "sourceUrl": "/activities/purdue-space-program",
+      "sourceLabel": "Purdue Space Program",
+      "groundedIn": ["src/app/page.tsx", "src/data/about-aaryan.ts", "src/app/activities/purdue-space-program/page.tsx"]
+    }
+  ],
+  "courses": [
+    {
+      "code": "MFET 163",
+      "note": "Highlighted coursework touching part hierarchy and PLM fundamentals alongside the NX Sterling engine project."
+    }
+  ],
+  "projects": [
+    {
+      "name": "TurboFan Engine Assembly",
+      "summary": "Parametric Creo assembly with GD&T, interference checks, and a browsable 3D model.",
+      "href": "/project/turbofan-engine-assembly"
+    },
+    {
+      "name": "Single Piston Sterling Engine",
+      "summary": "Siemens NX design managed through Teamcenter and Aras Innovator PLM workflows.",
+      "href": "/project/single-piston-sterling-engine"
+    }
+  ],
+  "tools": ["Creo Parametric", "Siemens NX", "Fusion 360", "GD&T", "Teamcenter", "Aras Innovator", "SAP ECN workflows"],
+  "relatedSlugs": ["structures-mechanisms", "systems-engineering", "aerospace-propulsion"],
+  "knowsAbout": "Computer-Aided Design and PLM",
+  "sameAs": [],
+  "lastReviewed": "2026-07-12"
+}
