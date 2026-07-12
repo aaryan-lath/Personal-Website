@@ -1,8 +1,8 @@
 # Aaryan Lath
 
-> Personal portfolio of Aaryan Lath, an aerospace engineering senior at Purdue University's School of Aeronautics and Astronautics. He is cofounder and CFO of CryptiQ, a post-quantum cryptography startup, and SkyBase Manager at LuftCar. The site covers his projects, research, coursework, student leadership, and resume.
+> Personal portfolio of Aaryan Lath, an aerospace engineering graduate of Purdue University's School of Aeronautics and Astronautics, now a mechanical engineer and product designer at Siemens Smart Infrastructure. He is cofounder and CFO of CryptiQ, a post-quantum cryptography startup, and SkyBase Manager at LuftCar. The site covers his projects, research, coursework, student leadership, and resume.
 
-Aaryan is completing his BSAAE at Purdue (GPA 3.73) and joins Siemens Smart Infrastructure full time after graduation. He is an undergraduate teaching assistant for AAE 251, Aircraft and Spacecraft Design. His research spans resilient deep space habitats with RETHi and propulsion plus multidisciplinary design optimization at Zucrow Laboratories. He retired as chief engineer of Purdue's SAE Aero Design team, which placed 16th at SAE Aero Design East 2026. CryptiQ (cryp-iq.com) is building through Founders, Inc. Off Season II in San Francisco. The site also hosts Mach 0.96, an AI assistant that answers questions about Aaryan.
+Aaryan completed his BSAAE at Purdue (GPA 3.73) and now works full time at Siemens Smart Infrastructure as a mechanical engineer and product designer. He was an undergraduate teaching assistant for AAE 251, Aircraft and Spacecraft Design. His research spans resilient deep space habitats with RETHi and propulsion plus multidisciplinary design optimization at Zucrow Laboratories. He retired as chief engineer of Purdue's SAE Aero Design team, which placed 16th at SAE Aero Design East 2026. CryptiQ (cryp-iq.com) is building through Founders, Inc. Off Season II in San Francisco. The site also hosts Mach 0.96, an AI assistant that answers questions about Aaryan.
 
 ## Pages
 

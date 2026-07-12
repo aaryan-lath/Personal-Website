@@ -26,7 +26,7 @@ export function personJsonLd(knowsAbout: string[] = baseKnowsAbout) {
     url: SITE_URL,
     image: `${SITE_URL}/images/profile.jpeg`,
     jobTitle: [
-      'Aerospace Engineering Senior at Purdue University',
+      'Mechanical Engineer and Product Designer at Siemens Smart Infrastructure',
       'Cofounder & CFO of CryptiQ',
       'SkyBase Manager at LuftCar',
     ],
@@ -37,6 +37,7 @@ export function personJsonLd(knowsAbout: string[] = baseKnowsAbout) {
       sameAs: 'https://www.purdue.edu',
     },
     worksFor: [
+      { '@type': 'Organization', name: 'Siemens Smart Infrastructure', url: 'https://www.siemens.com' },
       { '@type': 'Organization', name: 'CryptiQ', url: 'https://www.cryp-iq.com' },
       { '@type': 'Organization', name: 'LuftCar', url: 'https://www.luftcar.com' },
     ],
