@@ -28,7 +28,7 @@ export default function PurdueAircraftTeamsPage() {
             {/* EDIT TEXT HERE: Intro paragraph */}
             <p className="text-lg text-gray-600 mb-6">
               Active member of Purdue&apos;s aircraft design and competition teams, 
-              participated in national competitions including AUVSI SUAS and AIAA Design/ Build/ Fly competitions. Currently, serving as the Chief engineer of the SAE Aero Design team in SAE Purdue.
+              participated in national competitions including AUVSI SUAS and AIAA Design/ Build/ Fly competitions. Retired as Chief Engineer of the SAE Aero Design team in SAE Purdue after leading it through the SAE Aero Design East 2026 competition.
             </p>
             <div className="flex flex-wrap gap-3 mb-8">
               {/* EDIT TEXT HERE: Tag labels */}

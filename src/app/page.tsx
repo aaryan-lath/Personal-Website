@@ -7,6 +7,9 @@ import ParallaxSection from '../components/ParallaxSection';
 import ResearchBox from '../components/ResearchBox';
 import PersonalProjectCard from '../components/PersonalProjectCard';
 import { personalProjects } from '../data/personal-projects';
+import JsonLd from '../components/JsonLd';
+import { SITE_URL } from '../data/structured-data';
+import { cadProjects } from '../data/cad-projects';
 
 // EDIT TEXT HERE: Timeline preview cards on the homepage.
 // BLOCK GROUP: Each object below is one timeline card; add another by copying an object.
@@ -213,7 +216,17 @@ export default function Home() {
   }, [interests.length]);
   return (
     <main>
-      <ParallaxSection 
+      {/* The home page is the profile page for the #person node the root layout emits */}
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ProfilePage',
+          '@id': `${SITE_URL}/#profilepage`,
+          url: SITE_URL,
+          mainEntity: { '@id': `${SITE_URL}/#person` },
+        }}
+      />
+      <ParallaxSection
         backgroundImage="/images/wallpaper.jpg" 
         height="min-h-screen"
         speed={0.3}
@@ -686,7 +699,7 @@ export default function Home() {
                 </div>
                 <p className="text-gray-700 mb-4">
                   Active member of Purdue&apos;s aircraft design and competition teams, 
-                  participated in national competitions including AUVSI SUAS and AIAA Design/ Build/ Fly competitions. Currently, serving as the Chief engineer of the SAE Aero Design team in SAE Purdue.
+                  participated in national competitions including AUVSI SUAS and AIAA Design/ Build/ Fly competitions. Retired as Chief Engineer of the SAE Aero Design team in SAE Purdue after leading it through the SAE Aero Design East 2026 competition.
                 </p>
                 <div className="text-sm text-blue-600 font-medium group-hover:text-blue-800 transition-colors">
                   Aircraft Design • Manufacturing • Testing • Leadership
@@ -720,61 +733,24 @@ export default function Home() {
             </Link>
           </div>
           
-          {/* BLOCK GROUP: Each ProjectCard below is one project; duplicate a ProjectCard to add another. */}
+          {/* BLOCK GROUP: cards are driven by src/data/cad-projects.ts. Edit that file to add or update entries. */}
           {/* Layout tip: 1 card per row on small screens, 2 on md. If you add a 3rd card and want 3 on one row (medium/large screens), change md:grid-cols-2 to md:grid-cols-3. */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div style={{ animationDelay: '0.1s' }}>
-              {/* EDIT TEXT HERE: Project card 1 content (title, description, links, images) */}
-              <ProjectCard
-                title="TurboFan Engine Assembly"
-                description="Complete turbofan engine design with bypass ratio optimization and performance analysis using advanced CAD modeling."
-                modelUrl="/models/bypass-engine_asm.gltf"
-                coverImage="/images/Engine design.jpg"
-                technologies={['Creo Parametric', 'CFD Analysis', 'Assembly Design', 'GD&T']}
-                details={[
-                  'Full 3D parametric engine assembly',
-                  'Bypass ratio optimization studies',
-                  'Component integration and interference checking',
-                  'Performance parameter calculations',
-                  'View complete project files and documentation'
-                ]}
-                images={[
-                  '/images/projects/bypass-engine/I_1-1.png',
-                  '/images/projects/bypass-engine/I_2-1.png',
-                  '/images/projects/bypass-engine/I_3-1.png',
-                  '/images/projects/bypass-engine/I_4-1.png',
-                  '/images/projects/bypass-engine/I_5-1.png',
-                  '/images/projects/bypass-engine/I_6-1.png',
-                  '/images/projects/bypass-engine/I_7-1.png',
-                  '/images/projects/bypass-engine/I_8-1.png',
-                  '/images/projects/bypass-engine/I_9-1.png',
-                  '/images/projects/bypass-engine/I_10-14-1.png',
-                  '/images/projects/bypass-engine/I_15-19-1.png',
-                  '/images/projects/bypass-engine/I_20-1.png',
-                  '/images/projects/bypass-engine/I_21-1.png',
-                  '/images/projects/bypass-engine/I_22-1.png',
-                  '/images/projects/bypass-engine/I_23-1.png',
-                  '/images/projects/bypass-engine/I_24-1.png',
-                  '/images/projects/bypass-engine/I_25-1.png',
-                  '/images/projects/bypass-engine/I_26-1.png',
-                  '/images/projects/bypass-engine/I_27-1.png',
-                  '/images/projects/bypass-engine/I_28-1.png',
-                  '/images/projects/bypass-engine/I_29-1.png'
-                ]}
-                driveLink="https://1drv.ms/f/c/283cc4cea2648e6d/EqHs9hzOskJGoxkfBSoJxOkBe_gegsn2ArnBNl5CevIsHg?e=RtRE7P"
-                driveLinkText="View Bypass Engine Project Files"
-              />
-            </div>
-            <div style={{ animationDelay: '0.3s' }}>
-              <ProjectCard
-                title="Single Piston Sterling Engine"
-                description="Collection of complex mechanical engineering projects showcasing design versatility and technical proficiency."
-                coverImage="/images/Single Piston Sterling Engine.jpg"
-                technologies={['Siemens NX', 'Aras Innovater', 'Teamcenter', 'GD&T']}
-                driveLink="https://onedrive.live.com/?id=%2Fpersonal%2F283cc4cea2648e6d%2FDocuments%2FPersonal%2DWebsite&viewid=0cf2dcd4%2D7efb%2D43cf%2Dae14%2D6c822d324089&view=0"
-                driveLinkText="View Other CAD Projects"
-              />
-            </div>
+            {cadProjects.map((p, index) => (
+              <div key={p.slug} style={{ animationDelay: `${0.1 + index * 0.2}s` }}>
+                <ProjectCard
+                  title={p.title}
+                  description={p.description}
+                  modelUrl={p.modelUrl}
+                  coverImage={p.coverImage}
+                  technologies={p.technologies}
+                  details={p.details}
+                  images={p.images}
+                  driveLink={p.driveLink}
+                  driveLinkText={p.driveLinkText}
+                />
+              </div>
+            ))}
           </div>
 
           {/* EDIT TEXT HERE: Button label for the portfolio call-to-action */}

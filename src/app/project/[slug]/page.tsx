@@ -1,9 +1,10 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useProject } from '../../../contexts/ProjectContext';
+import { cadProjects } from '../../../data/cad-projects';
 
 // Page: project detail view (data is provided via ProjectContext from the home page)
 const CADViewer = dynamic(
@@ -39,17 +40,23 @@ const CADViewer = dynamic(
 
 export default function ProjectPage() {
   const router = useRouter();
+  const params = useParams<{ slug: string }>();
   const { currentProject } = useProject();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Redirect if no project data
+  // Context wins (click-through path unchanged); direct visits resolve the
+  // slug from the data module so prerendered HTML carries full content.
+  const project =
+    currentProject ?? cadProjects.find((p) => p.slug === params?.slug) ?? null;
+
+  // Safety net only: with dynamicParams=false unknown slugs 404 before this.
   useEffect(() => {
-    if (!currentProject) {
+    if (!project) {
       router.push('/');
     }
-  }, [currentProject, router]);
+  }, [project, router]);
 
-  if (!currentProject) {
+  if (!project) {
     return (
       <div className="min-h-screen bg-gray-50 pt-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,18 +105,18 @@ export default function ProjectPage() {
             </button>
             
             {/* EDIT TEXT HERE: These fields come from the selected project on the homepage */}
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">{currentProject.title}</h1>
-            <p className="text-lg text-gray-600">{currentProject.description}</p>
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">{project.title}</h1>
+            <p className="text-lg text-gray-600">{project.description}</p>
           </div>
 
           {/* Technologies */}
-          {currentProject.technologies && currentProject.technologies.length > 0 && (
+          {project.technologies && project.technologies.length > 0 && (
             <div className="mb-8">
               {/* EDIT TEXT HERE: Section label */}
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Technologies</h2>
               {/* Layout tip: Tags wrap to the next line automatically. If you want a fixed number per row, change this container to a grid and set grid-cols-* (example: grid-cols-4). */}
               <div className="flex flex-wrap gap-3">
-                {currentProject.technologies.map((tech: string, index: number) => (
+                {project.technologies.map((tech: string, index: number) => (
                   <span
                     key={index}
                     className="px-4 py-2 bg-blue-100 text-blue-800 font-medium rounded-lg"
@@ -122,13 +129,13 @@ export default function ProjectPage() {
           )}
 
           {/* 3D Model */}
-          {currentProject.modelUrl && (
+          {project.modelUrl && (
             <div className="mb-8">
               {/* EDIT TEXT HERE: Section label */}
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">3D Model</h2>
               <div className="bg-white rounded-lg shadow-md p-6">
                 <CADViewer
-                  modelUrl={currentProject.modelUrl}
+                  modelUrl={project.modelUrl}
                   height="500px"
                   showControls={true}
                 />
@@ -137,14 +144,14 @@ export default function ProjectPage() {
           )}
 
           {/* Project Details */}
-          {currentProject.details && currentProject.details.length > 0 && (
+          {project.details && project.details.length > 0 && (
             <div className="mb-8">
               {/* EDIT TEXT HERE: Section label */}
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Project Details</h2>
               <div className="bg-white rounded-lg shadow-md p-6">
                 {/* Layout tip: This is a vertical list. If you add many items and want two columns, change this container to a grid and add something like md:grid-cols-2. */}
                 <ul className="space-y-3">
-                  {currentProject.details.map((detail: string, index: number) => (
+                  {project.details.map((detail: string, index: number) => (
                     <li key={index} className="flex items-start">
                       <span className="text-blue-600 mr-3 mt-1">•</span>
                       <span className="text-gray-700">{detail}</span>
@@ -156,13 +163,13 @@ export default function ProjectPage() {
           )}
 
           {/* Gallery */}
-          {currentProject.images && currentProject.images.length > 0 && (
+          {project.images && project.images.length > 0 && (
             <div className="mb-8">
               {/* EDIT TEXT HERE: Section label */}
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Gallery</h2>
               {/* Layout tip: 1 image per row on small screens, 2 on md, 3 on lg. If you add more and want 4 on one row (large screens), change lg:grid-cols-3 to lg:grid-cols-4. */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {currentProject.images.map((image: string, index: number) => (
+                {project.images.map((image: string, index: number) => (
                   <div
                     key={index}
                     className="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition-shadow"
@@ -170,7 +177,7 @@ export default function ProjectPage() {
                   >
                     <img
                       src={image}
-                      alt={`${currentProject.title} - Image ${index + 1}`}
+                      alt={`${project.title} - Image ${index + 1}`}
                       className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -180,11 +187,11 @@ export default function ProjectPage() {
           )}
 
           {/* Drive Link */}
-          {currentProject.driveLink && (
+          {project.driveLink && (
             <div className="mb-8">
               <div className="bg-white rounded-lg shadow-md p-6">
                 <a
-                  href={currentProject.driveLink}
+                  href={project.driveLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center text-green-600 hover:text-green-800 font-medium text-lg"
@@ -192,7 +199,7 @@ export default function ProjectPage() {
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  {currentProject.driveLinkText || 'View Files'}
+                  {project.driveLinkText || 'View Files'}
                   <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>

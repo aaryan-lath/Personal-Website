@@ -9,15 +9,8 @@ module.exports = {
   // /admin* keeps the login page out if it ever becomes static.
   // /api/* is insurance: next-sitemap does not filter API paths.
   exclude: ['/admin*', '/api/*'],
-  // /project/[slug] has no generateStaticParams (routing files are fragile
-  // per AI_CONTEXT.md), so the two live slugs are listed here. Slugs derive
-  // from ProjectCard titles on the homepage:
-  // title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
-  // Keep in sync if project titles change.
-  additionalPaths: async (config) => [
-    await config.transform(config, '/project/turbofan-engine-assembly'),
-    await config.transform(config, '/project/single-piston-sterling-engine'),
-  ],
+  // Project and expertise routes are prerendered via generateStaticParams,
+  // so they land in the prerender manifest and join the sitemap automatically.
   robotsTxtOptions: {
     policies: [
       {
