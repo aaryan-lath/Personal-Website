@@ -6,8 +6,8 @@
 //   corpus is small enough (~15 KB) that "stuff everything into context" is
 //   simpler, more reliable, and produces better answers than RAG at this scale.
 //
-//   The Hackathons section is the one auto-generated block — pulled from
-//   src/data/hackathons.ts so new hackathons surface without editing this file.
+//   The Personal Projects section is the one auto-generated block — pulled from
+//   src/data/personal-projects.ts so new projects surface without editing this file.
 //
 // HOW TO UPDATE:
 //   1. Edit a section's text below (or add a new section header).
@@ -20,22 +20,22 @@
 // reads it as text. If you want a note that the bot WON'T see, use a // line
 // outside the backtick string instead.
 
-import { hackathons, type Hackathon } from './hackathons';
+import { personalProjects, type PersonalProject } from './personal-projects';
 
-function formatHackathon(h: Hackathon): string {
-  const header = `- ${h.name} (${h.date}${h.location ? `, ${h.location}` : ''})`;
+function formatProject(p: PersonalProject): string {
+  const header = `- ${p.title} — ${p.org} (${p.date}${p.location ? `, ${p.location}` : ''})`;
   const lines = [
     header,
-    `  - Project: "${h.project}" — ${h.role}.`,
-    `  - ${h.description}`,
-    h.achievement ? `  - Result: ${h.achievement}.` : null,
-    `  - Stack: ${h.technologies.join(', ')}.`,
-    h.href ? `  - Link: ${h.href}` : null,
+    `  - Role: ${p.role}.`,
+    `  - ${p.description}`,
+    p.achievement ? `  - Result: ${p.achievement}.` : null,
+    `  - Stack: ${p.technologies.join(', ')}.`,
+    p.href ? `  - Link: ${p.href}` : null,
   ];
   return lines.filter(Boolean).join('\n');
 }
 
-const hackathonsBlock = hackathons.map(formatHackathon).join('\n\n');
+const personalProjectsBlock = personalProjects.map(formatProject).join('\n\n');
 
 export const aboutAaryan = `
 You are "Mach 0.96" — an AI assistant on Aaryan Lath's personal portfolio site.
@@ -185,7 +185,7 @@ Rules:
 ## Site Navigation (always-on knowledge)
 - Home: overview of all sections.
 - Academia: full coursework and academic highlights.
-- Internships, Research, Hands-On, Hackathons: sections on the home page.
+- Personal Projects (startups, ventures, hackathons), Internships, Research, Hands-On: sections on the home page.
 - Achievements: full timeline at /timeline.
 - Contact: bottom of the home page; resume download is also there.
 
@@ -225,9 +225,11 @@ Rules:
 - TurboFan Engine Assembly: full 3D parametric engine assembly in Creo Parametric with bypass-ratio optimization, CFD analysis, GD&T, and component integration checks.
 - Single Piston Sterling Engine: mechanical design work in Siemens NX, Aras Innovator, Teamcenter; demonstrates GD&T proficiency.
 
-# Hackathons
-${hackathonsBlock}
-- If a visitor asks "what hackathon prize did Aaryan win?", lead with the highest-result entry above and name the project, the category, and the placement.
+# Personal Projects — startups, ventures & hackathons
+${personalProjectsBlock}
+- CryptiQ is Aaryan's startup — he is Cofounder & CFO on a founding team of four, building it through Founders, Inc.'s Off Season II program (Summer 2026, Fort Mason, San Francisco). For product questions beyond the summary above, point visitors to cryp-iq.com.
+- At LuftCar, Aaryan designed and built the company website (luftcar.com) and works on growth for the SkyBase vertiport platform.
+- If a visitor asks "what hackathon prize did Aaryan win?", lead with the entry above that has a Result line and name the project, the category, and the placement.
 
 # Awards & Achievements
 - Listed on the Awards & Achievements timeline (linked from the home page). Highlights include the SAE Aero Design East 2026 competition, AAE banquet recognitions, and PSD posters/certificates.

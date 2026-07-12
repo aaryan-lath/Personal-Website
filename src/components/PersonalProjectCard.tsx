@@ -1,17 +1,18 @@
-import type { Hackathon } from '../data/hackathons';
+import type { PersonalProject } from '../data/personal-projects';
 
-export default function HackathonCard({
-  name,
+export default function PersonalProjectCard({
+  title,
+  org,
   date,
   location,
-  project,
   role,
   description,
   achievement,
   technologies,
   href,
+  linkLabel,
   image,
-}: Hackathon) {
+}: PersonalProject) {
   const cardClasses =
     'relative block bg-white/95 backdrop-blur-sm border border-rose-200 rounded-lg p-6 lg:p-5 hover:bg-rose-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex flex-col h-full no-underline';
 
@@ -25,14 +26,14 @@ export default function HackathonCard({
 
       {image && (
         <div className="w-full h-40 mb-4 rounded-md overflow-hidden bg-gray-100">
-          <img src={image} alt={`${name} project`} className="w-full h-full object-cover" />
+          <img src={image} alt={`${title} project`} className="w-full h-full object-cover" />
         </div>
       )}
 
       <div className="flex items-start justify-between mb-4">
         <div className="flex-1">
-          <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">{project}</h3>
-          <p className="text-rose-600 font-medium text-base lg:text-sm mb-1">{name}</p>
+          <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+          <p className="text-rose-600 font-medium text-base lg:text-sm mb-1">{org}</p>
           <p className="text-gray-500 text-sm">
             {date}
             {location ? ` • ${location}` : ''}
@@ -52,7 +53,7 @@ export default function HackathonCard({
 
       {href && (
         <div className="mt-3 inline-flex items-center text-xs text-rose-700 font-medium">
-          View on Devpost
+          {linkLabel ?? 'Learn more'}
           <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
@@ -68,7 +69,7 @@ export default function HackathonCard({
         target="_blank"
         rel="noopener noreferrer"
         className={cardClasses}
-        aria-label={`${project} — open project on Devpost`}
+        aria-label={`${title} — ${linkLabel ?? 'open link in new tab'}`}
       >
         {content}
       </a>

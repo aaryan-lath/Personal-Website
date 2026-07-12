@@ -22,20 +22,20 @@ export default function Navigation() {
   // DO NOT TOUCH unless you know why: this controls navigation routes vs in-page anchors
   const navItems = (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage) ? [
     { name: 'Home', href: '/' },
+    { name: 'Personal Projects', href: '/#projects' },
     { name: 'Academia', href: '/#academia' },
     { name: 'Internships', href: '/#internships' },
     { name: 'Research', href: '/#research' },
     { name: 'Hands-On', href: '/#activities' },
-    { name: 'Hackathons', href: '/#hackathons' },
     { name: 'Achievements', href: '/timeline' },
     { name: 'Contact', href: '/#contact' },
   ] : [
     { name: 'Home', href: '#home' },
+    { name: 'Personal Projects', href: '#projects' },
     { name: 'Academia', href: '#academia' },
     { name: 'Internships', href: '#internships' },
     { name: 'Research', href: '#research' },
     { name: 'Hands-On', href: '#activities' },
-    { name: 'Hackathons', href: '#hackathons' },
     { name: 'Achievements', href: '#timeline' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -46,7 +46,7 @@ export default function Navigation() {
       
       // Only detect sections on main page
       if (!isProjectPage && !isActivityPage && !isResearchPage && !isTimelinePage && !isAcademiaPage) {
-        const sections = ['home', 'academia', 'internships', 'research', 'activities', 'hackathons', 'timeline', 'contact'];
+        const sections = ['home', 'projects', 'academia', 'internships', 'research', 'activities', 'timeline', 'contact'];
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
         

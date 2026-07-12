@@ -12,6 +12,7 @@ const UNLOCK_SENTINEL = '__MACH_UNLOCK__';
 
 const STARTER_PROMPTS = [
   "What's Aaryan's race with Prof. Parsons?",
+  "What startup is Aaryan building?",
   "What hackathon prize did Aaryan win?",
   "What does Aaryan listen to when he studies?",
 ];

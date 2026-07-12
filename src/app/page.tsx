@@ -5,8 +5,8 @@ import Link from 'next/link';
 import ProjectCard from '../components/ProjectCard';
 import ParallaxSection from '../components/ParallaxSection';
 import ResearchBox from '../components/ResearchBox';
-import HackathonCard from '../components/HackathonCard';
-import { hackathons } from '../data/hackathons';
+import PersonalProjectCard from '../components/PersonalProjectCard';
+import { personalProjects } from '../data/personal-projects';
 
 // EDIT TEXT HERE: Timeline preview cards on the homepage.
 // BLOCK GROUP: Each object below is one timeline card; add another by copying an object.
@@ -267,9 +267,47 @@ export default function Home() {
         </section>
       </ParallaxSection>
 
+      {/* Personal Projects section — plain section with fixed background to avoid parallax scroll gaps */}
+      <section
+        id="projects"
+        className="relative py-12 sm:py-20 bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ backgroundImage: "url('/images/Hackathon.png')", backgroundColor: '#1f2937' }}
+      >
+        <div className="absolute inset-0 bg-black/55 pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+          <div className="text-center mb-10 sm:mb-16">
+            {/* EDIT TEXT HERE: Section title */}
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
+              Personal Projects
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-rose-400 to-pink-600 mx-auto rounded-full shadow-lg"></div>
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 max-w-3xl mx-auto mt-4 sm:mt-6">
+              {/* EDIT TEXT HERE: Section intro line */}
+              <p className="text-base sm:text-xl text-white/90 drop-shadow-md">
+                Startups, ventures and build sprints — what I ship outside the classroom
+              </p>
+            </div>
+          </div>
 
-      <ParallaxSection 
-        backgroundImage="/images/Urban-Mobility.jpg" 
+          {/* BLOCK GROUP: cards are driven by src/data/personal-projects.ts. Edit that file to add or update entries. */}
+          {personalProjects.length === 1 ? (
+            <div className="flex justify-center">
+              <div className="w-full max-w-md">
+                <PersonalProjectCard key={personalProjects[0].id} {...personalProjects[0]} />
+              </div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {personalProjects.map((p) => (
+                <PersonalProjectCard key={p.id} {...p} />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <ParallaxSection
+        backgroundImage="/images/Urban-Mobility.jpg"
         height="auto"
         speed={0.2}
         overlay={true}
@@ -759,44 +797,6 @@ export default function Home() {
           </div>
         </section>
       </ParallaxSection>
-
-      {/* Hackathons section — plain section with fixed background to avoid parallax scroll gaps */}
-      <section
-        id="hackathons"
-        className="relative py-12 sm:py-20 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{ backgroundImage: "url('/images/Hackathon.png')", backgroundColor: '#1f2937' }}
-      >
-        <div className="absolute inset-0 bg-black/55 pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-          <div className="text-center mb-10 sm:mb-16">
-            {/* EDIT TEXT HERE: Section title */}
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
-              Hackathons
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-rose-400 to-pink-600 mx-auto rounded-full shadow-lg"></div>
-            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 max-w-3xl mx-auto mt-4 sm:mt-6">
-              <p className="text-base sm:text-xl text-white/90 drop-shadow-md">
-                Build sprints — what I shipped, with whom, and what we learned
-              </p>
-            </div>
-          </div>
-
-          {/* BLOCK GROUP: cards are driven by src/data/hackathons.ts. Edit that file to add or update entries. */}
-          {hackathons.length === 1 ? (
-            <div className="flex justify-center">
-              <div className="w-full max-w-md">
-                <HackathonCard key={hackathons[0].id} {...hackathons[0]} />
-              </div>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {hackathons.map((h) => (
-                <HackathonCard key={h.id} {...h} />
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
 
       {/* Awards and achievements section — plain section with fixed background to avoid parallax scroll gaps */}
       <section
