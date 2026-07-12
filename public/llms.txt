@@ -1,0 +1,30 @@
+# Aaryan Lath
+
+> Personal portfolio of Aaryan Lath, an aerospace engineering senior at Purdue University's School of Aeronautics and Astronautics. He is cofounder and CFO of CryptiQ, a post-quantum cryptography startup, and SkyBase Manager at LuftCar. The site covers his projects, research, coursework, student leadership, and resume.
+
+Aaryan is completing his BSAAE at Purdue (GPA 3.73) and joins Siemens Smart Infrastructure full time after graduation. He is an undergraduate teaching assistant for AAE 251, Aircraft and Spacecraft Design. His research spans resilient deep space habitats with RETHi and propulsion plus multidisciplinary design optimization at Zucrow Laboratories. He retired as chief engineer of Purdue's SAE Aero Design team, which placed 16th at SAE Aero Design East 2026. CryptiQ (cryp-iq.com) is building through Founders, Inc. Off Season II in San Francisco. The site also hosts Mach 0.96, an AI assistant that answers questions about Aaryan.
+
+## Pages
+
+- [Home](https://www.aaryanlath.com/): Overview of personal projects, internships, research, activities, achievements, an embedded resume viewer, and the Mach AI assistant
+- [Academia](https://www.aaryanlath.com/academia): Purdue AAE coursework, course highlights, and reports
+- [Timeline](https://www.aaryanlath.com/timeline): Awards and achievements, including SAE Aero Design East 2026
+- [RETHi Research](https://www.aaryanlath.com/research/rethi): Resilient ExtraTerrestrial Habitats Institute work on deep space habitat systems
+- [Zucrow Research](https://www.aaryanlath.com/research/zucrow): Propulsion and multidisciplinary design optimization research at Purdue's Zucrow Laboratories
+- [Purdue Aircraft Teams](https://www.aaryanlath.com/activities/purdue-aircraft-teams): SAE Aero Design chief engineer history plus AUVSI SUAS and AIAA Design/Build/Fly competition work
+- [Purdue Space Program](https://www.aaryanlath.com/activities/purdue-space-program): Satellites team structures, mechanisms, and thermals work, deputy systems director, and org secretary roles
+
+## Projects
+
+- [TurboFan Engine Assembly](https://www.aaryanlath.com/project/turbofan-engine-assembly): Full 3D parametric turbofan assembly in Creo Parametric with bypass ratio optimization, CFD analysis, and GD&T
+- [Single Piston Sterling Engine](https://www.aaryanlath.com/project/single-piston-sterling-engine): Mechanical design in Siemens NX with Aras Innovator and Teamcenter
+
+## Ventures
+
+- [CryptiQ](https://www.cryp-iq.com): Post-quantum cryptography startup where Aaryan is cofounder and CFO on a founding team of four, part of Founders, Inc. Off Season II
+- [LuftCar](https://www.luftcar.com): Advanced air mobility company where Aaryan is SkyBase Manager; he also designed and built the company website
+
+## Optional
+
+- [Resume](https://www.aaryanlath.com/Aaryan_Lath-Resume.pdf): Current resume as a PDF
+- [Portfolio](https://www.aaryanlath.com/Aaryan-Lath_Portfolio.pdf): Extended design portfolio as a PDF
