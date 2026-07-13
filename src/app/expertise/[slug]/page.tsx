@@ -21,7 +21,17 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
     title: rec.metaTitle ?? rec.title,
     description: rec.metaDescription,
     alternates: { canonical: `/expertise/${rec.slug}` },
-    openGraph: { title: rec.metaTitle ?? rec.title, description: rec.metaDescription },
+    // openGraph here replaces the root layout's wholesale (Next.js does not
+    // deep-merge), so restate siteName/type/locale/image or they disappear.
+    openGraph: {
+      title: rec.metaTitle ?? rec.title,
+      description: rec.metaDescription,
+      url: `/expertise/${rec.slug}`,
+      siteName: 'Aaryan Lath',
+      type: 'website',
+      locale: 'en_US',
+      images: ['/images/profile.jpeg'],
+    },
   };
 }
 

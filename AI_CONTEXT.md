@@ -15,7 +15,9 @@ This is a personal portfolio website for Aaryan Lath. The audience is recruiters
 - Global styles: `src/app/globals.css`
 - UI components: `src/components`
 - Shared state: `src/contexts`
-- Public assets (images, PDFs, videos, models): `public/`
+- Public assets (images, PDFs, videos, models): `public/` (timeline card images live in `public/images/timeline/`)
+- Image editing guide: `docs/IMAGES_GUIDE.md`
+- Local CAD source files (untracked, large): `cad-source/`
 
 Where text/content is usually edited:
 - Main homepage sections and text: `src/app/page.tsx`

@@ -24,6 +24,12 @@
 .DS_Store
 *.pem
 
+# local python venv (not used by the site build)
+.venv/
+
+# local CAD source files (large binaries; kept out of the repo)
+cad-source/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

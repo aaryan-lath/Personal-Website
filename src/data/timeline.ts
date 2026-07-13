@@ -17,14 +17,14 @@ export interface TimelineItem {
 export const timelineData: TimelineItem[] = [
   {
     id: 'cryptiq-founders',
-    image: '/images/off-season.jpeg',
+    image: '/images/timeline/off-season.jpeg',
     title: 'Co-Founder of CryptiQ',
     date: 'Summer 2026',
     description: 'Cofounder and CFO of CryptiQ, building it through Founders, Inc.\'s Off Season II program in San Francisco. CryptiQ helps companies migrate their cryptography to NIST post-quantum standards.'
   },
   {
     id: 'graduated-2026',
-    images: ['/images/Graduation.jpg', '/images/Grad_image.jpeg'],
+    images: ['/images/timeline/Graduation.jpg', '/images/timeline/Grad_image.jpeg'],
     title: 'Graduated!',
     date: 'May 2026',
     description: 'Graduated from Purdue University with a B.S. in Aeronautical and Astronautical Engineering.',
@@ -32,7 +32,7 @@ export const timelineData: TimelineItem[] = [
   },
   {
     id: 'cadence-hackathon',
-    image: '/images/Hackathon_Achievement.png',
+    image: '/images/timeline/Hackathon_Achievement.jpg',
     title: 'Cadence Labs at StarkHacks',
     date: 'April 2026',
     description: 'Built Cadence Labs at StarkHacks: a bimanual VR teleoperation rig that turns a Meta Quest 3S into control for two robot arms. Placed 3rd in the Microsoft AI & Automation category.'
@@ -42,7 +42,7 @@ export const timelineData: TimelineItem[] = [
     images: ['/images/Aircraft_Solo.jpeg', '/images/Aircraft_Team.jpeg'],
     title: 'SAE Aero Design East Competition',
     date: 'March 2026',
-    description: 'The best competition yet for the team — a successful aircraft landing and loads of learning experiences at the SAE Aero Design East competition, marking a major milestone for the PSAEA team.',
+    description: 'The best competition yet for the team: a successful aircraft landing and loads of learning experiences at the SAE Aero Design East competition, marking a major milestone for the PSAEA team.',
     isCarousel: true
   },
   {

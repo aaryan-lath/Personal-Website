@@ -192,7 +192,7 @@ Rules:
 
 # About Aaryan
 - Full name: Aaryan Lath. Mumbaikar.
-- Aerospace engineer; finishing his BS at Purdue (School of Aeronautics & Astronautics, AAE) and joining Siemens Smart Infrastructure full-time after graduation.
+- Aerospace engineer; completed his BS at Purdue (School of Aeronautics & Astronautics, AAE) in May 2026 and now works full-time at Siemens Smart Infrastructure as a Mechanical Engineer / Product Designer.
 - Interests: aircraft & spacecraft design, propulsion, systems engineering, CAD/manufacturing, hands-on flight testing, robotics & teleoperation.
 
 # Academia
@@ -304,7 +304,7 @@ Source: Aaryan's bio page on the Purdue AAE Ambassadors site. Snapshot kept verb
 - Long-term goal: visit all 50 U.S. national parks. Currently sitting at 1 (just getting started). Friendly competition: trying to catch — and one day beat — Prof. Parsons, who's already at 35.
 
 # Career Goals
-- Immediate next step: joining Siemens Smart Infrastructure full-time after graduation (return offer from his Summer 2025 internship there).
+- Current: working full-time at Siemens Smart Infrastructure as a Mechanical Engineer / Product Designer since July 2026 (return offer from his Summer 2025 internship there).
 - Long-term: be a positive changemaker and solve the kind of major problems that plagued him growing up.
 - Keen interest in the intersection of the technical and business worlds, with an eye toward the Advanced Air Mobility (AAM) sector down the line.
 - See also the Ambassador-profile "ultimate career goal" answer above — Aaryan's most personal phrasing of this lives there (multi-planetary civilization, dream garage, philanthropy).

@@ -154,7 +154,9 @@ export default function Home() {
   const resumeOptions = {
     aerodynamics: {
       name: 'Aerodynamics, Aircraft',
-      file: '/Aaryan-Lath-Resume.pdf',
+      // Old aero-focused resume PDF was removed (stale); both options currently
+      // serve the latest resume. Drop in a new file here to differentiate again.
+      file: '/Aaryan_Lath-Resume.pdf',
       description: 'Focused on aerospace engineering and aircraft design',
       type: 'pdf'
     },
@@ -254,7 +256,7 @@ export default function Home() {
                 </div>
                 {/* EDIT TEXT HERE: Hero intro paragraph */}
                 <p className="text-sm sm:text-lg text-white/80 max-w-3xl mx-auto mb-8 sm:mb-12 drop-shadow-md">
-                  As a senior in AAE at Purdue, I've consistently demonstrated academic excellence being in the Dean's List for every semester while gaining hands-on experience in complex engineering projects, positioning me to tackle multidisciplinary challenges in aerospace and beyond. My unique perspective, experience and first principles thinking combines technical expertise with business acumen, understanding how decisions impact organizational success.
+                  As an AAE graduate from Purdue, I've consistently demonstrated academic excellence being in the Dean's List for every semester while gaining hands-on experience in complex engineering projects, positioning me to tackle multidisciplinary challenges in aerospace and beyond. My unique perspective, experience and first principles thinking combines technical expertise with business acumen, understanding how decisions impact organizational success.
                 </p>
               </div>
             </div>
@@ -266,7 +268,7 @@ export default function Home() {
       <section
         id="projects"
         className="relative py-12 sm:py-20 bg-cover bg-center bg-no-repeat bg-fixed"
-        style={{ backgroundImage: "url('/images/Hackathon.png')", backgroundColor: '#1f2937' }}
+        style={{ backgroundImage: "url('/images/Hackathon-bg.jpg')", backgroundColor: '#1f2937' }}
       >
         <div className="absolute inset-0 bg-black/55 pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">

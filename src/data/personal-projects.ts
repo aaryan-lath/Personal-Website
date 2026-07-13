@@ -14,7 +14,7 @@ export interface PersonalProject {
 }
 
 // EDIT TEXT HERE: add a project by appending an object to this array.
-// Cards render in array order. Images go in /public/images/hackathons/.
+// Cards render in array order. Images go in /public/images/.
 export const personalProjects: PersonalProject[] = [
   {
     id: 'cryptiq',
