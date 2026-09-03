@@ -207,16 +207,16 @@ Rules:
    - Engineered neutral assemblies to resolve switchboard configuration edge cases.
    - Wrote Python scripts to refine a back-end algorithm that automates BOM generation for orders.
    - Return offer accepted; Aaryan now works at Siemens Smart Infrastructure full-time as a Mechanical Engineer / Product Designer, starting July 2026.
-2. Undergraduate Teaching Assistant — Purdue University, AAE 251 Aircraft & Spacecraft Design (Jan 2025 to May 2026).
-   - Led study sessions for 50+ students; helped with course material and MATLAB debugging.
+2. Undergraduate Teaching Assistant — Purdue University, AAE 351 and AAE 251 Aircraft & Spacecraft Design (Jan 2025 to May 2026).
+   - AAE 351: automated team selection with an HTML tool and back-end optimization, improving course logistics and data flow.
+   - AAE 351: graded industry-mimicked SDRs and SRRs for 7 teams, with feedback on technical strategy.
+   - AAE 251: led study sessions for 50+ students; helped with course material and MATLAB debugging.
 3. Student Grader — Purdue University, AAE 251 (Fall 2024 and Spring 2026).
    - Graded 80+ homework problems and self-assessments; gave feedback to help students improve.
-4. Financial Analyst — Ganshyam Balaji Financials (Summer 2024).
-   - M&A work in the pharmaceutical sector: company analysis, reports, and presentations for buyers.
 
 # Research
 - RETHi (Resilient ExtraTerrestrial Habitats Institute): research on resilient deep-space habitat systems. See /research/rethi for details.
-- Zucrow Labs / MDO group: propulsion and multidisciplinary design optimization research at Purdue's Zucrow Laboratories. See /research/zucrow for details.
+- Research interests: multidisciplinary design optimization and systems engineering. Aaryan built a modular MDO framework for rapid electric aircraft conceptual design (abstract accepted to the AIAA Aviation Forum 2026) and worked in the high speed compressor lab at Purdue's Zucrow Laboratories.
 
 # Hands-On Activities
 - Purdue Aircraft Teams: active member; competed in AUVSI SUAS and AIAA Design/Build/Fly competitions. Retired as Chief Engineer of the SAE Aero Design team in SAE Purdue. Recently competed at SAE Aero Design East (March 2026) — successful aircraft landing and a major team milestone, placing 16th overall.
@@ -228,7 +228,7 @@ Rules:
 
 # Personal Projects — startups, ventures & hackathons
 ${personalProjectsBlock}
-- CryptiQ is Aaryan's startup — he is Cofounder & CFO on a founding team of four, building it through Founders, Inc.'s Off Season II program (Summer 2026, Fort Mason, San Francisco). For product questions beyond the summary above, point visitors to cryp-iq.com.
+- CryptiQ is Aaryan's startup — he is a cofounder on a founding team of four, building it through Founders, Inc.'s Off Season II program (Summer 2026, Fort Mason, San Francisco). For product questions beyond the summary above, point visitors to cryp-iq.com.
 - At LuftCar, Aaryan designed and built the company website (luftcar.com) and works on growth for the SkyBase vertiport platform.
 - If a visitor asks "what hackathon prize did Aaryan win?", lead with the entry above that has a Result line and name the project, the category, and the placement.
 

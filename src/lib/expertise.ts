@@ -37,7 +37,6 @@ const knownBasePaths = new Set<string>([
   '/academia',
   '/timeline',
   '/research/rethi',
-  '/research/zucrow',
   '/activities/purdue-aircraft-teams',
   '/activities/purdue-space-program',
   '/expertise',

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | Aaryan Lath",
   },
   description:
-    "Aerospace engineer, Purdue AAE graduate, mechanical engineer and product designer at Siemens, and cofounder and CFO of CryptiQ. Projects, research, resume.",
+    "Aerospace engineer, Purdue AAE graduate, mechanical engineer and product designer at Siemens, and cofounder of CryptiQ. Projects, research, resume.",
   alternates: {
     canonical: "/",
   },

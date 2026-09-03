@@ -12,17 +12,17 @@
       "context": "Aaryan's current research at Purdue, developing a multidisciplinary design optimization framework for rapid electric aircraft conceptual design.",
       "whatIDid": "Built a modular MDO algorithm that connects sizing, performance, and mission-level constraints in one workflow so early design iterations stay rigorous while moving quickly. The toolchain uses Python and MATLAB for the optimization loops, sensitivity checks, and design-space exploration that drive the conceptual-design trades, structured so individual disciplines can be swapped or extended without rebuilding the whole architecture.",
       "outcome": "An abstract on \"A Modular MDO Framework for Rapid Electric Aircraft Design\" was accepted to the AIAA Aviation Forum 2026.",
-      "sourceUrl": "/research/zucrow",
-      "sourceLabel": "MDO research",
-      "groundedIn": ["src/app/research/zucrow/page.tsx", "src/app/page.tsx"]
+      "sourceUrl": "/",
+      "sourceLabel": "Research interests",
+      "groundedIn": ["src/app/page.tsx"]
     },
     {
       "context": "Applied optimization for the Purdue SAE Aero Design Team during the competition aircraft conceptual design stage.",
       "whatIDid": "Put the same modular MDO framework to work on the team's conceptual design workflow, using it to compare candidate aircraft configurations against sizing, performance, and mission-level constraints in one place. Running the trades through a single optimization loop let the team weigh configurations consistently rather than evaluating them in isolation, turning early design questions into faster, better-supported decisions.",
       "outcome": "The framework let the team compare configurations and make faster design decisions during the conceptual stage.",
-      "sourceUrl": "/research/zucrow",
-      "sourceLabel": "MDO research",
-      "groundedIn": ["src/app/research/zucrow/page.tsx"]
+      "sourceUrl": "/activities/purdue-aircraft-teams",
+      "sourceLabel": "Purdue Aircraft Teams",
+      "groundedIn": ["src/app/activities/purdue-aircraft-teams/page.tsx"]
     },
     {
       "context": "AAE 550 Multidisciplinary Design Optimization, named on this site as a graduate-level course, taken as an undergraduate in Purdue's aerospace engineering program.",
@@ -54,8 +54,7 @@
   "projects": [
     {
       "name": "Modular MDO framework for electric aircraft",
-      "summary": "A modular MDO workflow connecting sizing, performance, and mission constraints; abstract accepted to AIAA Aviation Forum 2026.",
-      "href": "/research/zucrow"
+      "summary": "A modular MDO workflow connecting sizing, performance, and mission constraints; abstract accepted to AIAA Aviation Forum 2026."
     },
     {
       "name": "TurboFan Engine Assembly",

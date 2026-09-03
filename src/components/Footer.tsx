@@ -87,7 +87,7 @@ export default function Footer() {
           <div className="lg:col-span-3">
             <p className="text-lg font-semibold text-white">Aaryan Lath</p>
             <p className="mt-2 max-w-xs text-sm text-gray-400">
-              Aerospace engineering at Purdue, cofounder and CFO of CryptiQ.
+              Aerospace engineering at Purdue, cofounder of CryptiQ.
             </p>
             <p className="mt-4 font-mono text-xs uppercase tracking-wider text-gray-500">
               Dallas, TX
@@ -153,7 +153,6 @@ export default function Footer() {
           <div className="space-y-8 lg:col-span-3">
             <FooterGroup label="Research">
               <FooterLink href="/research/rethi">RETHi</FooterLink>
-              <FooterLink href="/research/zucrow">Zucrow Labs</FooterLink>
             </FooterGroup>
             <FooterGroup label="Hands-On">
               <FooterLink href="/activities/purdue-aircraft-teams">Purdue Aircraft Teams</FooterLink>

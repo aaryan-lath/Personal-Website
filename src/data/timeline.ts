@@ -20,7 +20,7 @@ export const timelineData: TimelineItem[] = [
     image: '/images/timeline/off-season.jpeg',
     title: 'Co-Founder of CryptiQ',
     date: 'Summer 2026',
-    description: 'Cofounder and CFO of CryptiQ, building it through Founders, Inc.\'s Off Season II program in San Francisco. CryptiQ helps companies migrate their cryptography to NIST post-quantum standards.'
+    description: 'Cofounder of CryptiQ, building it through Founders, Inc.\'s Off Season II program in San Francisco. CryptiQ helps companies migrate their cryptography to NIST post-quantum standards.'
   },
   {
     id: 'graduated-2026',

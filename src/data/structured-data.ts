@@ -27,7 +27,7 @@ export function personJsonLd(knowsAbout: string[] = baseKnowsAbout) {
     image: `${SITE_URL}/images/profile.jpeg`,
     jobTitle: [
       'Mechanical Engineer and Product Designer at Siemens Smart Infrastructure',
-      'Cofounder & CFO of CryptiQ',
+      'Cofounder of CryptiQ',
       'SkyBase Manager at LuftCar',
     ],
     alumniOf: {

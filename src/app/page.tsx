@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import ProjectCard from '../components/ProjectCard';
 import ParallaxSection from '../components/ParallaxSection';
-import ResearchBox from '../components/ResearchBox';
 import PersonalProjectCard from '../components/PersonalProjectCard';
 import { personalProjects } from '../data/personal-projects';
 import JsonLd from '../components/JsonLd';
@@ -147,7 +146,7 @@ export default function Home() {
   const [isScrollingOut, setIsScrollingOut] = useState(false);
 
   // EDIT TEXT HERE: Rotating interests shown in the hero section.
-  const interests = ['Systems Engineer', 'Aerodynamicist', 'Product and Design Engineer', 'Changemaker'];
+  const interests = ['Systems Engineer', 'Product and Design Engineer', 'Changemaker'];
 
   // EDIT TEXT HERE: Resume/portfolio options shown in the Resume & Contact section.
   // BLOCK GROUP: Each object below is one selectable option; add another by duplicating a key.
@@ -256,7 +255,7 @@ export default function Home() {
                 </div>
                 {/* EDIT TEXT HERE: Hero intro paragraph */}
                 <p className="text-sm sm:text-lg text-white/80 max-w-3xl mx-auto mb-8 sm:mb-12 drop-shadow-md">
-                  As an AAE graduate from Purdue, I've consistently demonstrated academic excellence being in the Dean's List for every semester while gaining hands-on experience in complex engineering projects, positioning me to tackle multidisciplinary challenges in aerospace and beyond. My unique perspective, experience and first principles thinking combines technical expertise with business acumen, understanding how decisions impact organizational success.
+                  As an AAE graduate from Purdue, I've consistently demonstrated academic excellence being in the Dean's List for every semester while gaining hands-on experience in complex engineering projects, positioning me to tackle multidisciplinary challenges in aerospace and beyond. My unique perspective, experience and first principles thinking combines technical expertise with business acumen, understanding how decisions impact organizational success. My research interests are in multidisciplinary design optimization and systems engineering.
                 </p>
               </div>
             </div>
@@ -470,7 +469,7 @@ export default function Home() {
       </ParallaxSection>
 
       <ParallaxSection 
-        backgroundImage="/images/projects-bg.jpg" 
+        backgroundImage="/images/rethi-exterior.jpg" 
         height="auto"
         speed={0.25}
         overlay={true}
@@ -533,12 +532,14 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  TA for the Aircraft and Spacecraft Design class (AAE 251):
-                  <br />• Led study sessions to teach 50+ students, core AAE 251 (Aircraft and Spacecraft Design) course material and troubleshooting MATLAB bugs.
-                  <br />• Provided personalized support to students with concepts and understanding key design principles for the aircraft and spacecraft design projects.
+                  TA for AAE 351 and the Aircraft and Spacecraft Design class (AAE 251):
+                  <br />• AAE 351: Automated team selection via HTML and backend optimization, improving course logistics and data flow.
+                  <br />• Graded industry-mimicked SDRs/SRRs for 7 teams, with feedback on technical strategy.
+                  <br />• AAE 251: Led study sessions for 50+ students on course material and MATLAB debugging.
+                  <br />• Supported students on key design principles for their aircraft and spacecraft design projects.
                 </p>
                 <div className="text-sm text-cyan-600 font-medium">
-                  Teaching • MATLAB • Aircraft Design • Spacecraft Design • Student Mentoring
+                  Teaching • MATLAB • Design Reviews • Aircraft Design • Student Mentoring
                 </div>
               </div>
 
@@ -567,84 +568,39 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="bg-white/95 backdrop-blur-sm border border-emerald-200 rounded-lg p-6 lg:p-5 hover:bg-emerald-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+              <div className="bg-white/95 backdrop-blur-sm border border-purple-200 rounded-lg p-6 lg:p-5 hover:bg-purple-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <h3 className="text-xl lg:text-lg font-semibold text-gray-900 mb-2">
-                      Financial Analyst
+                      Undergraduate Researcher
                     </h3>
-                    <p className="text-emerald-600 font-medium text-base lg:text-sm mb-1">Ganshyam Balaji Financials</p>
-                    <p className="text-gray-500 text-sm">Summer 2024</p>
+                    <p className="text-purple-600 font-medium text-base lg:text-sm mb-1">Resilient Extraterrestrial Habitat Institute (RETHi)</p>
+                    <p className="text-gray-500 text-sm">Summer 2024 - Spring 2025</p>
                   </div>
-                  <div className="bg-emerald-200 p-3 rounded-full">
-                    <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  <div className="bg-purple-200 p-3 rounded-full">
+                    <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
                     </svg>
                   </div>
                 </div>
                 <p className="text-gray-700 mb-4">
-                  Working on Mergers and Acquisitions at Ganshyam Balaji Financials in the pharmaceutical industry:
-                  <br />• Performed financial analysis of companies within the pharmaceutical sector for mergers and acquisitions.
-                  <br />• Prepared reports and presentations highlighting company strengths, and growth potential, for buyers.
+                  Two research projects at Purdue RETHi: Systems Engineering and Vibration Isolation:
+                  <br />• Trade studies for safety control evaluation and habitat resilience assessment.
+                  <br />• Lunar habitat disruption analysis.
+                  <br />• FEA simulations for vibration isolation.
+                  <br />• Tensile testing of Vectran straps with stitching patterns.
                 </p>
-                <div className="text-sm text-emerald-600 font-medium">
-                  Financial Analysis • Analytical • Presentation-making • Report Writing
+                <Link
+                  href="/research/rethi"
+                  className="inline-block text-sm font-medium text-purple-700 hover:text-purple-900 mb-3"
+                >
+                  View research →
+                </Link>
+                <div className="text-sm text-purple-600 font-medium">
+                  Systems Engineering • Trade Studies • FEA • Tensile Testing
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-      </ParallaxSection>
-
-      <ParallaxSection 
-        backgroundImage="/images/rethi-exterior.jpg" 
-        height="auto"
-        speed={0.15}
-        overlay={true}
-        overlayColor="black"
-        overlayOpacity={0.4}
-      >
-        {/* Research section */}
-        <section id="research" className="py-12 sm:py-20 relative">
-          <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 relative z-0">
-            <div className="text-center mb-10 sm:mb-16">
-              {/* EDIT TEXT HERE: Section title */}
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2 drop-shadow-lg">
-                Research Work
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-purple-600 mx-auto rounded-full shadow-lg"></div>
-            </div>
-          {/* BLOCK GROUP: Each ResearchBox below is one research item; add another ResearchBox to add more. */}
-          {/* Layout tip: 1 box per row on small screens, 2 on lg. If you add a 3rd box and want 3 on one row (large screens), change lg:grid-cols-2 to lg:grid-cols-3. */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-12">
-            {/* EDIT TEXT HERE: Research item content (title, description, points) */}
-            <ResearchBox
-              title="Resilient Extraterrestrial Habitat Institute (RETHi)"
-              description="Worked on 2 projects from the Summer of 2024 to Spring 2025: Systems Engineering and Vibration Isolation"
-              points={[
-                'Trade studies for safety control evaluation',
-                'Cost and habitat resilience assessment',
-                'Lunar habitat disruption analysis',
-                'FEA simulations for vibration isolation',
-                'Tensile testing of Vectran straps with stitching patterns'
-              ]}
-              side="left"
-              bgColor="bg-white"
-              href="/research/rethi"
-            />
-            <ResearchBox
-              title="Other Research Indulgements"
-              description="Current research project is focusing on Multidisciplinary Design Optimization of electric aircraft. Worked at the high speed compressor lab in Fall 2025."
-              points={[
-                'Abstract accepted for the AIAA Aviation forum 2026 on "A Modular MDO Framework for Rapid Electric Aircraft Design"',
-                'Helped assemble and calibrate the Test cell\'s fan-rig',
-                'Working on manufacturing techniques to build parts effectively'
-              ]}
-              side="right"
-              bgColor="bg-white"
-              href="/research/zucrow"
-            />
-          </div>
           </div>
         </section>
       </ParallaxSection>

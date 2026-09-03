@@ -19,10 +19,10 @@
     {
       "context": "Zucrow Laboratories at Purdue, in Prof. Nicole Key's High Speed Compressor Lab, where Aaryan has contributed from Fall 2025 onward.",
       "whatIDid": "Contributed to inlet vortex distortion studies and experimental hardware readiness on the compressor test rigs, helping with fan-rig test cell assembly and calibration support and working on manufacturing techniques to build research hardware parts effectively, using Siemens NX and MATLAB for design support and analysis.",
-      "outcome": "Helped assemble and calibrate the test cell's fan-rig; the compressor lab work is described on the Zucrow research page.",
-      "sourceUrl": "/research/zucrow",
-      "sourceLabel": "Zucrow compressor lab",
-      "groundedIn": ["src/app/research/zucrow/page.tsx", "src/app/page.tsx"]
+      "outcome": "Helped assemble and calibrate the test cell's fan-rig so the compressor experiments could run on schedule.",
+      "sourceUrl": "/",
+      "sourceLabel": "Research interests",
+      "groundedIn": ["src/app/page.tsx"]
     },
     {
       "context": "AAE 571: Complex System Safety, a graduate-level course taken as an undergraduate in Purdue's aerospace program.",
@@ -59,8 +59,7 @@
     },
     {
       "name": "Zucrow compressor lab",
-      "summary": "Compressor lab work on inlet vortex distortion and fan-rig test cell assembly and calibration at Prof. Nicole Key's High Speed Compressor Lab.",
-      "href": "/research/zucrow"
+      "summary": "Compressor lab work on inlet vortex distortion and fan-rig test cell assembly and calibration at Prof. Nicole Key's High Speed Compressor Lab."
     }
   ],
   "tools": ["Distributed Electric Propulsion", "Fan-rig calibration", "Bypass ratio analysis", "Engine cycle analysis", "Siemens NX", "Creo Parametric", "MATLAB"],

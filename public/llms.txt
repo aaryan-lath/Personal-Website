@@ -1,8 +1,8 @@
 # Aaryan Lath
 
-> Personal portfolio of Aaryan Lath, an aerospace engineering graduate of Purdue University's School of Aeronautics and Astronautics, now a mechanical engineer and product designer at Siemens Smart Infrastructure. He is cofounder and CFO of CryptiQ, a post-quantum cryptography startup, and SkyBase Manager at LuftCar. The site covers his projects, research, coursework, student leadership, and resume.
+> Personal portfolio of Aaryan Lath, an aerospace engineering graduate of Purdue University's School of Aeronautics and Astronautics, now a mechanical engineer and product designer at Siemens Smart Infrastructure. He is cofounder of CryptiQ, a post-quantum cryptography startup, and SkyBase Manager at LuftCar. The site covers his projects, research, coursework, student leadership, and resume.
 
-Aaryan completed his BSAAE at Purdue (GPA 3.73) and now works full time at Siemens Smart Infrastructure as a mechanical engineer and product designer. He was an undergraduate teaching assistant for AAE 251, Aircraft and Spacecraft Design. His research spans resilient deep space habitats with RETHi and propulsion plus multidisciplinary design optimization at Zucrow Laboratories. He retired as chief engineer of Purdue's SAE Aero Design team, which placed 16th at SAE Aero Design East 2026. CryptiQ (cryp-iq.com) is building through Founders, Inc. Off Season II in San Francisco. The site also hosts Mach 0.96, an AI assistant that answers questions about Aaryan.
+Aaryan completed his BSAAE at Purdue (GPA 3.73) and now works full time at Siemens Smart Infrastructure as a mechanical engineer and product designer. He was an undergraduate teaching assistant for AAE 351 and for AAE 251, Aircraft and Spacecraft Design. His research spans resilient deep space habitats with RETHi and propulsion plus multidisciplinary design optimization at Zucrow Laboratories. He retired as chief engineer of Purdue's SAE Aero Design team, which placed 16th at SAE Aero Design East 2026. CryptiQ (cryp-iq.com) is building through Founders, Inc. Off Season II in San Francisco. The site also hosts Mach 0.96, an AI assistant that answers questions about Aaryan.
 
 ## Pages
 
@@ -10,7 +10,6 @@ Aaryan completed his BSAAE at Purdue (GPA 3.73) and now works full time at Sieme
 - [Academia](https://www.aaryanlath.com/academia): Purdue AAE coursework, course highlights, and reports
 - [Timeline](https://www.aaryanlath.com/timeline): Awards and achievements, including SAE Aero Design East 2026
 - [RETHi Research](https://www.aaryanlath.com/research/rethi): Resilient ExtraTerrestrial Habitats Institute work on deep space habitat systems
-- [Zucrow Research](https://www.aaryanlath.com/research/zucrow): Propulsion and multidisciplinary design optimization research at Purdue's Zucrow Laboratories
 - [Purdue Aircraft Teams](https://www.aaryanlath.com/activities/purdue-aircraft-teams): SAE Aero Design chief engineer history plus AUVSI SUAS and AIAA Design/Build/Fly competition work
 - [Purdue Space Program](https://www.aaryanlath.com/activities/purdue-space-program): Satellites team structures, mechanisms, and thermals work, deputy systems director, and org secretary roles
 
@@ -27,7 +26,7 @@ Topic deep-dives at /expertise, each grounded in on-site coursework, teams, rese
 - [Aircraft Design](https://www.aaryanlath.com/expertise/aircraft-design): Purdue SAE Aero competition aircraft as Chief Engineer, XFLR5 wing analysis, DBF, AAE 251 mission design
 - [Aerospace Propulsion and Engine Systems](https://www.aaryanlath.com/expertise/aerospace-propulsion): Distributed electric propulsion survey, UAM propulsion safety, turbofan bypass ratio analysis
 - [Structures, Mechanisms and Thermal Design](https://www.aaryanlath.com/expertise/structures-mechanisms): CubeSat structural design in Fusion 360, RETHi vibration-isolation FEA, Vectran tensile testing
-- [Post-Quantum Cryptography and CryptiQ](https://www.aaryanlath.com/expertise/post-quantum-cryptography): Cofounder and CFO of CryptiQ, whose product migrates encryption to NIST post-quantum standards
+- [Post-Quantum Cryptography and CryptiQ](https://www.aaryanlath.com/expertise/post-quantum-cryptography): Cofounder of CryptiQ, whose product migrates encryption to NIST post-quantum standards
 
 ## Projects
 
@@ -36,7 +35,7 @@ Topic deep-dives at /expertise, each grounded in on-site coursework, teams, rese
 
 ## Ventures
 
-- [CryptiQ](https://www.cryp-iq.com): Post-quantum cryptography startup where Aaryan is cofounder and CFO on a founding team of four, part of Founders, Inc. Off Season II
+- [CryptiQ](https://www.cryp-iq.com): Post-quantum cryptography startup where Aaryan is cofounder on a founding team of four, part of Founders, Inc. Off Season II
 - [LuftCar](https://www.luftcar.com): Advanced air mobility company where Aaryan is SkyBase Manager; he also designed and built the company website
 
 ## Optional

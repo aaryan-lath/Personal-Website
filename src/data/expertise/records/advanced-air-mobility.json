@@ -35,10 +35,10 @@
     {
       "context": "Multidisciplinary design optimization research at Purdue, where electric aircraft sit adjacent to the eVTOL and Advanced Air Mobility space.",
       "whatIDid": "Developed a modular MDO framework for rapid electric aircraft conceptual design, connecting sizing, performance, and mission-level constraints in one workflow so early design iterations stay rigorous while moving quickly. The framework was also used by the Purdue SAE Aero Design team during conceptual design.",
-      "outcome": "The abstract was accepted to the AIAA Aviation Forum 2026, with the extended abstract browsable on the research page.",
-      "sourceUrl": "/research/zucrow",
-      "sourceLabel": "Electric aircraft MDO research",
-      "groundedIn": ["src/app/research/zucrow/page.tsx", "src/app/page.tsx"]
+      "outcome": "The abstract for the work was accepted to the AIAA Aviation Forum 2026, alongside the framework's use on the competition aircraft.",
+      "sourceUrl": "/",
+      "sourceLabel": "Research interests",
+      "groundedIn": ["src/app/page.tsx"]
     }
   ],
   "courses": [
@@ -59,8 +59,7 @@
     },
     {
       "name": "Electric aircraft MDO framework",
-      "summary": "Modular MDO framework for rapid electric aircraft conceptual design; abstract accepted to AIAA Aviation Forum 2026.",
-      "href": "/research/zucrow"
+      "summary": "Modular MDO framework for rapid electric aircraft conceptual design; abstract accepted to AIAA Aviation Forum 2026."
     }
   ],
   "tools": ["Distributed Electric Propulsion", "Vertiport infrastructure", "Web design & build", "Systems safety", "MDO", "Electric aircraft conceptual design", "Next.js"],

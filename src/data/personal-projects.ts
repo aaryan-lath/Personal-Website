@@ -22,7 +22,7 @@ export const personalProjects: PersonalProject[] = [
     org: 'Post-Quantum Security Made Easy',
     date: 'Summer 2026',
     location: 'San Francisco, CA',
-    role: 'Cofounder & CFO',
+    role: 'Cofounder',
     description:
       'CryptiQ builds a complete inventory of the cryptography a company actually runs, pinpoints where it depends on quantum-vulnerable encryption, prioritizes what to fix first, and migrates it to NIST post-quantum standards — no consultants, no agents on production systems. Building it with a founding team of four at Founders, Inc.\'s Off Season II program in San Francisco.',
     technologies: [
