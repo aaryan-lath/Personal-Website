@@ -8,14 +8,14 @@ const description =
   'Topic deep-dives into what Aaryan Lath actually works on: aerodynamics and CFD, CAD and PLM, and more, each grounded in coursework, teams, and projects.';
 
 export const metadata: Metadata = {
-  title: 'Engineering Expertise',
+  title: 'Focus Areas',
   description,
-  alternates: { canonical: '/expertise' },
+  alternates: { canonical: '/focus-areas' },
 };
 
-export default function ExpertiseIndexPage() {
+export default function FocusAreasIndexPage() {
   const records = getAllExpertise();
-  const pageUrl = `${SITE_URL}/expertise`;
+  const pageUrl = `${SITE_URL}/focus-areas`;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -29,7 +29,7 @@ export default function ExpertiseIndexPage() {
                   '@type': 'CollectionPage',
                   '@id': `${pageUrl}#webpage`,
                   url: pageUrl,
-                  name: 'Engineering Expertise',
+                  name: 'Focus Areas',
                   description,
                   about: { '@id': `${SITE_URL}/#person` },
                   isPartOf: { '@id': `${SITE_URL}/#website` },
@@ -40,7 +40,7 @@ export default function ExpertiseIndexPage() {
                   '@id': `${pageUrl}#breadcrumb`,
                   itemListElement: [
                     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
-                    { '@type': 'ListItem', position: 2, name: 'Expertise', item: pageUrl },
+                    { '@type': 'ListItem', position: 2, name: 'Focus Areas', item: pageUrl },
                   ],
                 },
               ],
@@ -50,11 +50,11 @@ export default function ExpertiseIndexPage() {
           <nav className="text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-blue-600">Home</Link>
             <span className="mx-2">/</span>
-            <span className="text-gray-900">Expertise</span>
+            <span className="text-gray-900">Focus Areas</span>
           </nav>
 
           <div className="mb-8">
-            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">Engineering Expertise</h1>
+            <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">Focus Areas</h1>
             {/* EDIT TEXT HERE: Index intro line */}
             <p className="text-lg text-gray-600">
               Deep-dives into the areas Aaryan works in, each grounded in real coursework, team
@@ -66,7 +66,7 @@ export default function ExpertiseIndexPage() {
             {records.map((r) => (
               <Link
                 key={r.slug}
-                href={`/expertise/${r.slug}`}
+                href={`/focus-areas/${r.slug}`}
                 className="block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow group"
               >
                 <h2 className="text-xl font-semibold text-gray-900 group-hover:text-blue-700 mb-2 transition-colors">

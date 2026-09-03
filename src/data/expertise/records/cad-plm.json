@@ -30,14 +30,6 @@
       "sourceUrl": "/project/single-piston-sterling-engine",
       "sourceLabel": "Sterling Engine project",
       "groundedIn": ["src/data/cad-projects.ts"]
-    },
-    {
-      "context": "Purdue Space Program Satellites team, as a Structures, Mechanisms and Thermals member.",
-      "whatIDid": "Contributed structures and mechanisms design work for the satellite team, including Fusion 360 design work and laser-cut hardware, while also serving as deputy systems director for the Satellites team.",
-      "outcome": "Carried the work across a 10-team organization where he also served as secretary.",
-      "sourceUrl": "/activities/purdue-space-program",
-      "sourceLabel": "Purdue Space Program",
-      "groundedIn": ["src/app/page.tsx", "src/data/about-aaryan.ts", "src/app/activities/purdue-space-program/page.tsx"]
     }
   ],
   "courses": [
@@ -58,7 +50,7 @@
       "href": "/project/single-piston-sterling-engine"
     }
   ],
-  "tools": ["Creo Parametric", "Siemens NX", "Fusion 360", "GD&T", "Teamcenter", "Aras Innovator", "SAP ECN workflows"],
+  "tools": ["Creo Parametric", "Siemens NX", "GD&T", "Teamcenter", "Aras Innovator", "SAP ECN workflows"],
   "relatedSlugs": ["structures-mechanisms", "systems-engineering", "aerospace-propulsion"],
   "knowsAbout": "Computer-Aided Design and PLM",
   "sameAs": [],

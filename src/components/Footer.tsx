@@ -137,15 +137,15 @@ export default function Footer() {
             </FooterGroup>
           </div>
 
-          {/* Expertise: a curated subset of the topic pages */}
-          <FooterGroup label="Expertise" className="lg:col-span-3">
+          {/* Focus areas: a curated subset of the topic pages */}
+          <FooterGroup label="Focus Areas" className="lg:col-span-3">
             {expertise.map((r) => (
-              <FooterLink key={r.slug} href={`/expertise/${r.slug}`}>
+              <FooterLink key={r.slug} href={`/focus-areas/${r.slug}`}>
                 {r.shortTitle}
               </FooterLink>
             ))}
-            <FooterLink href="/expertise" muted>
-              All expertise
+            <FooterLink href="/focus-areas" muted>
+              All focus areas
             </FooterLink>
           </FooterGroup>
 

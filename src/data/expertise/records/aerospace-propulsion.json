@@ -4,9 +4,9 @@
   "title": "Aerospace Propulsion and Engine Systems",
   "shortTitle": "Aerospace Propulsion",
   "metaTitle": "Aerospace Propulsion",
-  "metaDescription": "Aaryan Lath's aerospace propulsion work: distributed electric propulsion survey in AAE 339, UAM propulsion-safety research, and turbofan bypass ratio analysis.",
-  "hero": "Propulsion runs from coursework to the compressor test cell in Aaryan's aerospace work at Purdue: he surveyed distributed electric propulsion for urban air mobility in AAE 339, studied propulsion-system safety in graduate AAE 571, contributed to fan-rig experiments at Zucrow Laboratories, and optimized bypass ratio on a parametric turbofan model.",
-  "tags": ["Distributed Electric Propulsion", "Urban Air Mobility", "Compressor Testing", "Engine Cycle Analysis"],
+  "metaDescription": "Aaryan Lath's aerospace propulsion work: a distributed electric propulsion survey in AAE 339 and turbofan bypass ratio and engine-cycle analysis at Purdue.",
+  "hero": "Propulsion runs from coursework to hardware in Aaryan's aerospace work at Purdue: he surveyed distributed electric propulsion for urban air mobility in AAE 339 and optimized bypass ratio on a fully parametric turbofan model built in Creo Parametric.",
+  "tags": ["Distributed Electric Propulsion", "Urban Air Mobility", "Engine Cycle Analysis"],
   "evidence": [
     {
       "context": "AAE 339: Aerospace Propulsion, a core propulsion course in Purdue's School of Aeronautics and Astronautics covering engine cycles and propulsion systems.",
@@ -15,22 +15,6 @@
       "sourceUrl": "/academia",
       "sourceLabel": "See the Academia page",
       "groundedIn": ["src/app/academia/page.tsx", "src/app/page.tsx"]
-    },
-    {
-      "context": "Zucrow Laboratories at Purdue, in Prof. Nicole Key's High Speed Compressor Lab, where Aaryan has contributed from Fall 2025 onward.",
-      "whatIDid": "Contributed to inlet vortex distortion studies and experimental hardware readiness on the compressor test rigs, helping with fan-rig test cell assembly and calibration support and working on manufacturing techniques to build research hardware parts effectively, using Siemens NX and MATLAB for design support and analysis.",
-      "outcome": "Helped assemble and calibrate the test cell's fan-rig so the compressor experiments could run on schedule.",
-      "sourceUrl": "/",
-      "sourceLabel": "Research interests",
-      "groundedIn": ["src/app/page.tsx"]
-    },
-    {
-      "context": "AAE 571: Complex System Safety, a graduate-level course taken as an undergraduate in Purdue's aerospace program.",
-      "whatIDid": "Performed accident-style analysis and wrote a conference-style research paper investigating the safety challenges and risk-mitigation strategies for the propulsion systems of urban air mobility (UAM) vehicles, tying failure modes of electric propulsion back to system-level safety.",
-      "outcome": "The research paper is linked from the Academia section and the home-page course cards via OneDrive.",
-      "sourceUrl": "/academia",
-      "sourceLabel": "Coursework details",
-      "groundedIn": ["src/app/page.tsx", "src/app/academia/page.tsx"]
     },
     {
       "context": "TurboFan Engine Assembly, a personal CAD project built as a full parametric turbofan model in Creo Parametric.",
@@ -45,10 +29,6 @@
     {
       "code": "AAE 339: Aerospace Propulsion",
       "note": "Literature survey on Distributed Electric Propulsion for Urban Air Mobility, covering acoustic noise and battery thermal management."
-    },
-    {
-      "code": "AAE 571: Complex System Safety",
-      "note": "Conference-style paper on safety and risk mitigation for urban air mobility propulsion systems, taken at the graduate level."
     }
   ],
   "projects": [
@@ -56,13 +36,9 @@
       "name": "TurboFan Engine Assembly",
       "summary": "Parametric Creo turbofan optimized around bypass ratio and engine-cycle performance parameters, with a browsable 3D model.",
       "href": "/project/turbofan-engine-assembly"
-    },
-    {
-      "name": "Zucrow compressor lab",
-      "summary": "Compressor lab work on inlet vortex distortion and fan-rig test cell assembly and calibration at Prof. Nicole Key's High Speed Compressor Lab."
     }
   ],
-  "tools": ["Distributed Electric Propulsion", "Fan-rig calibration", "Bypass ratio analysis", "Engine cycle analysis", "Siemens NX", "Creo Parametric", "MATLAB"],
+  "tools": ["Distributed Electric Propulsion", "Bypass ratio analysis", "Engine cycle analysis", "Siemens NX", "Creo Parametric", "MATLAB"],
   "relatedSlugs": ["aerodynamic-design", "advanced-air-mobility", "design-optimization"],
   "knowsAbout": "Aerospace Propulsion",
   "sameAs": [],

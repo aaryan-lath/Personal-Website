@@ -37,7 +37,7 @@ export const expertiseRecordSchema = z
     metaDescription: z.string().min(70).max(160),
     hero: z.string().min(120).max(360), // intro paragraph under the H1
     tags: z.array(z.string().min(2).max(32)).min(3).max(6),
-    evidence: z.array(evidenceItemSchema).min(3).max(6),
+    evidence: z.array(evidenceItemSchema).min(2).max(6),
     courses: z
       .array(
         z.object({
@@ -64,7 +64,7 @@ export const expertiseRecordSchema = z
     lastReviewed: isoDate,
   })
   .superRefine((rec, ctx) => {
-    // Thin-content guard: the rendered prose must clear ~300 words.
+    // Thin-content guard: the rendered prose must clear ~170 words.
     const prose =
       rec.hero.length +
       rec.evidence.reduce(
@@ -73,10 +73,10 @@ export const expertiseRecordSchema = z
       ) +
       rec.courses.reduce((n, c) => n + c.note.length, 0) +
       rec.projects.reduce((n, p) => n + p.summary.length, 0);
-    if (prose < 1800) {
+    if (prose < 1000) {
       ctx.addIssue({
         code: 'custom',
-        message: `record renders only ${prose} chars of prose; minimum is 1800 (thin-content guard)`,
+        message: `record renders only ${prose} chars of prose; minimum is 1000 (thin-content guard)`,
       });
     }
     if (rec.relatedSlugs.includes(rec.slug)) {

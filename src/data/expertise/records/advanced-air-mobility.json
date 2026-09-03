@@ -36,9 +36,9 @@
       "context": "Multidisciplinary design optimization research at Purdue, where electric aircraft sit adjacent to the eVTOL and Advanced Air Mobility space.",
       "whatIDid": "Developed a modular MDO framework for rapid electric aircraft conceptual design, connecting sizing, performance, and mission-level constraints in one workflow so early design iterations stay rigorous while moving quickly. The framework was also used by the Purdue SAE Aero Design team during conceptual design.",
       "outcome": "The abstract for the work was accepted to the AIAA Aviation Forum 2026, alongside the framework's use on the competition aircraft.",
-      "sourceUrl": "/",
-      "sourceLabel": "Research interests",
-      "groundedIn": ["src/app/page.tsx"]
+      "sourceUrl": "/focus-areas/design-optimization",
+      "sourceLabel": "MDO for electric aircraft",
+      "groundedIn": ["src/data/expertise/records/design-optimization.json"]
     }
   ],
   "courses": [

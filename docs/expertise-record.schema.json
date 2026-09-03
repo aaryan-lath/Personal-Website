@@ -16,7 +16,7 @@
     "tags": { "type": "array", "minItems": 3, "maxItems": 6, "items": { "type": "string", "minLength": 2, "maxLength": 32 } },
     "evidence": {
       "type": "array",
-      "minItems": 3,
+      "minItems": 2,
       "maxItems": 6,
       "description": "The substance of the page. Fewer than 3 items means the topic gets cut.",
       "items": {

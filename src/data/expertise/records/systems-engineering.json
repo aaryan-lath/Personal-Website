@@ -4,7 +4,7 @@
   "title": "Systems Engineering and Requirements",
   "shortTitle": "Systems Engineering",
   "metaTitle": "Systems Engineering",
-  "metaDescription": "Aaryan Lath's systems engineering: requirements at Siemens and Purdue Space Program, RETHi safety trade studies, and managing an AAE 418 suborbital experiment.",
+  "metaDescription": "Aaryan Lath's systems engineering: requirements at Siemens and Purdue Space Program, RETHi safety trade studies, and leading an AAE 418 suborbital experiment.",
   "hero": "Aaryan approaches hardware as a system of requirements, interfaces, and trade-offs: he has managed requirements and budgets for student and industry teams, run safety trade studies for a lunar habitat, and carried systems work from an internship at Siemens into a full-time role.",
   "tags": ["Requirements Management", "Trade Studies", "Systems Integration", "Project Management"],
   "evidence": [
@@ -33,8 +33,8 @@
       "groundedIn": ["src/app/research/rethi/page.tsx", "src/app/page.tsx"]
     },
     {
-      "context": "AAE 418, an advanced experimental design course in Purdue's School of Aeronautics and Astronautics, where Aaryan served as Project Manager for a small suborbital experiment.",
-      "whatIDid": "Managed the small suborbital orbital-refuelling experiment end to end as Project Manager, creating the requirements and budgets for the effort and directing a team of 7 engineers through the design of the experiment, which was intended to be launched on a New Shepard flight.",
+      "context": "AAE 418, an advanced experimental design course in Purdue's School of Aeronautics and Astronautics, where Aaryan was the undergraduate team lead on a small suborbital experiment whose project manager was the course TA.",
+      "whatIDid": "Ran the small suborbital orbital-refuelling experiment day to day as the undergraduate team lead, reporting to the TA who held the project manager role, creating the requirements and budgets for the effort and directing a team of 7 engineers through the design of the experiment, which was intended to be launched on a New Shepard flight.",
       "outcome": "Delivered the requirements, budgets, and team coordination for the experiment design targeted at a New Shepard flight.",
       "sourceUrl": "/#academia",
       "sourceLabel": "Academic highlights",
@@ -44,7 +44,7 @@
   "courses": [
     {
       "code": "AAE 418",
-      "note": "Advanced experimental design course where Aaryan project-managed a suborbital orbital-refuelling experiment, owning requirements and budgets."
+      "note": "Advanced experimental design course where Aaryan was the undergraduate team lead on a suborbital orbital-refuelling experiment, owning requirements and budgets under a TA project manager."
     },
     {
       "code": "AAE 571: Complex System Safety",

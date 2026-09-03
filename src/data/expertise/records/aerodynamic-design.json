@@ -3,9 +3,9 @@
   "slug": "aerodynamic-design",
   "title": "Aerodynamic Design and CFD",
   "shortTitle": "Aerodynamics & CFD",
-  "metaDescription": "How Aaryan Lath applies aerodynamics and CFD: Ahmed body simulations in AAE 412, SAE Aero wind tunnel campaigns, and turbofan CFD analysis at Purdue.",
-  "hero": "Aerodynamics is the thread running through Aaryan's coursework, competition aircraft, and personal CAD projects at Purdue: he has simulated vehicles in CFD, validated designs in the wind tunnel, and carried graduate aerodynamics coursework as an undergraduate.",
-  "tags": ["CFD", "Wind Tunnel Testing", "Vehicle Aerodynamics", "Graduate Coursework"],
+  "metaDescription": "How Aaryan Lath applies aerodynamics and CFD: Ahmed body vehicle simulations and slant-angle drag sweeps in AAE 412, plus graduate AAE 514 aerodynamics.",
+  "hero": "Aerodynamics is the thread running through Aaryan's coursework at Purdue: he has simulated vehicle aerodynamics in CFD, swept geometry to study its effect on drag and downforce, and carried graduate aerodynamics coursework as an undergraduate.",
+  "tags": ["CFD", "Vehicle Aerodynamics", "Graduate Coursework"],
   "evidence": [
     {
       "context": "AAE 412: Computational Fluid Dynamics, an advanced CFD course in Purdue's School of Aeronautics and Astronautics.",
@@ -16,28 +16,12 @@
       "groundedIn": ["src/app/page.tsx"]
     },
     {
-      "context": "SAE Aero Design at Purdue, where Aaryan served as Chief Engineer of the competition aircraft team through the 2026 season.",
-      "whatIDid": "Led the aircraft through a January 2026 wind tunnel testing campaign for aerodynamic validation after the Mk2 design iteration, closing the loop between predicted and measured performance before the competition build was finalized.",
-      "outcome": "The team flew to a successful landing and placed 16th overall at SAE Aero Design East 2026.",
-      "sourceUrl": "/activities/purdue-aircraft-teams",
-      "sourceLabel": "Purdue Aircraft Teams",
-      "groundedIn": ["src/app/page.tsx", "src/data/about-aaryan.ts", "src/app/activities/purdue-aircraft-teams/page.tsx"]
-    },
-    {
       "context": "Graduate-level aerodynamics coursework taken as an undergraduate in Purdue's aerospace engineering program.",
       "whatIDid": "Completed AAE 514 Intermediate Aerodynamics alongside AAE 550 Multidisciplinary Design Optimization, deliberately loading graduate courses on top of the standard aerospace curriculum while serving as a teaching assistant for AAE 251.",
       "outcome": "Carried a 3.73 GPA and Dean's List standing every semester through that load.",
       "sourceUrl": "/academia",
       "sourceLabel": "Coursework details",
       "groundedIn": ["src/app/page.tsx", "src/data/about-aaryan.ts"]
-    },
-    {
-      "context": "TurboFan Engine Assembly, a personal CAD project modeled end to end in Creo Parametric.",
-      "whatIDid": "Ran CFD analysis on the engine design and used it alongside bypass ratio optimization studies and performance parameter calculations, tying the aerodynamic results back into the fully parametric assembly.",
-      "outcome": "The complete assembly, gallery, and project files are browsable on the project page.",
-      "sourceUrl": "/project/turbofan-engine-assembly",
-      "sourceLabel": "TurboFan Engine Assembly",
-      "groundedIn": ["src/data/cad-projects.ts"]
     }
   ],
   "courses": [
@@ -50,19 +34,8 @@
       "note": "Intermediate Aerodynamics, taken at the graduate level as an undergraduate."
     }
   ],
-  "projects": [
-    {
-      "name": "SAE Aero competition aircraft",
-      "summary": "Wind tunnel validation campaign and Mk2 aerodynamic iteration ahead of SAE Aero Design East 2026.",
-      "href": "/activities/purdue-aircraft-teams"
-    },
-    {
-      "name": "TurboFan Engine Assembly",
-      "summary": "CFD analysis and bypass ratio optimization on a fully parametric Creo engine assembly.",
-      "href": "/project/turbofan-engine-assembly"
-    }
-  ],
-  "tools": ["CFD simulation", "Wind tunnel testing", "Ahmed body modeling", "Creo Parametric", "MATLAB"],
+  "projects": [],
+  "tools": ["CFD simulation", "Ahmed body modeling", "MATLAB"],
   "relatedSlugs": ["design-optimization", "aircraft-design", "aerospace-propulsion"],
   "knowsAbout": "Aerodynamics",
   "sameAs": [],

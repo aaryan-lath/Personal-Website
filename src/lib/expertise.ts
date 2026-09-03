@@ -39,9 +39,9 @@ const knownBasePaths = new Set<string>([
   '/research/rethi',
   '/activities/purdue-aircraft-teams',
   '/activities/purdue-space-program',
-  '/expertise',
+  '/focus-areas',
   ...cadProjects.map((p) => `/project/${p.slug}`),
-  ...parsed.map((r) => `/expertise/${r.slug}`),
+  ...parsed.map((r) => `/focus-areas/${r.slug}`),
 ]);
 
 function assertKnownPath(path: string, where: string) {

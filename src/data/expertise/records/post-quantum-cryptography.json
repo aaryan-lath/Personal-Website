@@ -5,12 +5,12 @@
   "shortTitle": "Post-Quantum & CryptiQ",
   "metaTitle": "Post-Quantum Cryptography: CryptiQ Cofounder",
   "metaDescription": "How Aaryan Lath works in post-quantum cryptography: cofounder of CryptiQ, whose product migrates a company's encryption to NIST post-quantum standards.",
-  "hero": "Post-quantum cryptography is the arena of Aaryan's startup CryptiQ, where he is a cofounder. CryptiQ helps companies find the quantum-vulnerable encryption running across their systems and migrate it to NIST post-quantum standards. Aaryan's own contribution is on the founding side: he drives strategy and the business of the venture on a four-person team.",
-  "tags": ["Post-Quantum Cryptography", "Startup", "Finance & Strategy", "Cofounder"],
+  "hero": "Post-quantum cryptography is the arena of Aaryan's startup CryptiQ, where he is a cofounder. CryptiQ helps companies find the quantum-vulnerable encryption running across their systems and migrate it to NIST post-quantum standards. Aaryan's own contribution is on the founding side, building the company on a four-person team.",
+  "tags": ["Post-Quantum Cryptography", "Startup", "Founding Team", "Cofounder"],
   "evidence": [
     {
-      "context": "CryptiQ, a post-quantum security startup Aaryan co-founded and where he serves as a cofounder, built through Founders, Inc.'s Off Season II program in San Francisco during Summer 2026.",
-      "whatIDid": "Co-founded CryptiQ as one of a four-person founding team and took a founder seat, where his work centers on strategy and the business of the venture rather than the cryptographic engineering. He is building the company through Founders, Inc.'s Off Season II program in San Francisco over Summer 2026, working alongside three co-founders to take the product from an early founding stage into an accelerator cohort. That remit covers the business side of a deep-tech company operating in the post-quantum cryptography space.",
+      "context": "CryptiQ, a post-quantum security startup Aaryan co-founded, built through Founders, Inc.'s Off Season II program in San Francisco during Summer 2026.",
+      "whatIDid": "Co-founded CryptiQ as one of a four-person founding team, where his work is on building the venture itself rather than on the cryptographic engineering. He is building the company through Founders, Inc.'s Off Season II program in San Francisco over Summer 2026, working alongside three co-founders to take the product from an early founding stage into an accelerator cohort. The work spans what a deep-tech company has to get right early while operating in the post-quantum cryptography space.",
       "outcome": "CryptiQ is being built out of the Off Season II cohort in San Francisco; more on the company is available at cryp-iq.com, linked from the projects section of this site.",
       "sourceUrl": "/#projects",
       "sourceLabel": "CryptiQ in Projects",
@@ -26,8 +26,8 @@
     },
     {
       "context": "Aaryan's specific role within CryptiQ, distinct from the cryptographic engineering, on the four-person founding team and within the accelerator cohort.",
-      "whatIDid": "As a cofounder on the four-person founding team, Aaryan owns strategy and the business side of CryptiQ rather than the cryptographic implementation, which belongs to the company's product and technical work. That founder-level role runs through the Founders, Inc. Off Season II program the team is building in, spanning the financial and strategic decisions a deep-tech startup faces while operating in the post-quantum cryptography market. The site attributes the cryptography stack to CryptiQ as a product and Aaryan's contribution to the business side of the venture.",
-      "outcome": "Aaryan is listed as a cofounder of CryptiQ in the site's structured data and projects, with strategy and the business side as his stated focus.",
+      "whatIDid": "As a cofounder on the four-person founding team, Aaryan works on building the company rather than on the cryptographic implementation, which belongs to CryptiQ's product and technical work. That founder-level role runs through the Founders, Inc. Off Season II program the team is building in, covering the decisions a deep-tech startup faces while operating in the post-quantum cryptography market. The site attributes the cryptography stack to CryptiQ as a product and Aaryan's contribution to the founding side of the venture.",
+      "outcome": "Aaryan is listed as a cofounder of CryptiQ in the site's structured data and projects, alongside the three others on the founding team.",
       "sourceUrl": "/#projects",
       "sourceLabel": "Aaryan's role at CryptiQ",
       "groundedIn": ["src/data/personal-projects.ts", "src/data/about-aaryan.ts"]
@@ -41,7 +41,7 @@
       "href": "/#projects"
     }
   ],
-  "tools": ["Post-Quantum Cryptography", "ML-KEM", "ML-DSA", "CBOM", "NIST PQC standards", "Finance & Strategy"],
+  "tools": ["Post-Quantum Cryptography", "ML-KEM", "ML-DSA", "CBOM", "NIST PQC standards"],
   "relatedSlugs": ["advanced-air-mobility", "systems-engineering"],
   "knowsAbout": "Post-Quantum Cryptography",
   "sameAs": ["https://www.cryp-iq.com"],

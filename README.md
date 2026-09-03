@@ -19,7 +19,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To change the words on the site, edit the content files described in [EDITING.md](EDITING.md) — the home page reads its text from `src/content/home.ts`. Layout and section order live in `src/app/page.tsx`. The page auto-updates as you edit.
 
 ## Mach (AI chat widget)
 

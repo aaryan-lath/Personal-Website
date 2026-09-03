@@ -20,12 +20,14 @@ This is a personal portfolio website for Aaryan Lath. The audience is recruiters
 - Local CAD source files (untracked, large): `cad-source/`
 
 Where text/content is usually edited:
-- Main homepage sections and text: `src/app/page.tsx`
+- Homepage words (hero, section titles, job/course/activity cards, contact): `src/content/home.ts`. `src/app/page.tsx` holds only layout and section order.
 - Other pages (academia, research, activities, timeline): `src/app/**/page.tsx`
 - Reusable card/box copy is passed as props from those pages
+- Owner-facing guide to all of this: `EDITING.md` in the project root
 
 ## 4) Editing guide (plain English)
-- If you want to change text, look in the relevant page file under `src/app/**/page.tsx`. The text is mostly hardcoded in those files.
+- Homepage text lives in `src/content/home.ts`; edit the strings there, not the JSX. Full guide in `EDITING.md`.
+- For the other pages, look in the relevant page file under `src/app/**/page.tsx`. That text is still hardcoded in those files.
 - If you want to change layout/spacing, adjust Tailwind classes in the JSX for that page or component.
 - If you want to change global fonts or overall styles, check `src/app/layout.tsx` and `src/app/globals.css`.
 
@@ -49,11 +51,11 @@ Search engine pings: `npm run indexnow` submits the live sitemap URLs to IndexNo
 
 Search Console / Webmaster verification: set `GOOGLE_SITE_VERIFICATION` (Google Search Console) and/or `BING_SITE_VERIFICATION` (Bing Webmaster) in the environment; `src/app/layout.tsx` emits the matching `<meta>` verification tag only when the var is set, and renders nothing when unset. A DNS TXT domain-property verification is preferred where possible (survives redeploys, covers the whole domain). See `.env.example` for the full env var list.
 
-Expertise pages (/expertise/[slug]): content lives in `src/data/expertise/records/*.json`, validated by the zod schema in `src/data/expertise/schema.ts` (docs mirror: `docs/expertise-record.schema.json`). Edit or add RECORDS, never the template in `src/app/expertise/[slug]/page.tsx`. New records must be registered in `src/data/expertise/index.ts`. The build FAILS on any invalid record (bad lengths, unknown internal links, duplicate slugs/titles, thin content). Records are agent-generated from on-site facts and hand-reviewed; every claim must trace to a source file (see each record's groundedIn fields).
+Focus-area pages (/focus-areas/[slug], formerly /expertise/[slug], which now 308-redirects via `next.config.js`): content lives in `src/data/expertise/records/*.json`, validated by the zod schema in `src/data/expertise/schema.ts` (docs mirror: `docs/expertise-record.schema.json`). Edit or add RECORDS, never the template in `src/app/focus-areas/[slug]/page.tsx`. New records must be registered in `src/data/expertise/index.ts`. The build FAILS on any invalid record (bad lengths, unknown internal links, duplicate slugs/titles, thin content). Records are agent-generated from on-site facts and hand-reviewed; every claim must trace to a source file (see each record's groundedIn fields).
 
 Per-page metadata pattern: pages are client components, so titles/descriptions/canonicals live in per-route `layout.tsx` files (server components) plus JSON-LD via `src/components/JsonLd.tsx` and `src/data/structured-data.ts`. Project pages (/project/[slug]) prerender from `src/data/cad-projects.ts`; edit that file to change home cards, project pages, metadata, and the sitemap in one place.
 
-Global footer: `src/components/Footer.tsx` (server component) renders site-wide from `src/app/layout.tsx`. It pulls expertise from `getAllExpertise()` and ventures from `personalProjects`, then surfaces a CURATED subset: the `FOOTER_HIDDEN_EXPERTISE` and `FOOTER_HIDDEN_VENTURES` sets at the top of `Footer.tsx` exclude specific slugs/ids (hidden items still live at their URLs and in the sitemap). CAD project pages are intentionally not listed in the footer. Edit those sets (and the hardcoded Research/Hands-On/More groups) to change what shows. By design, `/expertise` is intentionally NOT in the top nav or on the homepage above the fold; the footer plus the sitemap are its discovery paths. Do not add Expertise to `Navigation.tsx` without the owner asking.
+Global footer: `src/components/Footer.tsx` (server component) renders site-wide from `src/app/layout.tsx`. It pulls expertise from `getAllExpertise()` and ventures from `personalProjects`, then surfaces a CURATED subset: the `FOOTER_HIDDEN_EXPERTISE` and `FOOTER_HIDDEN_VENTURES` sets at the top of `Footer.tsx` exclude specific slugs/ids (hidden items still live at their URLs and in the sitemap). CAD project pages are intentionally not listed in the footer. Edit those sets (and the hardcoded Research/Hands-On/More groups) to change what shows. By design, `/focus-areas` is intentionally NOT in the top nav or on the homepage above the fold; the footer plus the sitemap are its discovery paths. Do not add Focus Areas to `Navigation.tsx` without the owner asking.
 
 ## 7) Notes for AI assistants
 - Keep diffs minimal.

@@ -29,7 +29,6 @@ export const personalProjects: PersonalProject[] = [
       'Post-Quantum Cryptography',
       'ML-KEM / ML-DSA',
       'CBOM',
-      'Finance & Strategy',
     ],
     href: 'https://www.cryp-iq.com',
     linkLabel: 'Visit cryp-iq.com',

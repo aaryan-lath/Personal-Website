@@ -6,7 +6,7 @@ import { pageJsonLd } from '../../../data/structured-data';
 import { getAllExpertise, getExpertiseBySlug } from '../../../lib/expertise';
 import type { ExpertiseRecord } from '../../../data/expertise/schema';
 
-// Template route for expertise records. Content lives in
+// Template route for the focus-area records. Content lives in
 // src/data/expertise/records/*.json; edit those, never this template.
 export const dynamicParams = false;
 
@@ -20,13 +20,13 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   return {
     title: rec.metaTitle ?? rec.title,
     description: rec.metaDescription,
-    alternates: { canonical: `/expertise/${rec.slug}` },
+    alternates: { canonical: `/focus-areas/${rec.slug}` },
     // openGraph here replaces the root layout's wholesale (Next.js does not
     // deep-merge), so restate siteName/type/locale/image or they disappear.
     openGraph: {
       title: rec.metaTitle ?? rec.title,
       description: rec.metaDescription,
-      url: `/expertise/${rec.slug}`,
+      url: `/focus-areas/${rec.slug}`,
       siteName: 'Aaryan Lath',
       type: 'website',
       locale: 'en_US',
@@ -35,7 +35,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function ExpertisePage({ params }: { params: { slug: string } }) {
+export default function FocusAreaPage({ params }: { params: { slug: string } }) {
   const rec = getExpertiseBySlug(params.slug);
   if (!rec) notFound();
 
@@ -49,11 +49,11 @@ export default function ExpertisePage({ params }: { params: { slug: string } }) 
         <div className="max-w-6xl mx-auto">
           <JsonLd
             data={pageJsonLd({
-              path: `/expertise/${rec.slug}`,
+              path: `/focus-areas/${rec.slug}`,
               name: rec.title,
               description: rec.metaDescription,
               breadcrumbName: rec.shortTitle,
-              extraCrumb: { name: 'Expertise', path: '/expertise' },
+              extraCrumb: { name: 'Focus Areas', path: '/focus-areas' },
               dateModified: rec.lastReviewed,
             })}
           />
@@ -62,7 +62,7 @@ export default function ExpertisePage({ params }: { params: { slug: string } }) 
           <nav className="text-sm text-gray-500 mb-4" aria-label="Breadcrumb">
             <Link href="/" className="hover:text-blue-600">Home</Link>
             <span className="mx-2">/</span>
-            <Link href="/expertise" className="hover:text-blue-600">Expertise</Link>
+            <Link href="/focus-areas" className="hover:text-blue-600">Focus Areas</Link>
             <span className="mx-2">/</span>
             <span className="text-gray-900">{rec.shortTitle}</span>
           </nav>
@@ -70,13 +70,13 @@ export default function ExpertisePage({ params }: { params: { slug: string } }) 
           {/* Header */}
           <div className="mb-8">
             <Link
-              href="/expertise"
+              href="/focus-areas"
               className="flex items-center text-blue-600 hover:text-blue-800 mb-4 font-medium"
             >
               <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
               </svg>
-              Back to Expertise
+              Back to Focus Areas
             </Link>
             <h1 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-4">{rec.title}</h1>
             <p className="text-lg text-gray-600 mb-6">{rec.hero}</p>
@@ -165,15 +165,15 @@ export default function ExpertisePage({ params }: { params: { slug: string } }) 
             </div>
           </div>
 
-          {/* Related expertise */}
+          {/* Related focus areas */}
           {related.length > 0 && (
             <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Related expertise</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Related focus areas</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {related.map((r) => (
                   <Link
                     key={r.slug}
-                    href={`/expertise/${r.slug}`}
+                    href={`/focus-areas/${r.slug}`}
                     className="block bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow group"
                   >
                     <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-700 mb-2 transition-colors">
@@ -188,7 +188,7 @@ export default function ExpertisePage({ params }: { params: { slug: string } }) 
 
           {/* Contact CTA */}
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            {/* EDIT TEXT HERE: CTA line on every expertise page */}
+            {/* EDIT TEXT HERE: CTA line on every focus-area page */}
             <p className="text-gray-700 mb-4">
               Working on something in this space? Aaryan would love to hear about it.
             </p>

@@ -186,7 +186,7 @@ Rules:
 - Home: overview of all sections.
 - Academia: full coursework and academic highlights.
 - Personal Projects (startups, ventures, hackathons), Internships, Research, Hands-On: sections on the home page.
-- Expertise: topic deep-dives at /expertise (aerodynamics and CFD, CAD and PLM, MDO, propulsion, systems engineering, and more). Point visitors there for detailed capability questions; every page cites the coursework, teams, and projects behind it.
+- Focus areas: topic deep-dives at /focus-areas (aerodynamics and CFD, CAD and PLM, MDO, propulsion, systems engineering, and more). Point visitors there for detailed capability questions; every page cites the coursework, teams, and projects behind it.
 - Achievements: full timeline at /timeline.
 - Contact: bottom of the home page; resume download is also there.
 
@@ -216,7 +216,7 @@ Rules:
 
 # Research
 - RETHi (Resilient ExtraTerrestrial Habitats Institute): research on resilient deep-space habitat systems. See /research/rethi for details.
-- Research interests: multidisciplinary design optimization and systems engineering. Aaryan built a modular MDO framework for rapid electric aircraft conceptual design (abstract accepted to the AIAA Aviation Forum 2026) and worked in the high speed compressor lab at Purdue's Zucrow Laboratories.
+- Research interests: multidisciplinary design optimization and systems engineering. Aaryan built a modular MDO framework for rapid electric aircraft conceptual design; the Purdue SAE Aero Design team used it for conceptual-stage trades, and an abstract on it was accepted to the AIAA Aviation Forum 2026.
 
 # Hands-On Activities
 - Purdue Aircraft Teams: active member; competed in AUVSI SUAS and AIAA Design/Build/Fly competitions. Retired as Chief Engineer of the SAE Aero Design team in SAE Purdue. Recently competed at SAE Aero Design East (March 2026) — successful aircraft landing and a major team milestone, placing 16th overall.

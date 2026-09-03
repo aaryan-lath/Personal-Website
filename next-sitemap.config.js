@@ -9,7 +9,7 @@ module.exports = {
   // /admin* keeps the login page out if it ever becomes static.
   // /api/* is insurance: next-sitemap does not filter API paths.
   exclude: ['/admin*', '/api/*'],
-  // Project and expertise routes are prerendered via generateStaticParams,
+  // Project and focus-area routes are prerendered via generateStaticParams,
   // so they land in the prerender manifest and join the sitemap automatically.
   robotsTxtOptions: {
     policies: [

@@ -18,10 +18,10 @@ export default function Navigation() {
   const isResearchPage = pathname?.startsWith('/research/');
   const isTimelinePage = pathname?.startsWith('/timeline');
   const isAcademiaPage = pathname?.startsWith('/academia');
-  const isExpertisePage = pathname?.startsWith('/expertise');
+  const isFocusAreasPage = pathname?.startsWith('/focus-areas');
 
   // DO NOT TOUCH unless you know why: this controls navigation routes vs in-page anchors
-  const navItems = (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage) ? [
+  const navItems = (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage) ? [
     { name: 'Home', href: '/' },
     { name: 'Personal Projects', href: '/#projects' },
     { name: 'Academia', href: '/#academia' },
@@ -44,7 +44,7 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 20);
       
       // Only detect sections on main page
-      if (!isProjectPage && !isActivityPage && !isResearchPage && !isTimelinePage && !isAcademiaPage && !isExpertisePage) {
+      if (!isProjectPage && !isActivityPage && !isResearchPage && !isTimelinePage && !isAcademiaPage && !isFocusAreasPage) {
         const sections = ['home', 'projects', 'academia', 'internships', 'activities', 'timeline', 'contact'];
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
@@ -88,12 +88,12 @@ export default function Navigation() {
       window.removeEventListener('scroll', handleScroll);
       observer.disconnect();
     };
-  }, [isProjectPage, isActivityPage, isResearchPage, isTimelinePage, isAcademiaPage, isExpertisePage]);
+  }, [isProjectPage, isActivityPage, isResearchPage, isTimelinePage, isAcademiaPage, isFocusAreasPage]);
 
   // Update indicator position when active section changes
   useEffect(() => {
     if (!navRef.current || !indicatorRef.current) return;
-    if (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage) return;
+    if (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage) return;
 
     const navItems = navRef.current.querySelectorAll('[data-nav-item]');
     let activeIndex = -1;
@@ -116,11 +116,11 @@ export default function Navigation() {
     } else {
       indicatorRef.current.style.opacity = '0';
     }
-  }, [activeSection, isProjectPage, isActivityPage, isResearchPage, isTimelinePage, isAcademiaPage, isExpertisePage]);
+  }, [activeSection, isProjectPage, isActivityPage, isResearchPage, isTimelinePage, isAcademiaPage, isFocusAreasPage]);
 
   // DO NOT TOUCH unless you know why: smooth scrolling is only for the main page
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage) {
+    if (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage) {
       // On project/activity/research/timeline/academia pages, just navigate normally (no preventDefault)
       setIsMenuOpen(false);
       return;
@@ -142,20 +142,20 @@ export default function Navigation() {
 
   return (
     <nav className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-40 transition-all duration-300 max-w-[calc(100vw-2rem)] ${
-      isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage
+      isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage
         ? 'bg-white/95 backdrop-blur-md shadow-lg border border-gray-200 rounded-full px-4 sm:px-6 py-2' 
         : 'bg-white/10 backdrop-blur-sm rounded-full px-4 sm:px-6 py-3'
     }`}>
       <div className="flex items-center w-full gap-8">
         <Link 
-          href={(isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage) ? '/' : '#home'} 
+          href={(isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage) ? '/' : '#home'} 
           className={`flex items-center text-xl font-bold transition-all duration-300 whitespace-nowrap ${
-            isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage ? 'text-gray-900' : 'text-white'
+            isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage ? 'text-gray-900' : 'text-white'
           }`}
-          onClick={(e) => handleNavClick(e, (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage) ? '/' : '#home')}
+          onClick={(e) => handleNavClick(e, (isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage) ? '/' : '#home')}
         >
           <div className={`transition-all duration-500 ease-in-out overflow-hidden mr-3 ${
-            isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage ? 'w-8 h-8 opacity-100' : 'w-0 h-0 opacity-0'
+            isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage ? 'w-8 h-8 opacity-100' : 'w-0 h-0 opacity-0'
           }`}>
             <img 
               src="/images/profile.jpeg" 
@@ -171,7 +171,7 @@ export default function Navigation() {
           <div 
             ref={indicatorRef}
             className={`absolute h-full rounded-full transition-all duration-300 ease-out opacity-0 ${
-              isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage
+              isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage
                 ? 'bg-blue-100' 
                 : 'bg-white/20 backdrop-blur-sm'
             }`}
@@ -190,7 +190,7 @@ export default function Navigation() {
                 href={item.href}
                 data-nav-item={sectionId}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:bg-white/20 relative z-10 whitespace-nowrap ${
-                  isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage
+                  isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage
                     ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                     : 'text-white/90 hover:text-white'
                 }`}
@@ -206,7 +206,7 @@ export default function Navigation() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={`p-2 rounded-full transition-colors ${
-              isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isExpertisePage
+              isScrolled || isProjectPage || isActivityPage || isResearchPage || isTimelinePage || isAcademiaPage || isFocusAreasPage
                 ? 'text-gray-600 hover:text-gray-900 hover:bg-gray-100' 
                 : 'text-white hover:bg-white/20'
             }`}
