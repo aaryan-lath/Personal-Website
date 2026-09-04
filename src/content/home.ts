@@ -46,7 +46,7 @@ export const sections = {
   academia: {
     title: 'Academia',
     intro:
-      'With a GPA of 3.73, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through clubs, projects while balancing Research, Teaching Assistant position. To view more courses and course related projects, click on View more.',
+      'With a GPA of 3.73, I am constantly challenging myself with taking advanced graduate level courses such as Multidisciplinary Design Optimization and Intermediate Aerodynamics (AAE 550 and AAE 514) and developing skills through clubs, projects while balancing a Teaching Assistant position. To view more courses and course related projects, click on View more.',
     ctaLabel: 'View More',
   },
   internships: {
@@ -216,7 +216,7 @@ export const contact = {
   linkedinButtonLabel: 'LinkedIn Profile',
   emailLabel: 'Email:',
   locationLabel: 'Current Location:',
-  location: 'West Lafayette, IN',
+  location: 'Dallas, TX',
 };
 
 // --- Resume viewer options (the picker in the Resume & Contact section) ----

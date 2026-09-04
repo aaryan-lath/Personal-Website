@@ -9,7 +9,7 @@ export interface PersonalProject {
   achievement?: string; // Optional badge pill shown at the top-right of the card.
   technologies: string[];
   href?: string; // Clicking the card opens this URL in a new tab.
-  linkLabel?: string; // Footer link text, e.g. "Visit cryp-iq.com". Defaults to "Learn more".
+  linkLabel?: string; // Footer link text, e.g. "Visit cryptiqsecurity.com". Defaults to "Learn more".
   image?: string;
 }
 
@@ -30,8 +30,8 @@ export const personalProjects: PersonalProject[] = [
       'ML-KEM / ML-DSA',
       'CBOM',
     ],
-    href: 'https://www.cryp-iq.com',
-    linkLabel: 'Visit cryp-iq.com',
+    href: 'https://cryptiqsecurity.com',
+    linkLabel: 'Visit cryptiqsecurity.com',
   },
   {
     id: 'luftcar-skybase',
@@ -55,7 +55,7 @@ export const personalProjects: PersonalProject[] = [
     title: 'Cadence Labs',
     org: 'StarkHacks — World\'s Largest Hardware Hackathon',
     date: 'April 2026',
-    role: 'Team member — software & integration',
+    role: 'Team lead — Ideation and Integration',
     description:
       'Turned a Meta Quest 3S into a bimanual VR teleoperation rig for two SO-101 robot arms. Hand tracking streams over UDP into a Python pipeline that solves inverse kinematics with ikpy, controls the grippers via pinch detection, and records each session as a LeRobot training episode for downstream imitation learning.',
     achievement: 'Microsoft AI & Automation — 3rd Place',

@@ -38,15 +38,15 @@ export function personJsonLd(knowsAbout: string[] = baseKnowsAbout) {
     },
     worksFor: [
       { '@type': 'Organization', name: 'Siemens Smart Infrastructure', url: 'https://www.siemens.com' },
-      { '@type': 'Organization', name: 'CryptiQ', url: 'https://www.cryp-iq.com' },
+      { '@type': 'Organization', name: 'CryptiQ', url: 'https://cryptiqsecurity.com' },
       { '@type': 'Organization', name: 'LuftCar', url: 'https://www.luftcar.com' },
     ],
     founder: [
-      { '@type': 'Organization', name: 'CryptiQ', url: 'https://www.cryp-iq.com' },
+      { '@type': 'Organization', name: 'CryptiQ', url: 'https://cryptiqsecurity.com' },
     ],
     sameAs: [
       'https://www.linkedin.com/in/aaryan-lath/',
-      'https://www.cryp-iq.com',
+      'https://cryptiqsecurity.com',
       'https://www.luftcar.com',
     ],
     knowsAbout,

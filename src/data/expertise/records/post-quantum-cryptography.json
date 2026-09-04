@@ -11,7 +11,7 @@
     {
       "context": "CryptiQ, a post-quantum security startup Aaryan co-founded, built through Founders, Inc.'s Off Season II program in San Francisco during Summer 2026.",
       "whatIDid": "Co-founded CryptiQ as one of a four-person founding team, where his work is on building the venture itself rather than on the cryptographic engineering. He is building the company through Founders, Inc.'s Off Season II program in San Francisco over Summer 2026, working alongside three co-founders to take the product from an early founding stage into an accelerator cohort. The work spans what a deep-tech company has to get right early while operating in the post-quantum cryptography space.",
-      "outcome": "CryptiQ is being built out of the Off Season II cohort in San Francisco; more on the company is available at cryp-iq.com, linked from the projects section of this site.",
+      "outcome": "CryptiQ is being built out of the Off Season II cohort in San Francisco; more on the company is available at cryptiqsecurity.com, linked from the projects section of this site.",
       "sourceUrl": "/#projects",
       "sourceLabel": "CryptiQ in Projects",
       "groundedIn": ["src/data/personal-projects.ts", "src/data/about-aaryan.ts", "src/data/structured-data.ts"]
@@ -44,6 +44,6 @@
   "tools": ["Post-Quantum Cryptography", "ML-KEM", "ML-DSA", "CBOM", "NIST PQC standards"],
   "relatedSlugs": ["advanced-air-mobility", "systems-engineering"],
   "knowsAbout": "Post-Quantum Cryptography",
-  "sameAs": ["https://www.cryp-iq.com"],
+  "sameAs": ["https://cryptiqsecurity.com"],
   "lastReviewed": "2026-07-12"
 }

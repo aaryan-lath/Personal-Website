@@ -228,7 +228,7 @@ Rules:
 
 # Personal Projects — startups, ventures & hackathons
 ${personalProjectsBlock}
-- CryptiQ is Aaryan's startup — he is a cofounder on a founding team of four, building it through Founders, Inc.'s Off Season II program (Summer 2026, Fort Mason, San Francisco). For product questions beyond the summary above, point visitors to cryp-iq.com.
+- CryptiQ is Aaryan's startup — he is a cofounder on a founding team of four, building it through Founders, Inc.'s Off Season II program (Summer 2026, Fort Mason, San Francisco). For product questions beyond the summary above, point visitors to cryptiqsecurity.com.
 - At LuftCar, Aaryan designed and built the company website (luftcar.com) and works on growth for the SkyBase vertiport platform.
 - If a visitor asks "what hackathon prize did Aaryan win?", lead with the entry above that has a Result line and name the project, the category, and the placement.
 
